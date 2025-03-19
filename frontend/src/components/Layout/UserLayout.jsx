@@ -1,5 +1,6 @@
 import React from 'react'
 import { BriefcaseBusiness, Search, User, } from 'lucide-react'
+import { Menu } from '../../data/navbar'
 
 const MenuItems = [
     {
@@ -29,18 +30,18 @@ const UserLayout = () => {
     return (
         <>
             {/* Navbar */}
-            <div className='fixed w-full flex justify-between items-center py-2 px-4 bg-white boder-b-2'>
+            <div className='fixed w-full z-50 flex justify-between items-center py-2 px-4 bg-white'>
 
                 {/* Left part */}
 
                 <div className=' hidden  w-[33%] h-full md:flex space-x-6  text-[12px] font-poppin text-black font-[400]'>
 
                     {
-                        MenuItems.map((item, index) =>
+                        Menu.map((item, index) =>
                             <div
                                 key={index}
                                 className='cursor-pointer hover:text-gray-600'>
-                                {item.Title}
+                                {item.name}
                             </div>
                         )}
                 </div>
@@ -64,25 +65,23 @@ const UserLayout = () => {
                     <div> <User className='size-5 text-black' /> </div>
                     <div> <BriefcaseBusiness className='size-5' /></div>
                 </div>
+
             </div>
 
-            <div className="w-full  overflow-hidden ">
+            <div className="relative hidden md:block w-full h-screen ">
 
                 <img
                     src="src/assets/Hero-Desktop.webp"
                     alt="Background"
-                    className="w-full h-auto block top-20  "
+                    className="absolute inset-0 w-full h-auto object-coer obect-top top-13 "
                 />
 
-                <div className="absolute inset-0 flex items-center justify-center top-[30%]">
-                    <h1 className="text-white text-4xl font-serif font-[400]">
+                <div className="relative w-full h-full  flex items-center justify-center top-[20%]">
+                    <h1 className="text-white text-5xl font-serif font-[100] ">
                         For Every Season
                     </h1>
                 </div>
-
             </div>
-
-
         </>
     )
 }
