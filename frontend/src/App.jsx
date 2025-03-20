@@ -3,16 +3,17 @@ import './App.css'
 import { Route, BrowserRouter as Router, Routes, } from 'react-router-dom'
 import UserLayout from './components/Layout/UserLayout'
 import Navbar from './components/Common/Testing'
+import DesktopMenu from './components/Common/DesktopMenu'
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
    <>
    <Router>
     <Routes>
       <Route path='/' element={<UserLayout/>}/>
-      <Route path='navbar' element={<Navbar/>}/>
+      <Route path='test' element={<DesktopMenu />}/>
     </Routes>
     </Router>
    </>

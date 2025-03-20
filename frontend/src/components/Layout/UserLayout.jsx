@@ -1,6 +1,7 @@
 import React from 'react'
 import { BriefcaseBusiness, Search, User, } from 'lucide-react'
-import { Menu } from '../../data/navbar'
+import { Menu } from '../../data/NavbarData'
+import DesktopMenu from '../Common/DesktopMenu'
 
 const MenuItems = [
     {
@@ -30,31 +31,32 @@ const UserLayout = () => {
     return (
         <>
             {/* Navbar */}
-            <div className='fixed w-full z-50 flex justify-between items-center py-2 px-4 bg-white'>
+            <div className='fixed w-full z-50 flex justify-between items-center py-2  bg-white h-13 '>
 
                 {/* Left part */}
 
-                <div className=' hidden  w-[33%] h-full md:flex space-x-6  text-[12px] font-poppin text-black font-[400]'>
+                <div className=' hidden  w-[33.3%] h-full md:flex    text-[12px]  text-black font-[400]'>
+                    <DesktopMenu />
 
-                    {
+                    {/* {
                         Menu.map((item, index) =>
                             <div
                                 key={index}
                                 className='cursor-pointer hover:text-gray-600'>
                                 {item.name}
                             </div>
-                        )}
+                        )} */}
                 </div>
 
                 {/* Middle part for logo */}
 
-                <div className='md:w-[33%] w-full flex justify-center'>
+                <div className='md:w-[33.3%] w-full flex justify-center'>
                     <h1 className='font-poppins text-[26px] font-medium'>ROGER</h1>
                 </div>
 
                 {/* right part */}
 
-                <div className='w-[33%] hidden md:flex justify-end space-x-5 items-center'>
+                <div className='w-[33.3%] hidden md:flex justify-end space-x-5 items-center px-4'>
                     <div>
                         <a href="" className='text-[10px] text-blue-600'> Inner circle </a>            </div>
                     <div className='flex items-center bg-gray-100 w-[90px] h-5 rounded-full  ' onClick={() => alert("clicked")}>
