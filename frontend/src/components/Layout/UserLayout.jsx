@@ -37,25 +37,17 @@ const UserLayout = () => {
 
                 <div className=' hidden  w-[33.3%] h-full md:flex    text-[12px]  text-black font-[400]'>
                     <DesktopMenu />
-
-                    {/* {
-                        Menu.map((item, index) =>
-                            <div
-                                key={index}
-                                className='cursor-pointer hover:text-gray-600'>
-                                {item.name}
-                            </div>
-                        )} */}
                 </div>
 
-                {/* Middle part for logo */}
 
+                {/* Middle part for logo */}
                 <div className='md:w-[33.3%] w-full flex justify-center'>
                     <h1 className='font-poppins text-[26px] font-medium'>ROGER</h1>
                 </div>
 
-                {/* right part */}
 
+
+                {/* right part */}
                 <div className='w-[33.3%] hidden md:flex justify-end space-x-5 items-center px-4'>
                     <div>
                         <a href="" className='text-[10px] text-blue-600'> Inner circle </a>            </div>

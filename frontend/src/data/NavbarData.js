@@ -3,6 +3,7 @@ export const Menu = [
    //Women
     {
         name: 'Women',
+        image: "Add Url Here",
         subMenu: [
             {
                 category: 'Trending',
@@ -60,6 +61,7 @@ export const Menu = [
     //Men
     {
         name: 'Men',
+        image: "Add Url Here",
         subMenu: [
             {
                 category: 'Trending',
@@ -115,6 +117,7 @@ export const Menu = [
   //Kids
     {
         name: 'Kids',
+        image: "Add Url Here",
         subMenu: [
             {
                 category: 'Trending',
@@ -138,6 +141,7 @@ export const Menu = [
         ]
     },
     { name: 'Our Mission',
+        image: "Add Url Here",
         subMenu :[
             {
                 category: 'Categories',

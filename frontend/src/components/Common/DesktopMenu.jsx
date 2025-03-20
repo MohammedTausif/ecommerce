@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { ChevronDown } from 'lucide-react'
 import { Menu } from '../../data/NavbarData'
 
 const DesktopMenu = () => {
