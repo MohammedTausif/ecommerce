@@ -1,6 +1,6 @@
 
 export const Menu = [
-   //Women
+    //Women
     {
         name: 'Women',
         image: "Add Url Here",
@@ -111,10 +111,10 @@ export const Menu = [
                     { name: 'Heavyweight', linkl: '' },
                     { name: 'Linen', Link: '' }
                 ]
-            }, 
+            },
         ]
     },
-  //Kids
+    //Kids
     {
         name: 'Kids',
         image: "Add Url Here",
@@ -129,32 +129,71 @@ export const Menu = [
             }, {
                 category: 'Categories',
                 list: [
-                    {name: 'Shop All'},
-                    {name: 'Hoodies & Sweatshirts'},
-                    {name: 'Track Pants'},
-                    {name: 'T - Shirts'},
-                    {name: 'Playwear'},
-                    {name: 'Coats & Jackets'},
-                    {name: 'Footwear'}
+                    { name: 'Shop All', Link: '' },
+                    { name: 'Hoodies & Sweatshirts', Link: '' },
+                    { name: 'Track Pants', Link: '' },
+                    { name: 'T - Shirts', Link: '' },
+                    { name: 'Playwear', Link: '' },
+                    { name: 'Coats & Jackets', Link: '' },
+                    { name: 'Footwear', Link: '' }
+                ]
+            },
+            {
+                category: 'Shop by Color',
+                list: [
+                    {color: 'Black'},
+                    {color: 'White'},
+                    {color: 'Blue'},
+                    {color: 'Grey'},
+                    {color: 'Beige'},
+                    {color: 'Pink'},
+                    {color: 'Purple'},
+                    {color: 'Green'},
+                    {color: 'Red'}
                 ]
             }
         ]
     },
-    { name: 'Our Mission',
+    {
+        name: 'Our Mission',
         image: "Add Url Here",
-        subMenu :[
+        subMenu: [
             {
-                category: 'Categories',
+                category: 'About Us',
                 list: [
-                    {name: 'Shop All'},
-                    {name: 'Hoodies & Sweatshirts'},
-                    {name: 'Track Pants'},
-                    {name: 'T - Shirts'},
-                    {name: 'Playwear'},
-                    {name: 'Coats & Jackets'},
-                    {name: 'Footwear'}
+                    { name: 'ROGER Lab', Link: '' },
+                    { name: 'ROGER Stories', Link: '' },
+                    { name: 'People', Link: '' },
+                    { name: 'Planet', Link: '' },
+                    { name: 'Impact Report 2023', Link: '' },
+                    { name: 'Powered by ROGER', Link: '' },
+                ], Link: ''
+            },
+            {
+                category: 'Meet our Materials',
+                list: [
+                    { name: 'MIRUM', Link: '' },
+                    { name: 'FLWRDWN™', Link: '' },
+                    { name: 'Organic Cotton', Link: '' },
+                    { name: 'C-FIBER™', Link: '' },
+                    { name: 'FRUTFIBER™', Link: '' },
+                    { name: "Grape 'Leather' ", Link: '' },
+                    { name: 'Recycled Wool', Link: '' },
+                    { name: 'NATIVARegen™', Link: '' },
+                    { name: 'ROGettle™ Denim', Link: '' },
+                    { name: 'Aloe Linen', Link: '' }
+                ]
+            },
+            {
+                category: 'Philanthropy',
+                list: [
+
+                    { name: 'ROGER x CORAL GARDENERS', Link: '' },
+                    { name: 'ROGER x CHOOSE LOVE', Link: '' },
+                    { name: 'Bee The Change', Link: '' },
+                    { name: 'Tomorrow Tree Fund', Link: '' },
                 ]
             }
         ]
-     }
+    }
 ]
