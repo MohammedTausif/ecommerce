@@ -1,30 +1,8 @@
 import React from 'react'
 import { BriefcaseBusiness, Search, User, } from 'lucide-react'
-import { Menu } from '../../data/NavbarData'
 import DesktopMenu from '../Common/DesktopMenu'
 
-const MenuItems = [
-    {
-        Title: "Women",
-        subMenu: {
-            "New In": [
-                { title: 'Spring', Link: '/spring' }, 'Spring Lookbook', 'Tracksuits', 'The T-shirt Guide'
-            ]
-        }
-    },
-    {
-        Title: "Men",
-        subMenu: ""
-    },
-    {
-        Title: "Kids",
-        subMenu: ""
-    },
-    {
-        Title: "Our mission ",
-        subMenu: ""
-    }
-]
+
 
 const UserLayout = () => {
 

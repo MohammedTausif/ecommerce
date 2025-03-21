@@ -11,7 +11,7 @@ export const Menu = [
                     { name: 'New In', Link: '/new-arrival-women' },
                     { name: 'Spring Lookbook', Link: '/' },
                     { name: 'Tracksuits', Link: '/' },
-                    { name: 'The t-shirt guide', link: '/' }
+                    { name: 'The T-shirt Guide', link: '/' }
                 ]
             },
             {
@@ -69,7 +69,7 @@ export const Menu = [
                     { name: 'New In', Link: '/new-arrival-women' },
                     { name: 'Spring Lookbook', Link: '/' },
                     { name: 'Tracksuits', Link: '/' },
-                    { name: 'The t-shirt guide', link: '/' }
+                    { name: 'The T-shirt Guide', link: '/' }
                 ]
             },
             {
