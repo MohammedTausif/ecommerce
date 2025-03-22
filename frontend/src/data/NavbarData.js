@@ -3,7 +3,7 @@ export const Menu = [
     //Women
     {
         name: 'Women',
-        image: "Add Url Here",
+        url: "https://pangaia.com/cdn/shop/files/Hope_Print_Graphic_T-Shirt_Reflect_Blue_Womens-1.png?crop=center&height=1050&v=1741860506&width=1400",
         subMenu: [
             {
                 category: 'Trending',
@@ -61,12 +61,12 @@ export const Menu = [
     //Men
     {
         name: 'Men',
-        image: "Add Url Here",
+        url: "https://pangaia.com/cdn/shop/files/Hope_Print_Graphic_T-Shirt_Off_White_Mens-4_52310e03-f929-4176-a663-2b0778627fa7.png?crop=center&height=1050&v=1741860406&width=1400",
         subMenu: [
             {
                 category: 'Trending',
                 list: [
-                    { name: 'New In', Link: '/new-arrival-women' },
+                    { name: 'New In', Link: '/new-arrival-men' },
                     { name: 'Spring Lookbook', Link: '/' },
                     { name: 'Tracksuits', Link: '/' },
                     { name: 'The T-shirt Guide', link: '/' }
@@ -117,7 +117,7 @@ export const Menu = [
     //Kids
     {
         name: 'Kids',
-        image: "Add Url Here",
+        url: "https://pangaia.com/cdn/shop/files/PANGAIA-Winter-Lookbook-9X16_copy_45.jpg?crop=center&height=768&v=1738578991&width=1024",
         subMenu: [
             {
                 category: 'Trending',
@@ -156,7 +156,7 @@ export const Menu = [
     },
     {
         name: 'Our Mission',
-        image: "Add Url Here",
+        url: "https://pangaia.com/cdn/shop/videos/c/vp/5083542b159e4e71a14b447cfec15d80/5083542b159e4e71a14b447cfec15d80.HD-720p-4.5Mbps-32378110.mp4",
         subMenu: [
             {
                 category: 'About Us',

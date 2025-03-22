@@ -1,44 +1,15 @@
-import React from 'react'
-import { BriefcaseBusiness, Search, User, } from 'lucide-react'
-import DesktopMenu from '../Common/DesktopMenu'
+import React, { useState } from 'react'
+import Navbar from '../Common/Navbar'
+
 
 
 
 const UserLayout = () => {
 
+
     return (
         <>
-            {/* Navbar */}
-            <div className='fixed w-full z-50 flex justify-between items-center py-2  bg-white h-13 '>
-
-                {/* Left part */}
-
-                <div className=' hidden  w-[33.3%] h-full md:flex    text-[12px]  text-black font-[400]'>
-                    <DesktopMenu />
-                </div>
-
-
-                {/* Middle part for logo */}
-                <div className='md:w-[33.3%] w-full flex justify-center'>
-                    <h1 className='font-poppins text-[26px] font-medium'>ROGER</h1>
-                </div>
-
-
-
-                {/* right part */}
-                <div className='w-[33.3%] hidden md:flex justify-end space-x-5 items-center px-4'>
-                    <div>
-                        <a href="" className='text-[10px] text-blue-600'> Inner circle </a>            </div>
-                    <div className='flex items-center bg-gray-100 w-[90px] h-5 rounded-full  ' onClick={() => alert("clicked")}>
-                        <Search className='size-2.5 text-black relative left-1 ' />
-                        <input type="search" name="search" placeholder='search' className='w-[78px] text-[10px] px-2 font-poppins outline-0 pointer-events-none' />
-                    </div>
-                    <div>ind</div>
-                    <div> <User className='size-5 text-black' /> </div>
-                    <div> <BriefcaseBusiness className='size-5' /></div>
-                </div>
-
-            </div>
+            <Navbar />
 
             <div className="relative hidden md:block w-full h-screen ">
 
