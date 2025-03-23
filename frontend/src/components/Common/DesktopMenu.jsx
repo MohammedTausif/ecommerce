@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Menu } from '../../data/NavbarData'
+import { Menu } from '../../data/navbarData'
 import { Link } from 'react-router-dom'
 import { NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion'

@@ -3,8 +3,9 @@ import DesktopMenu from './DesktopMenu'
 import { ChevronDown } from 'lucide-react'
 
 const Navbar = () => {
-  return(
-     <DesktopMenu/>
+  return (
+    <>
+    </>
   )
 }
 

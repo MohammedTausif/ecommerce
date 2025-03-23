@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { BriefcaseBusiness,Search, ShoppingBag, User, } from 'lucide-react'
+import { BriefcaseBusiness, Search, ShoppingBag, User, } from 'lucide-react'
 import DesktopMenu from '../Common/DesktopMenu'
 import Cart from '../Cart/Cart'
 import SearchPage from './Search'
@@ -54,10 +54,13 @@ const Navbar = () => {
                             src="src/assets/images/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxNiAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBjbGFzcz0ic3QtY3VycmVudCIgZGF0YS1sYWJlbD0ic3ZnIj4KICAgICAgICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsa.svg" alt="" />
                     </div>
                 </div>
-                <Cart isOpen={cartModel} onClick={() => setCartModel(false)} />
-                <SearchPage isOpen={searchModal} onClose={() => setSearchModal(false)} />
             </div>
+            
+            <SearchPage isOpen={searchModal} onClose={() => setSearchModal(false)} />
+        
+            <Cart isOpen={cartModel} onClick={() => setCartModel(false)} />
         </nav>
+
 
     )
 }
