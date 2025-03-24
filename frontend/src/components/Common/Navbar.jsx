@@ -7,7 +7,7 @@ import SearchPage from './Search'
 const Navbar = () => {
     const [cartModel, setCartModel] = useState(false)
     const [searchModal, setSearchModal] = useState(false)
-
+    const [searchError, setSearchError] = useState('')
     return (
         <nav className="fixed w-full z-999 py-2 bg-white ">
             <div className="flex  items-center w-[100vw] max-w-screen-xl h-9 ">

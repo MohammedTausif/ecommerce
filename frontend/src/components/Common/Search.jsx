@@ -20,7 +20,7 @@ export const searchCartVariants = {
 
 const SearchPage = ({ isOpen, onClose }) => {
     const [searchQuery, setSearchQuery] = useState('')
-    const [Error, setError] = useState('')
+    const [Error, setError] = useState(false)
 
     // Local state to keep container mounted until exit animation is complete
     const [shouldRender, setShouldRender] = useState(isOpen)
@@ -36,7 +36,8 @@ const SearchPage = ({ isOpen, onClose }) => {
     function handleSearch(e) {
         e.preventDefault();
         console.log("searched for :", searchQuery)
-        alert(inputRef.current.value)
+        alert('feature coming soon')
+        setError(true)
         setSearchQuery('')
     }
 
