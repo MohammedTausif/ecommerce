@@ -9,8 +9,8 @@ const Navbar = () => {
     const [searchModal, setSearchModal] = useState(false)
 
     return (
-        <nav className="fixed w-full z-999 py-2 bg-white h-13">
-            <div className="flex  items-center w-[100vw] max-w-screen-xl ">
+        <nav className="fixed w-full z-999 py-2 bg-white ">
+            <div className="flex  items-center w-[100vw] max-w-screen-xl h-9 ">
 
                 {/* Left part */}
                 <div className="hidden md:flex  w-1/3 text-[12px] text-black font-[400]">
@@ -55,10 +55,16 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            
-            <SearchPage isOpen={searchModal} onClose={() => setSearchModal(false)} />
-        
-            <Cart isOpen={cartModel} onClick={() => setCartModel(false)} />
+
+            <SearchPage
+                isOpen={searchModal}
+                onClose={() => setSearchModal(!searchModal)} 
+                />
+
+            <Cart
+                isOpen={cartModel}
+                onClick={() => setCartModel(!searchModal)} 
+                />
         </nav>
 
 
