@@ -9,7 +9,7 @@ const Navbar = () => {
     const [searchModal, setSearchModal] = useState(false)
     const [searchError, setSearchError] = useState('')
     return (
-        <nav className="fixed w-full z-20 py-2 bg-white top-0 border-black border-1  ">
+        <nav className="fixed w-full z-20 py-2 bg-white top-0  ">
             {/* <div className='fixed w-full z-50 py-2 bg-white top-0'> */}
             <div className="flex  items-center w-full max-w-screen-xl h-9 relative  ">
 

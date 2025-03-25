@@ -11,9 +11,12 @@ const UserLayout = () => {
 
     return (
         <>
+        <div>
             <Navbar />
             <HeroSection/>
-            <Collection/>
+            {/* <Collection/> */}
+
+        </div>
 
             
         </>
