@@ -9,57 +9,28 @@ const Navbar = () => {
     const [searchModal, setSearchModal] = useState(false)
     const [searchError, setSearchError] = useState('')
     return (
-        <nav className="fixed w-full z-20 py-2 bg-white top-0  ">
-            {/* <div className='fixed w-full z-50 py-2 bg-white top-0'> */}
-            <div className="flex  items-center w-full max-w-screen-xl h-9 relative  ">
+        <nav className="fixed w-full z-50 bg-white top-0 borde-b-2  ">
+
+            <div className="w-full ">
+            <div className="relative flex justify-between  items-center max-w-screen-xl h-12.5   ">
+                <div >one</div>
+                <div>two</div>
+                <div className='flex items-center pr-4 space-x-4'>three</div>
 
                 {/* Left part */}
-                <div className="hidden md:flex  w-1/3 text-[12px] text-black font-[400]">
+                {/* <div className="hidden md:flex   text-[12px] text-black font-[400]">
                     <DesktopMenu />
-                </div>
+                </div> */}
 
                 {/* Middle part for logo */}
-                <div className="flex justify-center w-full md:mx-[-120px]">
+                {/* <div className="absolute  left-[52%]">
                     <h1 className="font-poppins text-[26px] font-medium">ROGER</h1>
-                </div>
+                </div> */}
 
                 {/* Right part */}
-                <div className="hidden md:flex w-1/3 justify-end space-x-4 items-center ">
-                  <div className='relative right-0  w-full flex justify-end gap-2'>
-
-                    <div className='flex items-center '>
-                        <a href="" className="text-[10px] text-blue-600">Inner circle</a>
-                    </div>
-                    
-                    <div
-                        className=" flex items-center justify-center bg-gray-100 w-[90px] h-5 rounded-full hover:outline-[0.5px]"
-                        onClick={() => setSearchModal(!searchModal)}
-                    >
-                        <Search className="size-2.5 text-black relative left-1" />
-                        <input
-                            type="search"
-                            name="search"
-                            placeholder="search"
-                            className="w-[78px] text-[10px] px-2 font-poppins outline-0 pointer-events-none" />
-                    </div>
-
-                    <div className=' items-center'>
-                        <img className='size-5 cursor-pointer rounded-full object-cover '
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_India.png/2560px-Flag_of_India.png" alt="" />
-                    </div>
-
-                    <div className=' '>
-                        <img className=' size-4 cursor-pointer'
-                            src="src/assets/images/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxNCAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBjbGFzcz0iIj4KICAgICAgICA8cGF0aCBkPSJNMTMuMTk1OSAxNi41VjE0LjgyMUMxMy4xOTU5IDExLjMzIDEwLjQ2MjYgOC41I.svg" alt="" />
-
-                    </div>
-
-                    <div className='' onClick={() => setCartModel(!cartModel)}>
-                        <img className='w-[16px] h-[17px] cursor-pointer'
-                            src="src/assets/images/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxNiAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBjbGFzcz0ic3QtY3VycmVudCIgZGF0YS1sYWJlbD0ic3ZnIj4KICAgICAgICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsa.svg" alt="" />
-                    </div>
-                    </div>
-                </div>
+              
+               
+                
             </div> 
 
 
@@ -73,7 +44,7 @@ const Navbar = () => {
                 />
 
 
-            {/* </div>  */}
+            </div> 
             
         </nav>
 
@@ -82,3 +53,6 @@ const Navbar = () => {
 }
 
 export default Navbar
+
+
+/*  */

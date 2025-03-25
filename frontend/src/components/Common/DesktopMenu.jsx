@@ -41,26 +41,30 @@ const DesktopMenu = () => {
 
   return (
 
-    <div className="relative w-[100vw]"
+    <div className="relative w-[100vw] "
     >
-      <span className="flex items-center w-full h-10 px-2 space-x-6">
+      <span className="flex items-center w-full h-12 px-2 space-x-6">
         {Menu.map((item, index) => (
           <NavLink
             key={index}
             ref={(e) => (navRefs.current[index] = e)}
-            className="flex items-end justify-start "
+            className="flex items-center h-full "
             onMouseEnter={() => setHoveredIndex(index)}
           >
             {item?.name}
           </NavLink>
         ))}
       </span>
+      {/*  */}
       {
         hoveredIndex != null && <div className='absolute bottom-0 h-[1px] bg-black transition-all duration-200'
           style={indicatorStyle}
         ></div>
       }
-      {hoveredIndex != null && <div className='absolute 0 z-0 h-[100vh] w-[100vw] bg-gray-900/25 transition-all duration-200 ' ></div>}
+      {/* webpage background when sub-menu opens */}
+      {hoveredIndex != null && <div className='absolute  z-0 h-[100vh] w-[100vw] bg-gray-900/25 transition-all duration-200 ' ></div>}
+
+      {/* Sub-Menu Dropdown */}
       <AnimatePresence>
         {
           hoveredIndex !== null && Menu[hoveredIndex]?.subMenu && (
@@ -70,7 +74,7 @@ const DesktopMenu = () => {
               animate="visible"
               exit="exit"
               style={{ originY: 0 }}
-              className="absolute top-10 left-0 w-[100vw] h-[423px] bg-white   shadow-md p-3 flex"
+              className="absolute top-12 left-0 w-[100vw] h-[423px] bg-white   shadow-md p-3 flex"
               onMouseLeave={() => setHoveredIndex(null)}
             >
               {Menu[hoveredIndex].subMenu.map((sub, subIndex) => (
