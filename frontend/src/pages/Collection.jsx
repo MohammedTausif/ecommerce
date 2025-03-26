@@ -1,68 +1,153 @@
-import React from 'react'
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import Button from "../components/ui/Button";
 
-const Collection = () => {
+const CategoriesPage = () => {
+    const categories = [
+        {
+            id: 1,
+            title: "Tracksuits",
+            image: "https://pangaia.com/cdn/shop/files/Tracksuits.jpg?crop=center&height=559&v=1741857608&width=420",
+            link: '/tracksuits'
+        },
+        {
+            id: 2,
+            title: "Linen",
+            image: "https://pangaia.com/cdn/shop/files/ELEVATED_WOMENS_2-033B_de7e1d6a-e980-42ea-b76a-c9beebee65b2.png?crop=center&height=559&v=1742481866&width=420",
+            link: '/collection/linen'
+        },
+        {
+            id: 3,
+            title: "Lightweight Outwear",
+            image: "https://pangaia.com/cdn/shop/files/Outerwear_3436421e-a873-4be0-b049-ef8f1568af95.jpg?crop=center&height=1023&v=1741857626&width=768",
+            link: '/collection/lightweight-outwear'
+        },
+    ];
+
+    // For mobile scroll navigation
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const scrollContainerRef = useRef(null);
+
+    const scrollToIndex = (index) => {
+        if (scrollContainerRef.current && scrollContainerRef.current.children[index]) {
+            scrollContainerRef.current.children[index].scrollIntoView({
+                behavior: "smooth",
+                inline: "center",
+            });
+            setCurrentIndex(index);
+        }
+    };
+
+    // Update current index when scrolling (in case user swipes)
+    useEffect(() => {
+        const container = scrollContainerRef.current;
+        if (!container) return;
+
+        const onScroll = () => {
+            const scrollLeft = container.scrollLeft;
+            const cardWidth = container.offsetWidth; // each card takes full width on mobile
+            const newIndex = Math.round(scrollLeft / cardWidth);
+            setCurrentIndex(newIndex);
+        };
+
+        container.addEventListener("scroll", onScroll);
+        return () => container.removeEventListener("scroll", onScroll);
+    }, []);
+
+    const handlePrev = () => {
+        const prevIndex = currentIndex > 0 ? currentIndex - 1 : 0;
+        scrollToIndex(prevIndex);
+    };
+
+    const handleNext = () => {
+        const nextIndex = currentIndex < categories.length - 1 ? currentIndex + 1 : currentIndex;
+        scrollToIndex(nextIndex);
+    };
+
     return (
-        <>
-            <section className="absolute ">
-               
-                <div className='w-full relative z-1 inset-0  '>
-                    <div className='w-full flex flex-wrap'>
-                        <div className="relative">
-                            <img src="https://pangaia.com/cdn/shop/files/Tracksuits.jpg?crop=center&height=1023&v=1741857608&width=768"
-                                className='h-[638px] w-[480px] relative'
-                                alt="" />
-                            <div className='absolute inset-0 '>
-                            <div className='flex flex-col justify-end items-center h-full relative bottom-8 space-y-4'>
-                                <h1 className='text-white text-2xl  font-normal font-poppins tracking-wider'>Tracksuits</h1>
-                         
-                            <button className='bg-white h-[48px] w-[148px] text-xs rounded-full hover:bg-white/80'>Shop Now</button>
+        <div className=" mx-auto md:mx-auto px-0 py-0">
+            {/* Desktop View: 3 cards in a row */}
+            <div className="hidden  md:flex justify-center ">
+                {categories.map((category) => (
+                    <div
+                        key={category.id}
+                        className="relative  overflow-hidden h-[639px] w-full"
+                    >
+                        <img
+                            src={category.image}
+                            alt={category.title}
+                            className="w-full h-full object-cover object-top"
+                        />
+                        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/50 to-transparent text-white">
+                            <div className="relative bottom-1 flex flex-col justify-center items-center space-y-3">
+
+                                <h3 className="text-2xl font-poppins flex justify-center">{category.title}</h3>
+
+                                <Button
+                                    title='Shop Now'
+                                    link={category.link}
+                                    className='w-[148px] py-4 '
+                                />
                             </div>
-
-                                </div>
                         </div>
-
-                        <div className='relative'>
-                            <img src="https://pangaia.com/cdn/shop/files/ELEVATED_WOMENS_2-033B_de7e1d6a-e980-42ea-b76a-c9beebee65b2.png?crop=center&height=1866&v=1742481866&width=1400"
-                                className='h-[638px] w-[480px]'
-                                alt="" />
-
-                            <div className='absolute inset-0 '>
-                                <div className='flex flex-col justify-end items-center h-full relative bottom-8 space-y-4'>
-                                    <h1 className='text-white text-2xl  font-normal font-poppins tracking-wider'>Linen</h1>
-
-                                    <button className='bg-white h-[48px] w-[148px] text-xs rounded-full hover:bg-white/80'>Shop Now</button>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div className='relative'>
-                            <img
-                                src="https://pangaia.com/cdn/shop/files/Outerwear_3436421e-a873-4be0-b049-ef8f1568af95.jpg?crop=center&height=1023&v=1741857626&width=768"
-                                className='h-[638px] w-[480px]'
-                                alt="" />
-
-                            <div className='absolute inset-0 '>
-                                <div className='flex flex-col justify-end items-center h-full relative bottom-8 space-y-4'>
-                                    <h1 className='text-white text-2xl  font-normal font-poppins tracking-wider'>Lightweight Outwear</h1>
-
-                                    <button className='bg-white h-[48px] w-[148px] text-xs rounded-full hover:bg-white/80'>Shop Now</button>
-                                </div>
-
-                            </div>
-
-
-
-                        </div>
-
                     </div>
+                ))}
+            </div>
 
+            {/* Mobile View: Horizontally scrollable full-width cards */}
+            <div className="md:hidden relative ">
+                <div
+                    ref={scrollContainerRef}
+                    className="flex overflow-x-auto snap-x snap-mandatory space-x-4 scrollbar-hide"
+                >
+                    {categories.map((category) => (
+                        <div
+                            key={category.id}
+                            className="snap-center flex-shrink-0 w-full"
+                            style={{ height: "600px" }}
+                        >
+                            <div className="relative overflow-hidden">
+                                <img
+                                    src={category.image}
+                                    alt={category.title}
+                                    className="w-full h-full object-cover object-center"
+                                />
+                                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent text-white">
 
+                                    <div className="relative bottom-1 flex flex-col justify-center items-center space-y-3">
+                                        <h3 className="text-2xl font-poppins flex justify-center">{category.title}</h3>
+                                        <Button
+                                            title='Shop Now'
+                                            link={category.link}
+                                            className='w-[148px] py-4 '
+                                        />
+                                    </div>
+                                    {/* <h3 className="text-2xl font-bold">{category.title}</h3>
+                  <button className="mt-2 text-sm underline">Explore</button> */}
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
-            </section>
-        </>
-    )
-}
 
-export default Collection
+                {/* Mobile Arrow Navigation */}
+                <button
+                    onClick={handlePrev}
+                    disabled={currentIndex == 0}
+                    className="absolute top-[43%] left-2 transform  -translate-y-1/2 bg-white  text-black p-2 rounded-full opacity-100 hover:opacity-75 transition-opacity disabled:opacity-0"
+                >
+                    <ArrowLeft className="size-4" />
+                </button>
+                <button
+                    onClick={handleNext}
+                    disabled={currentIndex == categories.length - 1}
+                    className="absolute top-[43%] right-2 transform -translate-y-1/2 bg-white text-black p-2 rounded-full opacity-100 hover:opacity-75 transition-opacity disabled:opacity-0"
+                >
+                    <ArrowRight className="size-4" />
+                </button>
+            </div>
+        </div>
+    );
+};
+
+export default CategoriesPage;

@@ -41,7 +41,7 @@ const DesktopMenu = () => {
 
   return (
 
-    <div className="relative w-[100vw] "
+    <div className="relative w-full "
     >
       <span className="flex items-center w-full h-12 px-2 space-x-6">
         {Menu.map((item, index) => (
