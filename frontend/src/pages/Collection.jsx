@@ -103,14 +103,14 @@ const CategoriesPage = () => {
                     {categories.map((category) => (
                         <div
                             key={category.id}
-                            className="snap-center flex-shrink-0 w-full"
+                            className="snap-center flex-shrink-0 w-full overflow-hidden"
                             style={{ height: "600px" }}
                         >
-                            <div className="relative overflow-hidden">
+                            <div className="relative ">
                                 <img
                                     src={category.image}
                                     alt={category.title}
-                                    className="w-full h-full object-cover object-center"
+                                    className="w-full h-full object-cover object-bottom "
                                 />
                                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent text-white">
 
@@ -122,9 +122,7 @@ const CategoriesPage = () => {
                                             className='w-[148px] py-4 '
                                         />
                                     </div>
-                                    {/* <h3 className="text-2xl font-bold">{category.title}</h3>
-                  <button className="mt-2 text-sm underline">Explore</button> */}
-                                </div>
+                                   </div>
                             </div>
                         </div>
                     ))}
@@ -134,16 +132,16 @@ const CategoriesPage = () => {
                 <button
                     onClick={handlePrev}
                     disabled={currentIndex == 0}
-                    className="absolute top-[43%] left-2 transform  -translate-y-1/2 bg-white  text-black p-2 rounded-full opacity-100 hover:opacity-75 transition-opacity disabled:opacity-0"
+                    className="absolute top-[43%] left-2 transform  -translate-y-1/2 bg-white  text-black p-1 text-xs  rounded-full opacity-100 hover:opacity-75 transition-opacity disabled:opacity-0"
                 >
-                    <ArrowLeft className="size-4" />
+                    <ArrowLeft className="size-3.5" />
                 </button>
                 <button
                     onClick={handleNext}
                     disabled={currentIndex == categories.length - 1}
-                    className="absolute top-[43%] right-2 transform -translate-y-1/2 bg-white text-black p-2 rounded-full opacity-100 hover:opacity-75 transition-opacity disabled:opacity-0"
+                    className="absolute top-[43%] right-2 transform -translate-y-1/2 bg-white text-black p-1 text-xs  rounded-full opacity-100 hover:opacity-75 transition-opacity disabled:opacity-0"
                 >
-                    <ArrowRight className="size-4" />
+                    <ArrowRight className="size-3.5" />
                 </button>
             </div>
         </div>
