@@ -1,0 +1,60 @@
+export const products = [
+    {
+      id: 1,
+      title: 'Mens 365 Midweight Sweatshirt',
+      description: '₹499',
+      link: "/collection/mens-365/sweatsheart/forest-green",
+      imageUrl: 'https://pangaia.com/cdn/shop/files/365_Midweight-Sweatshirt_Forest_Green-1_3a4659c6-4e6b-4c37-8bfa-0a2c2dcd8ee4.png?crop=center&height=1866&v=1727177645&width=1400',
+      hoverImage: 'https://pangaia.com/cdn/shop/files/365_Midweight_Sweatshirt_Forest_Green_Mens-1_2feb49c3-5f76-41f5-b428-10edcfa93049.jpg?crop=center&height=1364&v=1729648083&width=1024',
+    },
+    {
+      id: 2,
+      title: 'Product 2',
+      description: '₹999',
+      imageUrl: 'https://pangaia.com/cdn/shop/files/365_TrackPants_Forest_Green-1_19b47d32-6b6a-4fa1-9e3a-7b1a6d2e100c.png?crop=center&height=1364&v=1729733037&width=1024',
+      hoverImage: 'https://pangaia.com/cdn/shop/files/365_TrackPants_Forest_Green_Mens-1_fbc0fc89-00c3-4698-a05d-09042a39a05e.jpg?crop=center&height=1364&v=1729733034&width=1024',
+    },
+    {
+      id: 3,
+      title: 'Product 3',
+      description: '₹499',
+      imageUrl: 'https://pangaia.com/cdn/shop/files/Outerwear_3436421e-a873-4be0-b049-ef8f1568af95.jpg?crop=center&height=1023&v=1741857626&width=768',
+      hoverImage: 'https://pangaia.com/cdn/shop/files/365_Midweight_Sweatshirt_Forest_Green_Mens-1_2feb49c3-5f76-41f5-b428-10edcfa93049.jpg?crop=center&height=1364&v=1729648083&width=1024',
+    },
+    {
+      id: 4,
+      title: 'Product 4',
+      description: '₹499',
+      imageUrl: 'https://pangaia.com/cdn/shop/files/Outerwear_3436421e-a873-4be0-b049-ef8f1568af95.jpg?crop=center&height=1023&v=1741857626&width=768',
+      hoverImage: 'https://pangaia.com/cdn/shop/files/365_Midweight_Sweatshirt_Forest_Green_Mens-1_2feb49c3-5f76-41f5-b428-10edcfa93049.jpg?crop=center&height=1364&v=1729648083&width=1024',
+    },
+    // Add more products as needed...
+    {
+      id: 5,
+      title: 'Product 1',
+      description: '₹499',
+      imageUrl: 'https://pangaia.com/cdn/shop/files/Outerwear_3436421e-a873-4be0-b049-ef8f1568af95.jpg?crop=center&height=1023&v=1741857626&width=768',
+      hoverImage: 'https://pangaia.com/cdn/shop/files/365_Midweight_Sweatshirt_Forest_Green_Mens-1_2feb49c3-5f76-41f5-b428-10edcfa93049.jpg?crop=center&height=1364&v=1729648083&width=1024',
+    },
+    {
+      id: 6,
+      title: 'P',
+      description: '₹999',
+      imageUrl: 'https://pangaia.com/cdn/shop/files/Outerwear_3436421e-a873-4be0-b049-ef8f1568af95.jpg?crop=center&height=1023&v=1741857626&width=768',
+      hoverImage: 'https://pangaia.com/cdn/shop/files/365_Midweight_Sweatshirt_Forest_Green_Mens-1_2feb49c3-5f76-41f5-b428-10edcfa93049.jpg?crop=center&height=1364&v=1729648083&width=1024',
+    },
+    {
+      id: 7,
+      title: 'Product 3',
+      description: '₹999',
+      imageUrl: 'https://pangaia.com/cdn/shop/files/Outerwear_3436421e-a873-4be0-b049-ef8f1568af95.jpg?crop=center&height=1023&v=1741857626&width=768',
+      hoverImage: 'https://pangaia.com/cdn/shop/files/365_Midweight_Sweatshirt_Forest_Green_Mens-1_2feb49c3-5f76-41f5-b428-10edcfa93049.jpg?crop=center&height=1364&v=1729648083&width=1024',
+    },
+    {
+      id: 8,
+      title: 'Product 4',
+      description: '₹999',
+      imageUrl: 'https://pangaia.com/cdn/shop/files/Outerwear_3436421e-a873-4be0-b049-ef8f1568af95.jpg?crop=center&height=1023&v=1741857626&width=768',
+      hoverImage: 'https://pangaia.com/cdn/shop/files/365_Midweight_Sweatshirt_Forest_Green_Mens-1_2feb49c3-5f76-41f5-b428-10edcfa93049.jpg?crop=center&height=1364&v=1729648083&width=1024',
+    },
+  ];

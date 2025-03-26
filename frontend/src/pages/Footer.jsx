@@ -78,14 +78,14 @@ const Footer = () => {
                 <h4 className="text-sm font-medium mb-4">FOLLOW US</h4>
                 <div className="flex space-x-4">
                   {socialLinks.map((platform) => (
-                    <a key={platform.name} href="/" className="hover:opacity-75 transition-opacity">
+                    <Link key={platform.name} to={platform.link} className="hover:opacity-75 transition-opacity">
 
-                      <Link to={platform.link}>
+                      {/* <Link to={platform.link}> */}
                         {platform.icon}
                       </Link>
 
 
-                    </a>
+                    
                   ))}
                 </div>
               </div>
