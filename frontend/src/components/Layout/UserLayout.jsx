@@ -15,6 +15,7 @@ const UserLayout = () => {
             <Navbar />
             <HeroSection/>
             <CategoriesPage/>
+            <Newsletter/>
         </>
     )
 }
