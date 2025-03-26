@@ -134,14 +134,14 @@ const CategoriesPage = () => {
                     disabled={currentIndex == 0}
                     className="absolute top-[43%] left-2 transform  -translate-y-1/2 bg-white  text-black p-1 text-xs  rounded-full opacity-100 hover:opacity-75 transition-opacity disabled:opacity-0"
                 >
-                    <ArrowLeft className="size-3.5" />
+                    <ArrowLeft className="size-3.5 opacity-85" />
                 </button>
                 <button
                     onClick={handleNext}
                     disabled={currentIndex == categories.length - 1}
                     className="absolute top-[43%] right-2 transform -translate-y-1/2 bg-white text-black p-1 text-xs  rounded-full opacity-100 hover:opacity-75 transition-opacity disabled:opacity-0"
                 >
-                    <ArrowRight className="size-3.5" />
+                    <ArrowRight className="size-3.5 opacity-85" />
                 </button>
             </div>
         </div>
