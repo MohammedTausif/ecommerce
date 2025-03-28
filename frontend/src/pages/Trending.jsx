@@ -9,7 +9,6 @@ const Trending = () => {
 
   //Scroll left function
   const scrollLeft = () => {
-    console.log("data: " ,scrollContainerRef.current)
     scrollContainerRef.current.scrollBy({
       left: -350,
       behavior: 'smooth',
@@ -25,16 +24,16 @@ const Trending = () => {
   };
 
   return (
-    <div className="relative  md:py-8">
+    <div className="relative  md:py-8 py-4">
       <div className=' h-15 bg-white'>
         <h1 className='px-4 text-2xl md:text-2xl font-poppins font-normal '>Trending Now</h1>
       </div>
 
-      {/* ★ Arrow buttons positioned absolutely */}
+      {/*  Arrow buttons positioned absolutely */}
       <button
         onClick={scrollLeft}
         disabled={products.id == 1}
-        className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 p-1 bg-white  bg-opacity-100 text-black rounded-full disabled:opacity-10"  >
+        className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 p-1 bg-white  bg-opacity-100 text-black rounded-full disabled:opacity-0"  >
         <ArrowLeft size={14} />
       </button>
       <button
@@ -44,27 +43,28 @@ const Trending = () => {
         <ArrowRight size={14} />
       </button>
 
-      {/* ★ Scroll container for the product cards */}
+      {/*  Scroll container for the product cards */}
       <div
         ref={scrollContainerRef}
         className="flex  space-x-3 md:space-x-4 px-2 overflow-x-auto scroll-smooth pb-4 scrollbar-hide snap-x snap-mandatory"
       >
         {products.map((product) => (
-          // ★ Card container: full-width on mobile, fixed width on desktop
+          // Card container: full-width on mobile, fixed width on desktop
           <div
             key={product.id}
             className="flex-shrink-0 w-full  items-center md:w-[297.5px] lg:w-[345px] bg-white rounded  snap-center group"
           >
-            {/* ★ Image container with fixed dimensions */}
+            {/* Image container with fixed dimensions */}
             <div className="relative bg-gray-50 w-full h-[550px] md:w-[297.5px] md:h-[395px] lg:w-[345px] lg:h-[459px] overflow-hidde group">
               <ProductCard
                 title={product.title}
                 imageUrl={product.imageUrl}
                 hoverImageUrl={product.hoverImage}
-                link={product.link} />
+                link={product.link}
+              />
             </div>
 
-            {/* ★ Text container */}
+            {/*  Text container */}
             <div className="p-2 flex justify-between w-full md:w-[297.5px]  lg:w-[345px] mt-1">
 
               <div className='font-poppins'>
@@ -72,7 +72,7 @@ const Trending = () => {
                 <p className="text-[12px]  text-gray-600">{product.description}</p>
               </div>
 
-              {/*Cart button  */}
+              {/* Cart button  */}
               <div className="">
                 <button className="w-9 h-9 bg-[#002fa7] blue-700 text-white rounded-full md:opacity-0 md:group-hover:opacity-100 flex justify-center items-center">
                   <img

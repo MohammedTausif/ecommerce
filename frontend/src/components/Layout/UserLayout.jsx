@@ -6,6 +6,7 @@ import { Newsletter } from '../../pages/Newsletter'
 import Footer from '../../pages/Footer'
 import Trending from '../../pages/Trending'
 import Discover from '../../pages/Discover'
+import GetInspired from '../../pages/GetInspired'
 
 
 const UserLayout = () => {
@@ -17,6 +18,7 @@ const UserLayout = () => {
             <CategoriesPage/>
             <Trending/>
             <Discover/>
+            <GetInspired/>
             <Newsletter/>
             <Footer/>
         </>

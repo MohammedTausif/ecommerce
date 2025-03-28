@@ -6,21 +6,21 @@ const CategoriesPage = () => {
     const categories = [
         {
             id: 1,
-            title: "Tracksuits",
-            image: "https://pangaia.com/cdn/shop/files/Tracksuits.jpg?crop=center&height=559&v=1741857608&width=420",
-            link: '/tracksuits'
+            title: "Lightweight Outwear",
+            image: "https://pangaia.com/cdn/shop/files/Outerwear_3436421e-a873-4be0-b049-ef8f1568af95.jpg?crop=center&height=1023&v=1741857626&width=768",
+            link: '/collection/lightweight-outwear'
         },
         {
             id: 2,
             title: "Linen",
-            image: "https://pangaia.com/cdn/shop/files/ELEVATED_WOMENS_2-033B_de7e1d6a-e980-42ea-b76a-c9beebee65b2.png?crop=center&height=559&v=1742481866&width=420",
+            image: "https://pangaia.com/cdn/shop/files/DNA_Linen_Camp_Collar_Shirt_Eucalyptus_Blue_Womens-1.jpg?crop=center&height=1364&v=1724371506&width=1024",
             link: '/collection/linen'
         },
         {
             id: 3,
-            title: "Lightweight Outwear",
-            image: "https://pangaia.com/cdn/shop/files/Outerwear_3436421e-a873-4be0-b049-ef8f1568af95.jpg?crop=center&height=1023&v=1741857626&width=768",
-            link: '/collection/lightweight-outwear'
+            title: "Tracksuits",
+            image: "https://pangaia.com/cdn/shop/files/Tracksuits.jpg?crop=center&height=559&v=1741857608&width=420",
+            link: '/tracksuits'
         },
     ];
 
@@ -86,7 +86,7 @@ const CategoriesPage = () => {
                                 <Button
                                     title='Shop Now'
                                     link={category.link}
-                                    className='w-[148px] py-4 '
+                                    className='w-[148px] py-4 bg-white hover:bg-white/70 text-black '
                                 />
                             </div>
                         </div>
