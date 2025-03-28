@@ -61,6 +61,7 @@ const Trending = () => {
                 imageUrl={product.imageUrl}
                 hoverImageUrl={product.hoverImage}
                 link={product.link}
+                effect={true}
               />
             </div>
 

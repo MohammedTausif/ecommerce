@@ -7,6 +7,7 @@ import Footer from '../../pages/Footer'
 import Trending from '../../pages/Trending'
 import Discover from '../../pages/Discover'
 import GetInspired from '../../pages/GetInspired'
+import VideoCarousel from '../../pages/VideoCarousel'
 
 
 const UserLayout = () => {
@@ -19,7 +20,8 @@ const UserLayout = () => {
             <Trending/>
             <Discover/>
             <GetInspired/>
-            <Newsletter/>
+            <VideoCarousel/>
+            {/* <Newsletter/> */}
             <Footer/>
         </>
     )

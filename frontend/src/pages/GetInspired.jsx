@@ -1,6 +1,7 @@
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import React, { useRef } from 'react'
 import ProductCard from '../components/ui/ProductCard'
+import Button from '../components/ui/Button'
 
 const Models = [
     { id: 1, image: 'https://pangaia.com/cdn/shop/files/final.jpg?crop=center&height=3412&v=1741858094&width=2560' },
@@ -14,9 +15,17 @@ const GetInspired = () => {
     const scrollContainerRef = useRef(null)
 
     const scrollLeft = () => {
+    scrollContainerRef.current.scrollBy({
+        left: -350,
+        behaviour: 'smooth'
+    })
     }
 
     const scrollRight = () => {
+        scrollContainerRef.current.scrollBy({
+            left : 350,
+            behaviour: 'smooth'
+        })
     }
     return (
         <div className='relative py-8 space-y-6'>
@@ -29,34 +38,42 @@ const GetInspired = () => {
             {/* Arrow Buttons for scrolling */}
             <button
                 onClick={scrollLeft}
-                className='absolute left-2 top-[60%] transform -translate-y-1/2 z-10 p-1 bg-white text-black rounded-full disabled:opacity-0' >
+                className='absolute left-2 top-[55%] transform -translate-y-1/2 z-10 p-1 bg-white text-black rounded-full cursor-pointer' >
                 <ArrowLeft size={14} />
             </button>
             <button
                 onClick={scrollRight}
-                className='absolute right-2 top-[60%] transform -translate-y-1/2 z-10 p-1 bg-white text-black rounded-full disabled:opacity-0' >
+                className='absolute right-2 top-[55%] transform -translate-y-1/2 z-10 p-1 bg-white text-black rounded-full cursor-pointer' >
                 <ArrowRight size={14} />
             </button>
 
             {/* model image render */}
             <div
-            ref={scrollContainerRef}
-            className='flex overflow-x-auto scroll-smooth pb-4 scrollbar-hide snap-x snap-mandatory'
+                ref={scrollContainerRef}
+                className='flex overflow-x-auto scroll-smooth pb-4 scrollbar-hide snap-x snap-mandatory'
             >
                 {
-                    Models.map((model)=>(
-                        <div 
-                        key={model.id} 
-                        className='flex-shrink-0 w-full  items-center md:w-[297.5px] lg:w-[345px] bg-white rounded  snap-center group'>
+                    Models.map((model) => (
+                        <div
+                            key={model.id}
+                            className='flex-shrink-0 w-full  items-center md:w-[297.5px] lg:w-[345px] bg-white rounded  snap-center group'>
 
                             <div className='relative bg-gray-50 w-full h-[550px] md:w-[297.5px] md:h-[395px] lg:w-[345px] lg:h-[459px] overflow-hidde group '>
-                                <ProductCard imageUrl={model.image}/>
+                                <ProductCard imageUrl={model.image} effect={false} />
                             </div>
 
                         </div>
                     ))
                 }
- 
+
+            </div>
+            <div className='w-full flex justify-center'>
+                <Button 
+                 title='View More'
+                 link='/'
+                 className='bg-transparent outline-1 w-40  py-4 outline-[#002FA7] text-[#002FA7] hover:text-white hover:bg-[#002FA7] '
+                 />
+
             </div>
 
         </div>
