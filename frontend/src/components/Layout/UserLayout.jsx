@@ -5,6 +5,7 @@ import CategoriesPage from '../../pages/Collection'
 import { Newsletter } from '../../pages/Newsletter'
 import Footer from '../../pages/Footer'
 import Trending from '../../pages/Trending'
+import Discover from '../../pages/Discover'
 
 
 const UserLayout = () => {
@@ -15,6 +16,7 @@ const UserLayout = () => {
             <HeroSection/>
             <CategoriesPage/>
             <Trending/>
+            <Discover/>
             <Newsletter/>
             <Footer/>
         </>

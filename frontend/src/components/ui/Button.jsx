@@ -5,7 +5,7 @@ const Button = ({ link, title, className }) => {
     return (
         <>
             <Link to={link}>
-                <button className={`${className} + hover:backdrop-blur hover:bg-white/90 font-poppins bg-white rounded-full text-black text-[11px] cursor-pointer`}>
+                <button className={`${className} + hover:backdrop-blur font-poppins  rounded-full  text-[11px] cursor-pointer`}>
                     {title}
                 </button>
             </Link>
