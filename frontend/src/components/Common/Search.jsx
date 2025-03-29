@@ -72,7 +72,7 @@ const SearchPage = ({ isOpen, onClose }) => {
                                     animate='visible'
                                     exit='hidden'
                                     style={{ originX: 0 }}
-                                    className=' absolute w-[100%] md:w-[31vw]  h-screen top-0  bg-white shadow-md  right-0'
+                                    className=' absolute w-[100%] md:w-[32vw]  h-screen top-0  bg-white shadow-md  right-0'
                                     onClick={(e) => e.stopPropagation()}
 
                                     onAnimationComplete={() => {
