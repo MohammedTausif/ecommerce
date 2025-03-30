@@ -1,9 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const ProductCard = ({ imageUrl, hoverImageUrl, title, link, effect }) => {
+const ProductCard = React.memo(({ imageUrl, hoverImageUrl, title, link, effect }) => {
     return (
-        <>
             <Link to={link} className='cursor-pointer'>
                 <img
                     src={imageUrl}
@@ -20,8 +19,7 @@ const ProductCard = ({ imageUrl, hoverImageUrl, title, link, effect }) => {
                         loading='lazy'
                     />}
             </Link>
-        </>
     )
-}
+});
 
 export default ProductCard
