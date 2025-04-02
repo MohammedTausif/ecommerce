@@ -71,7 +71,7 @@ const GetInspired = () => {
                 <Button 
                  title='View More'
                  link='/'
-                 variant="secondary"
+                 variant="outline"
                 />
 
             </div>

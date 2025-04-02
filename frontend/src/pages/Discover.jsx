@@ -24,12 +24,12 @@ const Discover = () => {
             <Button
             title='Discover More'
             link='/pages/roger-icons'
-            variant= "secondary"
+            variant= "outline"
             />
              <Button
             title='Shop The Collection'
             link='/pages/the-tracksuit-lookbook'
-            variant= "secondary"
+            variant= "outline"
             />
           </div>
         </div>
