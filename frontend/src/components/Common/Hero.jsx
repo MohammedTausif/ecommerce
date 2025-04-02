@@ -24,12 +24,14 @@ const HeroSection = () => {
               <Button
                 title='Shop Now'
                 link='/collections'
-                className='w-[148px] py-4  bg-white hover:bg-white/90 text-black'
+                className='w-[148px]'
+                variant= "primary"
               />
               <Button
                 title='The Spring Lookbook'
                 link='/pages/the-spring-lookbook'
-                className='w-[167px] py-4  bg-white hover:bg-white/90 text-black'
+                className='w-[167px] '
+                variant= 'primary'
               />
             </div>
           </div>

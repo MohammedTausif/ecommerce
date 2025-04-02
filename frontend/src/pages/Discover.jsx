@@ -24,12 +24,12 @@ const Discover = () => {
             <Button
             title='Discover More'
             link='/pages/roger-icons'
-            className='w-[148px] py-4 bg-white text-[#002FA7] outline-1 outline-[#002FA7] hover:bg-[#002FA7] hover:text-white '
+            variant= "secondary"
             />
              <Button
             title='Shop The Collection'
             link='/pages/the-tracksuit-lookbook'
-            className='w-[148px] py-4 bg-white text-[#002FA7] outline-1 outline-[#002FA7] hover:bg-[#002FA7] hover:text-white '
+            variant= "secondary"
             />
           </div>
         </div>

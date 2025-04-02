@@ -98,7 +98,8 @@ const VideoCarousel = () => {
                   <Button 
                   title={video.button}
                   link={video.link}
-                  className=' py-4 md:w-40 w-36 text-black bg-white cursor-pointer'
+                  variant='primary'
+                  className='md:w-40 w-36 '
                   />
                  <p className="hidden md:block text-white text-[17px] md:w-[60%] w-full  drop-shadow-md px-2 font-sans">
                     {video.description}

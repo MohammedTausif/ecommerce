@@ -71,8 +71,8 @@ const GetInspired = () => {
                 <Button 
                  title='View More'
                  link='/'
-                 className='bg-transparent outline-1 w-40  py-4 outline-[#002FA7] text-[#002FA7] hover:text-white hover:bg-[#002FA7] '
-                 />
+                 variant="secondary"
+                />
 
             </div>
 

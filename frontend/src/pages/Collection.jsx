@@ -119,7 +119,8 @@ const CategoriesPage = () => {
                                         <Button
                                             title='Shop Now'
                                             link={category.link}
-                                            className='w-[148px] py-4 '
+                                            className='w-[148px]'
+                                            variant= "primary"
                                         />
                                     </div>
                                    </div>
