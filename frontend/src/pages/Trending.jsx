@@ -33,12 +33,12 @@ const Trending = () => {
       <button
         onClick={scrollLeft}
         disabled={products.id == 1}
-        className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 p-1 bg-white  bg-opacity-100 text-black rounded-full disabled:opacity-0"  >
+        className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 p-1 bg-white  bg-opacity-100 text-black rounded-full disabled:opacity-0 cursor-pointer"  >
         <ArrowLeft size={14} />
       </button>
       <button
         onClick={scrollRight}
-        className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 p-1 bg-white  bg-opacity-100 text-black rounded-full"
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 p-1 bg-white  bg-opacity-100 text-black rounded-full cursor-pointer"
       >
         <ArrowRight size={14} />
       </button>

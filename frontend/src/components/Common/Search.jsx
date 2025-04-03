@@ -103,7 +103,7 @@ const SearchPage = ({ isOpen, onClose }) => {
                                             </div>
                                         </div>
                                         <div className='w-12 h-11 flex justify-center items-center cursor-pointer border-[0.5px] border-gray-200' onClick={onClose}>
-                                            <X className='size-7' /></div>
+                                            <X className='size-7 stroke-[0.5px]' /></div>
                                     </div>
 
                                     {/* we will display error message here  */}
