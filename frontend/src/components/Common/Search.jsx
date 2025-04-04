@@ -57,7 +57,11 @@ const SearchPage = ({ isOpen, onClose }) => {
         <>
             {/* Render only when it is True */}
             {shouldRender && (
-                <div className='fixed inset-0 z-50  overflow-y-auto '>
+                <div className='fixed inset-0 z-50  overflow-y-auto ' onKeyDown={(e)=>{
+                    if(e.key == 'Escape'){
+                     onClose()
+                    }
+                }}>
                     {/* Background */}
                     <div className='fixed inset-0 bg-black/40 bg-opacity-30'
                         onClick={onClose}>

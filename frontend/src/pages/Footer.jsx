@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
-import { Facebook, Instagram, InstagramIcon, Linkedin, LinkedinIcon, TwitterIcon } from 'lucide-react'
+import { ArrowBigDown, ArrowDown, Facebook, Instagram, InstagramIcon, Linkedin, LinkedinIcon, TwitterIcon } from 'lucide-react'
 
 
 const socialLinks = [
@@ -37,6 +37,9 @@ const HelpLinks = [
   { title: 'Size Guide' }
 ]
 const Footer = () => {
+
+  const [openFooter, setOpenFooter]= useState(false)
+
   return (
     <footer className=" bg-black text-white font-poppins">
       <div className='flex w-full md:flex-row flex-col  h-full'>
@@ -66,7 +69,7 @@ const Footer = () => {
                 className="flex-1 bg-transparent border-[0.5px]  border-gray-600  p-2 focus:outline-none placeholder-gray-200 text-sm w-1/2"
                 />
                 </div>
-              <button className="px-6 py-2 bg-transparent text-white border-[0.5px]  border-gray-600 font-light hover:text-gray-300 transition-colors">
+              <button className="px-6 py-1 bg-transparent text-white border-[0.5px]  border-gray-600 font-light hover:text-gray-300 transition-colors">
                 Subscribe
               </button>
             </form>
@@ -88,11 +91,15 @@ const Footer = () => {
       {/* Main Footer Content */}
       <div className="md:w-1/2 w-full mx-auto border-b border-gray-700 ">
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10 px-4 sm:px-6 lg:px-6 py-12">
+        <div 
+        className="md:grid md:grid-cols-4 md:gap-6 md:mb-10 px-4 sm:px-6 lg:px-6 py-12"
+        
+
+        >
           {/* Shop Column */}
-          <div>
-            <h4 className="text-sm font-medium mb-4">SHOP</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
+          <div className= 'md:border-none border-t border-b-[0.5px] border-gray-200'>
+            <h4 className="text-sm font-medium md:mt-0 mb-2 mt-2 flex items-center justify-between cursor-pointer md:pointer-events-none">SHOP <span><ArrowDown size={15} className='md:hidden stroke-[1.5px] '/></span></h4>
+            <ul className="hidden md:block space-y-2 text-sm text-gray-400">
               {ShopLinks.map((item) => (
                 <li key={item.title}>
                   <a href="/" className="hover:text-white transition-colors">{item.title}</a>
@@ -103,35 +110,58 @@ const Footer = () => {
           
 
           {/* About Column */}
-          <div>
-            <h4 className="text-sm font-medium mb-4">ABOUT</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
+          <div className='md:border-none border-b-[0.5px] border-gray-200'>
+            <h4 className="text-sm flex justify-between items-center font-medium mb-2 mt-2 md:mt-0  cursor-pointer md:pointer-events-none" onClick={()=>setOpenFooter(!openFooter)}>ABOUT <span><ArrowDown className='stroke-[1.5px] md:hidden' size={15}/></span></h4>
+            <ul className="hidden md:block space-y-2 text-sm text-gray-400 ">
               {AboutLinks.map((item) => (
                 <li key={item.title}>
                   <a href="/" className="hover:text-white transition-colors">{item.title}</a>
                 </li>
               ))}
+
+              {/* mobile view */}
+              { openFooter &&
+            <ul className={`font-poppins text-xs space-y-2 py-2 transition-transform duration-300  ${openFooter ? " translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"} `}>
+               { AboutLinks.map((item)=>(
+                  <li key={item.title}>
+                    <a href="/">{item.title} </a>
+                  </li>
+                )) }
+            </ul>
+              }
             </ul>
           </div>
 
           {/* Help Column */}
-          <div>
-            <h4 className="text-sm font-medium mb-4">HELP</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
+          <div className='md:border-none  border-b-[0.5px] border-gray-200'>
+            <h4 className="text-sm font-medium md:mt-0 mt-2 mb-2 cursor-pointer flex justify-between md:pointer-events-none" onClick={()=> setOpenFooter(!openFooter)}>HELP <span><ArrowDown size={15} className={`stroke-[1.5px] md:hidden ${openFooter? "rotate-180 duration-300 transition-transform":"rotate-0 duration-300 transition-transform"}`}/></span></h4>
+            <ul className="hidden md:block space-y-2 text-sm text-gray-400">
               {HelpLinks.map((item) => (
                 <li key={item.title}>
                   <a href="/" className="hover:text-white transition-colors">{item.title}</a>
                 </li>
               ))}
             </ul>
+
+            {/* mobile view */}
+              { openFooter &&
+            <ul className={`font-poppins text-xs space-y-2 py-2 transition-transform duration-300  ${openFooter ? " translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"} `}>
+               { HelpLinks.map((item)=>(
+                  <li key={item.title}>
+                    <a href="/">{item.title} </a>
+                  </li>
+                )) }
+            </ul>
+              }
           </div>
 
+
           {/* Social Links */}
-          <div className="col-span-2 md:col-span-1">
+          <div className="col-span-2 md:col-span-1 hidden md:block">
             <div className="flex flex-col space-y-5">
               <div>
                 <h4 className="text-sm font-medium ">DOWNLOAD OUR APP</h4>
-                <div className="flex space-x-2">
+                <div className="hidden md:flex space-x-2">
                   <Link to="/" className="hover:opacity-75 transition-opacity">
                     <img src="https://www.svgrepo.com/show/303128/download-on-the-app-store-apple-logo.svg" alt="App Store" className="h-20" />
                   </Link>

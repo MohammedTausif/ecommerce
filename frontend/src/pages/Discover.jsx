@@ -9,7 +9,7 @@ const Discover = () => {
         <img
           src="https://pangaia.com/cdn/shop/files/Copy_of_Copy_of_Editorial-Mobile.jpg?v=1743068041&width=1920"
           alt="Descriptive Alt Text"
-          className="w-full md:h-full h-[75%] object-cover object-center rounded-t"
+          className="w-full md:h-full h-[600px] object-cover object-top md:object-center rounded-t"
         />
       </div>
 
