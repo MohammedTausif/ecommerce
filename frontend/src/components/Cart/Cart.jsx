@@ -13,7 +13,7 @@ import CartContent from './Content'
 const Cart = ({ isOpen, onClick }) => {
 
     const [shouldRender, setShouldRender] = useState(isOpen)
-    const [product, setProduct] = useState(null)
+    const [product, setProduct] = useState(1)
     const scrollContainerRef = useRef();
 
     useEffect(() => {
