@@ -13,7 +13,7 @@ import CartContent from './Content'
 const Cart = ({ isOpen, onClick }) => {
 
     const [shouldRender, setShouldRender] = useState(isOpen)
-    const [product, setProduct] = useState(1)
+    const [product, setProduct] = useState(null)
     const scrollContainerRef = useRef();
 
     useEffect(() => {
@@ -76,7 +76,7 @@ const Cart = ({ isOpen, onClick }) => {
                                                                 <Button
                                                                     title='Continue shopping'
                                                                     variant='secondary'
-                                                                    link='/'
+                                                                    link='shop-all'
                                                                 />
                                                             </div>
                                                         </div>

@@ -23,13 +23,13 @@ const HeroSection = () => {
             <div className="flex gap-3 mt-8">
               <Button
                 title='Shop Now'
-                link='/collections'
+                link='shop-all'
                 className='w-[148px]'
                 variant= "primary"
               />
               <Button
                 title='The Spring Lookbook'
-                link='/pages/the-spring-lookbook'
+                link='pages/the-spring-lookbook'
                 className='w-[167px] '
                 variant= 'primary'
               />
