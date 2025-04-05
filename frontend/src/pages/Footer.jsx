@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
-import { ArrowBigDown, ArrowDown, Facebook, Instagram, InstagramIcon, Linkedin, LinkedinIcon, TwitterIcon } from 'lucide-react'
+import { ArrowDown, Facebook, InstagramIcon, Linkedin, TwitterIcon } from 'lucide-react'
+import { FooterData, FooterLinks } from '../data/footerData';
 
 
 const socialLinks = [
@@ -23,12 +24,12 @@ const ShopLinks = [
   { title: 'New Arrivals' },
   { title: 'Best Sellers' }
 ]
-const FooterLinks = [
-  { title: 'Privacy Policy' },
-  { title: 'Terms of Service' },
-  { title: 'Accessibility' },
-  { title: 'Cookie Settings' }
-]
+// const FooterLinks = [
+//   { title: 'Privacy Policy' },
+//   { title: 'Terms of Service' },
+//   { title: 'Accessibility' },
+//   { title: 'Cookie Settings' }
+// ]
 const HelpLinks = [
   { title: 'Contact Us' },
   { title: 'FAQ' },
@@ -185,7 +186,7 @@ const Footer = () => {
             </div>
             <div className="hidden md:flex w-1/2  justify-end  space-x-4 px-3">
               {FooterLinks.map((item) => (
-                <Link key={item.title} to="/" className="hover:text-white transition-colors">{item.title}</Link>
+                <Link key={item.name} to={item.link} className="hover:text-white transition-colors">{item.name}</Link>
               ))}
             </div>
             
