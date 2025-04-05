@@ -49,10 +49,10 @@ const Cart = ({ isOpen, onClick }) => {
                                     exit='hidden'
                                     className={`absolute  w-full md:w-[32vw]  h-screen top-0   bg-white shadow-md right-0 `}
                                 >
-                                    <div className='relative w-full h-screen'>
+                                    <div className='relative w-full h-screen '>
 
 
-                                        <div className='w-full md:w-[32vw] h-fit'>
+                                        <div className='w-full md:w-[32vw] h-fit '>
                                             {
                                                 product == null ? (
                                                     <div className='w-full h-[45vh]'>
@@ -101,12 +101,12 @@ const Cart = ({ isOpen, onClick }) => {
 
                                         </div>
                                         {/* trending section*/}
-                                        <div className={`mt-6 bg-white ${product != null ? "h-2/3" : "h-1/2"} `}>
+                                        <div className={` bg-white ${product != null ? "h-3/4 mt-2" : "h-2/3 md:h-1/2 "} `}>
 
 
                                             <div className='w-full h-full '>
 
-                                                <div className='font-poppins text-[16px] px-2 r'>
+                                                <div className='font-poppins text-[16px] px-2 '>
                                                     Trending Items
                                                 </div>
 
