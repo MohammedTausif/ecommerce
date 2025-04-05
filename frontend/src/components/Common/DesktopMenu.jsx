@@ -29,13 +29,8 @@ const DesktopMenu = () => {
     visible: {
       clipPath: 'inset(0 0 0 0)',
       opacity: 1,
-      transition: { duration: 0.2, ease: 'easeInOut' },
-    },
-    exit: {
-      clipPath: 'inset(0 0 100% 0)',
-      opacity: 0,
-      transition: { duration: 0.2, ease: 'easeInOut' },
-    },
+      transition: { duration: 0.3, ease: 'easeInOut' },
+    }
   };
 
 
@@ -72,7 +67,7 @@ const DesktopMenu = () => {
               variants={subNavVariants}
               initial="hidden"
               animate="visible"
-              exit="exit"
+              exit="hidden"
               style={{ originY: 0 }}
               className="absolute top-12 left-0 w-[100vw] h-[423px] bg-white   shadow-md p-3 flex"
               onMouseLeave={() => setHoveredIndex(null)}

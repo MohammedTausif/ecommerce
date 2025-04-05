@@ -10,13 +10,7 @@ const socialLinks = [
   { name: 'Facebook', icon: <Facebook className='size-4 md:size-5 stroke-[1px]' />, link: '/', },
   { name: 'Twitter', icon: <TwitterIcon className='size-4 md:size-5 stroke-[1px]' />, link: '/', }
 ]
-const AboutLinks = [
-  { title: 'Our Story' },
-  { title: 'Materials' },
-  { title: 'B Corp' },
-  { title: 'Journal' },
-  { title: 'Careers' }
-]
+
 const ShopLinks = [
   { title: 'Womens' },
   { title: 'Mens' },
@@ -24,22 +18,16 @@ const ShopLinks = [
   { title: 'New Arrivals' },
   { title: 'Best Sellers' }
 ]
-// const FooterLinks = [
-//   { title: 'Privacy Policy' },
-//   { title: 'Terms of Service' },
-//   { title: 'Accessibility' },
-//   { title: 'Cookie Settings' }
-// ]
-const HelpLinks = [
-  { title: 'Contact Us' },
-  { title: 'FAQ' },
-  { title: 'Shipping' },
-  { title: 'Returns' },
-  { title: 'Size Guide' }
-]
-const Footer = () => {
 
-  const [openFooter, setOpenFooter]= useState(false)
+
+const Footer = () => {
+  const [openIndex, setOpenIndex]= useState(null)
+
+  const toggleDropdown = (index)=>{
+    setOpenIndex(openIndex === index ? null : index)
+  }
+
+
 
   return (
     <footer className=" bg-black text-white font-poppins">
@@ -93,70 +81,53 @@ const Footer = () => {
       <div className="md:w-1/2 w-full mx-auto border-b border-gray-700 ">
         
         <div 
-        className="md:grid md:grid-cols-4 md:gap-6 md:mb-10 px-4 sm:px-6 lg:px-6 py-12"
-        
-
+        className="md:grid md:grid-cols-4 md:gap-6 md:mb-10 px-3 sm:px-6 lg:px-6 py-8"
         >
-          {/* Shop Column */}
-          <div className= 'md:border-none border-t border-b-[0.5px] border-gray-200'>
-            <h4 className="text-sm font-medium md:mt-0 mb-2 mt-2 flex items-center justify-between cursor-pointer md:pointer-events-none">SHOP <span><ArrowDown size={15} className='md:hidden stroke-[1.5px] '/></span></h4>
-            <ul className="hidden md:block space-y-2 text-sm text-gray-400">
-              {ShopLinks.map((item) => (
-                <li key={item.title}>
-                  <a href="/" className="hover:text-white transition-colors">{item.title}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
+         {
+            FooterData.map((item, index)=>(
+              <div key={item.name} className={`md:border-none ${index == 0 ? "border-t-[0.5px]": ""}  border-b-[0.5px] border-gray-200`}>
+                <h4 
+                className=' text-xs font-extralight md:font-medium md:mt-0 mb-3.5 mt-3.5  w-full flex items-center justify-between cursor-pointer md:pointer-events-none '
+                onClick={() => toggleDropdown(index)}
+                >
+                  {item.name}
+                  <span className={`md:hidden transform transition-transform duration-300 ${openIndex === index ? 'rotate-180' : 'rotate-0'}`}>
+                    <ArrowDown size={14} />
+                  </span>
+                </h4>
 
-          {/* About Column */}
-          <div className='md:border-none border-b-[0.5px] border-gray-200'>
-            <h4 className="text-sm flex justify-between items-center font-medium mb-2 mt-2 md:mt-0  cursor-pointer md:pointer-events-none" onClick={()=>setOpenFooter(!openFooter)}>ABOUT <span><ArrowDown className='stroke-[1.5px] md:hidden' size={15}/></span></h4>
-            <ul className="hidden md:block space-y-2 text-sm text-gray-400 ">
-              {AboutLinks.map((item) => (
-                <li key={item.title}>
-                  <a href="/" className="hover:text-white transition-colors">{item.title}</a>
-                </li>
-              ))}
+                {/* Mobile dropdown */}
 
-              {/* mobile view */}
-              { openFooter &&
-            <ul className={`font-poppins text-xs space-y-2 py-2 transition-transform duration-300  ${openFooter ? " translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"} `}>
-               { AboutLinks.map((item)=>(
-                  <li key={item.title}>
-                    <a href="/">{item.title} </a>
-                  </li>
-                )) }
-            </ul>
-              }
-            </ul>
-          </div>
+                <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? "max-h-60 opacity-100": "max-h-0 opacity-0 "}`}>
+                  <ul className='pl-3 pb-4 text-gray-400 space-y-2 text-xs '>
+                    {
+                      item.list.map((section)=>(
+                        <li key={section.name} className=' hover:text-white cursor-pointer'>
 
-          {/* Help Column */}
-          <div className='md:border-none  border-b-[0.5px] border-gray-200'>
-            <h4 className="text-sm font-medium md:mt-0 mt-2 mb-2 cursor-pointer flex justify-between md:pointer-events-none" onClick={()=> setOpenFooter(!openFooter)}>HELP <span><ArrowDown size={15} className={`stroke-[1.5px] md:hidden ${openFooter? "rotate-180 duration-300 transition-transform":"rotate-0 duration-300 transition-transform"}`}/></span></h4>
-            <ul className="hidden md:block space-y-2 text-sm text-gray-400">
-              {HelpLinks.map((item) => (
-                <li key={item.title}>
-                  <a href="/" className="hover:text-white transition-colors">{item.title}</a>
-                </li>
-              ))}
-            </ul>
-
-            {/* mobile view */}
-              { openFooter &&
-            <ul className={`font-poppins text-xs space-y-2 py-2 transition-transform duration-300  ${openFooter ? " translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"} `}>
-               { HelpLinks.map((item)=>(
-                  <li key={item.title}>
-                    <a href="/">{item.title} </a>
-                  </li>
-                )) }
-            </ul>
-              }
-          </div>
+                          {section.name}
+                        </li>
+                      ))}
+                  </ul>
+                </div>
 
 
+                {/* desktop Links */}
+                <div className='hidden md:block space-y-2'>
+                  {
+                    
+                      FooterData[index].list.map((item)=>(
+                        <ul key={item.name} className='text-sm text-gray-400'>
+                          <li className='hover:text-white transition-colors cursor-pointer'>{item.name}</li>
+
+                        </ul>
+                      ))
+                  
+                  }
+                </div>
+
+              </div>
+            ))
+          }
           {/* Social Links */}
           <div className="col-span-2 md:col-span-1 hidden md:block">
             <div className="flex flex-col space-y-5">
