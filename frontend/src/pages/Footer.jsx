@@ -11,15 +11,6 @@ const socialLinks = [
   { name: 'Twitter', icon: <TwitterIcon className='size-4 md:size-5 stroke-[1px]' />, link: '/', }
 ]
 
-const ShopLinks = [
-  { title: 'Womens' },
-  { title: 'Mens' },
-  { title: 'Accessories' },
-  { title: 'New Arrivals' },
-  { title: 'Best Sellers' }
-]
-
-
 const Footer = () => {
   const [openIndex, setOpenIndex]= useState(null)
 
@@ -35,7 +26,7 @@ const Footer = () => {
       {/* Newsletter Section */}
       <div className="md:border-r border-b border-gray-700 w-full md:w-1/2">
         <div className="max-w-7xl mx-auto px-4  sm:px-6 py-8 ">
-          <div className=" flex flex-col md:fex-row justify-between items-start space-y-4 md:space-y-8">
+          <div className=" flex flex-col md:fex-row justify-between items-start space-y-4 md:space-y-6">
             <div className="flex-1">
               <h3 className="md:text-xs text-lg font-light mb-2">Want to be part of our collective?</h3>
               </div>
@@ -81,13 +72,13 @@ const Footer = () => {
       <div className="md:w-1/2 w-full mx-auto border-b border-gray-700 ">
         
         <div 
-        className="md:grid md:grid-cols-4 md:gap-6 md:mb-10 px-3 sm:px-6 lg:px-6 py-8"
+        className="md:grid md:grid-cols-4 md:gap-6 md:mb-10 px-0 sm:px-6 lg:px-6 md:py-8"
         >
          {
             FooterData.map((item, index)=>(
-              <div key={item.name} className={`md:border-none ${index == 0 ? "border-t-[0.5px]": ""}  border-b-[0.5px] border-gray-200`}>
+              <div key={item.name} className={`md:border-none  border-b-[0.5px] border-gray-700`}>
                 <h4 
-                className=' text-xs font-extralight md:font-medium md:mt-0 mb-3.5 mt-3.5  w-full flex items-center justify-between cursor-pointer md:pointer-events-none '
+                className='md:hidden px-2 text-xs font-extralight md:font-medium md:mt-0 mb-4 mt-4  w-full flex items-center justify-between cursor-pointer md:pointer-events-none '
                 onClick={() => toggleDropdown(index)}
                 >
                   {item.name}
@@ -96,6 +87,18 @@ const Footer = () => {
                   </span>
                 </h4>
 
+                 {/* Name for Desktop */}
+                <h4 
+                className='hidden md:flex  text-sm font-extralight md:font-medium md:mt-0 mb-4 mt-4  w-full  items-center justify-between cursor-pointer md:pointer-events-none '
+                onClick={() => toggleDropdown(index)}
+                >
+                  {item.name.toLocaleUpperCase()}
+                  <span className={`md:hidden transform transition-transform duration-300 ${openIndex === index ? 'rotate-180' : 'rotate-0'}`}>
+                    <ArrowDown size={14} />
+                  </span>
+                </h4>
+
+
                 {/* Mobile dropdown */}
 
                 <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? "max-h-60 opacity-100": "max-h-0 opacity-0 "}`}>
@@ -103,7 +106,6 @@ const Footer = () => {
                     {
                       item.list.map((section)=>(
                         <li key={section.name} className=' hover:text-white cursor-pointer'>
-
                           {section.name}
                         </li>
                       ))}
@@ -151,7 +153,7 @@ const Footer = () => {
     
          <div className="w-full h-full ">
           <div className="w-full h-full bg-black flex flex-col md:flex-row justify-between  items-center space-y-4 md:space-y-0 text-sm text-gray-300  ">
-          <div className=" h-full md:w-1/2 w-full text-center md:text-right flex space-x-1 text-sm font-poppins border-r border-gray-700 py-4 px-3">
+          <div className=" h-full md:w-1/2 w-full text-center md:text-right flex space-x-1 text-sm font-poppins md:border-r border-gray-700 py-4 px-3">
               <p>© {new Date().getFullYear()} ROGER.</p>
               <p>Made with materials from nature</p>
             </div>
