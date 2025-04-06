@@ -4,7 +4,7 @@ import { ArrowDown } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 
-const FooterBottom = ({ openIndex, toggleDropdown }) => {
+const MainFooter = ({ openIndex, toggleDropdown }) => {
   return (
     <div>
       <div
@@ -76,4 +76,5 @@ const FooterBottom = ({ openIndex, toggleDropdown }) => {
   )
 }
 
-export default FooterBottom
+export default MainFooter
+
