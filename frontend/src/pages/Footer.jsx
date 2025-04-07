@@ -16,7 +16,7 @@ const Footer = () => {
 
 
   return (
-    <footer className=" bg-black text-white font-poppins">
+    <footer className="relative mt-13 bottom-0 bg-black text-white font-poppins">
       <div className='flex w-full md:flex-row flex-col  h-full'>
         {/* Newsletter Section */}
        <Newsletter/>

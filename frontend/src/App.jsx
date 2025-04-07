@@ -1,20 +1,22 @@
 import './App.css'
-import { Route, BrowserRouter as Router, Routes, } from 'react-router-dom'
+import { Route, BrowserRouter, Routes, } from 'react-router-dom'
 import UserLayout from './components/Layout/UserLayout'
-import CategoriesPage from './pages/Collection'
 import ShopAll from './components/Common/ShopAll'
+import Home from './pages/Home'
 
 function App() {
 
 
   return (
    <>
-   <Router>
+   <BrowserRouter>
     <Routes>
-      <Route path='/' element={<UserLayout/>}/>
+      <Route path='/' element={<UserLayout/>}>
+      <Route index element={<Home/>}/>
+      </Route>
       <Route path='shop-all' element={ <ShopAll/>}/>
     </Routes>
-    </Router>
+    </BrowserRouter>
    </>
   )
 }

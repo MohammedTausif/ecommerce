@@ -7,6 +7,7 @@ import Trending from '../../pages/Trending'
 import Discover from '../../pages/Discover'
 import GetInspired from '../../pages/GetInspired'
 import VideoCarousel from '../../pages/VideoCarousel'
+import { Outlet } from 'react-router-dom'
 
 
 const UserLayout = () => {
@@ -14,13 +15,14 @@ const UserLayout = () => {
     return (
         <>
             <Navbar />
-            <HeroSection/>
-            <CategoriesPage/>
-            <Trending/>
-            <Discover/>
-            <GetInspired/>
-            <VideoCarousel/>
-            <Footer/>
+
+            <main>
+                <Outlet />
+            </main>
+
+            <Footer />
+
+
         </>
     )
 }
