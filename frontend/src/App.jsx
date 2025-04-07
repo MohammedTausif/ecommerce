@@ -13,8 +13,8 @@ function App() {
     <Routes>
       <Route path='/' element={<UserLayout/>}>
       <Route index element={<Home/>}/>
-      </Route>
       <Route path='shop-all' element={ <ShopAll/>}/>
+      </Route>
     </Routes>
     </BrowserRouter>
    </>

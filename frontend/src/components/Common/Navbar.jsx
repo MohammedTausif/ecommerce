@@ -19,8 +19,7 @@ const Navbar = () => {
                     {/* mobile cart */}
                     <div
                         className='px-2 cursor-pointer md:hidden'
-                        onClick={'/'}
-                    >
+                        onClick={'/'} >
                         <AlignJustify size={20} className='stroke-1' />
 
                     </div>
