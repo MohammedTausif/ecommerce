@@ -4,23 +4,44 @@ import DesktopMenu from '../Common/DesktopMenu'
 import Cart from '../Cart/Cart'
 import SearchPage from './Search'
 import { Link } from 'react-router-dom'
+import MobileMenu from '../Navbar/MobileMenu'
 
 const Navbar = () => {
     const [cartModel, setCartModel] = useState(false)
     const [searchModal, setSearchModal] = useState(false)
     const [searchError, setSearchError] = useState('')
+    const [menuModal , setMenuModal] = useState(false)
+
+    const OpenMobileMenu = ()=>{
+        setMenuModal(!menuModal)
+        console.log("mobile menu called")
+    }
+
     return (
         <nav className="fixed w-full z-50 bg-white top-0">
 
             <div className="w-full ">
                 <div className="relative flex justify-between w-full  items-center  h-12.5 ">
                     {/* Left Part  */}
-                    <div className='hidden md:flex  text-[12px] font-[400] text-black ' ><DesktopMenu /></div>
-                    {/* mobile cart */}
+
+                    {/* Desktop Menu */}
+                    <div className='hidden md:flex  text-[12px] font-[400] text-black ' >
+                        <DesktopMenu />
+                    </div>
+
+                    {/* Mobile Menu */}
                     <div
-                        className='px-2 cursor-pointer md:hidden'
-                        onClick={'/'} >
-                        <AlignJustify size={20} className='stroke-1' />
+                        className=' px-2 cursor-pointer md:hidden'
+                        onClick={OpenMobileMenu}
+                        >
+                        <AlignJustify size={20} className='stroke-1'
+                            // onClick={()=>setMenuModal(!menuModal)} 
+                        
+                        />
+                    </div>
+
+                    <div className='md:hidden'>
+                        <MobileMenu isOpen={menuModal} onClick={()=>setMenuModal(false)} />
 
                     </div>
 
@@ -89,9 +110,9 @@ const Navbar = () => {
             {/* Mobile Search Input  */}
 
             <div className='md:hidden bg-white w-full h-12.5'>
-                <div 
-                onClick={()=>setSearchModal(!searchModal)}
-                className= 'flex  text-black p-2 cursor-pointer'
+                <div
+                    onClick={() => setSearchModal(!searchModal)}
+                    className='flex  text-black p-2 cursor-pointer'
                 >
                     <input
                         type="search"
@@ -99,7 +120,7 @@ const Navbar = () => {
                         className="w-full h-9 bg-white text-black text-[10px] px-2 font-poppins  border-[0.5px] border-gray-200 focus:outline-0  pointer-events-none" />
                     <button type="submit" className='px-2 h-9 flex justify-center items-center border-[0.5px] border-gray-200 '>
 
-                    <Search className="text-black" size={18} />
+                        <Search className="text-black" size={18} />
                     </button>
 
                 </div>
