@@ -7,9 +7,9 @@ const VariantStyle = {
     "secondary": "py-4 bg-[#002FA7] text-white hover:bg-[#002FA7]/90 w-[156px]"
 }
 
-const Button = React.memo(({ link, title, variant, className = '' }) => {
+const Button = React.memo(({ link, title, variant,onClick, className = '' }) => {
     return (
-        <Link to={link}>
+        <Link to={link} onClick={onClick}>
             <button className={`${className} font-poppins  rounded-full  text-[11px] cursor-pointer py-4  ${VariantStyle[variant]} `}>
                 {title}
             </button>
