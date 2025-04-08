@@ -14,21 +14,12 @@ const MobileMenu = ({isOpen, onClick}) => {
     }
 
   }, [isOpen])
+
+  
   return (
     <>
       {
         shouldRender && (
-          <div 
-          // className={`absolute z-50 left-0 top-0 w-1/2 h-screen bg-gray-100 text-black  transition-all transform duration-1000 ${shouldRender? "translate-x-0" : "-translate-x-full"}`}
-          >
-        <div
-        className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 ${
-          shouldRender ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-        
-      />
-
-      {/* Slide-in Menu Panel */}
       <div
         className={`fixed top-0 left-0 h-screen w-1/2 bg-white z-50 transform transition-transform duration-500 ${
           shouldRender ? "translate-x-0" : "-translate-x-full"
@@ -51,7 +42,6 @@ const MobileMenu = ({isOpen, onClick}) => {
         </nav>
       </div>
 
-        </div>
         )
       }
     </>
