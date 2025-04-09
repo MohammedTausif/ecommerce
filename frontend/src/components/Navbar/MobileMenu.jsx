@@ -30,21 +30,17 @@ const MobileAccordionMenu = ({ isOpen, onClick }) => {
   return (
     <>
       {shouldRender &&
-        <div className="md:hidden absolute  left-0 top-12 w-full h-screen bg-gray-50 ">
+        <div className="md:hidden absolute  left-0 top-12 w-full h-screen bg-white ">
           {/* Top-level buttons in 2x2 grid */}
-          <div className="grid grid-cols-2 gap-4 p-4 w-full ">
+          <div className="grid grid-cols-2  w-full ">
             {Menu.map((item, idx) => (
               <button
                 key={item.name}
                 onClick={() => handleTopClick(idx)}
-                className={`flex items-center justify-between ${openTopIndex === idx ? "bg-green-200 text-green-800" : "bg-white text-gray-800"} p-4 rounded-lg shadow-sm transition-colors duration-200`}
+                className={`flex items-center justify-center font-poppins text-xs font-normal ${openTopIndex === idx ? "bg-gray-100 text-black" : "bg-white text-gray-300"} p-3.5 border-l-[0.5px] border-t-[0.5px] border-gray-200 shadow-sm transition-colors duration-200`}
               >
-                <span className="font-medium ">{item.name}</span>
-                <ArrowDown
-                  className={`transform transition-transform duration-300 ${openTopIndex === idx ? 'rotate-180' : ''
-                    }`}
-                  size={20}
-                />
+                {item.name}
+
               </button>
             ))}
           </div>
@@ -53,19 +49,19 @@ const MobileAccordionMenu = ({ isOpen, onClick }) => {
 
           {/* Sub-menu panel */}
           {openTopIndex !== null && openSubIndex === null && (
-            <div className="px-4 pb-6">
+            <div className="mt-2 space-y-2 pb-6">
               {Menu[openTopIndex].subMenu.map((sub, sidx) => (
-                <div key={sub.category} className="mb-4">
+                <div key={sub.category} className="mb4 ">
                   {/* Category header */}
                   <button
                     onClick={() => handleSubClick(sidx)}
-                    className="w-full flex items-center justify-between bg-green-100 p-3 rounded-md"
+                    className="w-full flex items-center justify-between   p-3 cursor-pointer"
                   >
-                    <span className="text-green-800 font-semibold">{sub.category}</span>
+                    <span className="text-black font-poppins text-xs font-[400]">{sub.category}</span>
                     <ArrowDown
-                      className={`transform transition-transform duration-300 ${openSubIndex === sidx ? 'rotate-180' : ''
+                      className={`transform transition-transform duration-300 ${openSubIndex === sidx ? 'rotate-90' : '-rotate-90'
                         }`}
-                      size={18}
+                      size={12}
                     />
                   </button>
 
@@ -86,11 +82,11 @@ const MobileAccordionMenu = ({ isOpen, onClick }) => {
               {/* Button to go back */}
               {/* Category title */}
               <button
-              onClick={()=>setOpenSubIndex(null)}
-               className="text-sm font-poppins mb-2 flex items-center ">
+                onClick={() => setOpenSubIndex(null)}
+                className="text-xs font-poppins font-normal mt-1 mb-2 flex items-center ">
                 <span>
 
-                  <ArrowDown className="transform rotate-90 mr-1 stroke-1" size={18} />
+                  <ArrowDown className="transform rotate-90 mr-1 stroke-2" size={12} />
                 </span>
                 {Menu[openTopIndex].subMenu[openSubIndex].category}
 
@@ -108,6 +104,7 @@ const MobileAccordionMenu = ({ isOpen, onClick }) => {
                   </li>
                 ))}
               </ul>
+
             </div>
           )}
         </div>
