@@ -65,9 +65,18 @@ const MobileAccordionMenu = ({ isOpen, onClick }) => {
                     />
                   </button>
 
-
                 </div>
               ))}
+              {/* inner circle  */}
+              <div>
+                    <div className='flex flex-col p-2 text-xs  font-poppins px-3 space-y-3 border-t-[0.5px] border-gray-200'>
+                      <div>Inner Circle</div>
+                      <div>Login / Register</div>
+                      <div>India (USD $ )</div>
+                    </div>
+                  </div>
+
+
             </div>
           )}
 
@@ -83,7 +92,7 @@ const MobileAccordionMenu = ({ isOpen, onClick }) => {
               {/* Category title */}
               <button
                 onClick={() => setOpenSubIndex(null)}
-                className="text-xs font-poppins font-normal mt-1 mb-2 flex items-center ">
+                className="text-xs font-poppins font-normal px-2 mt-1 mb-2 flex items-center ">
                 <span>
 
                   <ArrowDown className="transform rotate-90 mr-1 stroke-2" size={12} />
@@ -92,7 +101,7 @@ const MobileAccordionMenu = ({ isOpen, onClick }) => {
 
               </button>
 
-              <ul className="space-y-0 font-poppins text-xs">
+              <ul className="space-y-0 font-poppins text-xs border-b-[0.5px] border-gray-200">
                 {Menu[openTopIndex].subMenu[openSubIndex].list.map((link, lidx) => (
                   <li key={lidx}>
                     <a
