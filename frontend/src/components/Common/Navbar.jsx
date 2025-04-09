@@ -4,7 +4,7 @@ import DesktopMenu from '../Common/DesktopMenu'
 import Cart from '../Cart/Cart'
 import SearchPage from './Search'
 import { Link } from 'react-router-dom'
-import MobileMenu from '../Navbar/MobileMenu'
+import MobileAccordionMenu from '../Navbar/MobileMenu'
 
 const Navbar = () => {
     const [cartModel, setCartModel] = useState(false)
@@ -40,8 +40,8 @@ const Navbar = () => {
                         />
                     </div>
 
-                    <div className='md:hidden'>
-                        <MobileMenu isOpen={menuModal} onClick={()=>setMenuModal(false)} />
+                    <div className='md:hidden  w-full h-screen'>
+                        <MobileAccordionMenu isOpen={menuModal} onClick={()=>setMenuModal(false)} />
 
                     </div>
 
@@ -87,7 +87,7 @@ const Navbar = () => {
 
                         {/* Mobile Cart */}
                         <div className='px-3 md:hidden' onClick={() => setCartModel(!cartModel)}>
-                            <img className='w-[16px] h-[17px] cursor-pointer'
+                            <img className='w-[22px] h-[22px] cursor-pointer'
                                 src="src/assets/images/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxNiAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBjbGFzcz0ic3QtY3VycmVudCIgZGF0YS1sYWJlbD0ic3ZnIj4KICAgICAgICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsa.svg" alt="" />
                         </div>
 
