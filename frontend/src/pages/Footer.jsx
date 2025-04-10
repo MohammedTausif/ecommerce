@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
-import { Facebook, InstagramIcon, Linkedin, TwitterIcon } from 'lucide-react'
 import { FooterLinks } from '../data/footerData';
 import MainFooter from '../components/Footer/MainFooter';
 import Newsletter from '../components/Footer/Newsletter';
@@ -16,7 +15,7 @@ const Footer = () => {
 
 
   return (
-    <footer className="relative mt-13 bottom-0 bg-black text-white font-poppins">
+    <footer className="relative  bottom-0 mt-13 bg-black text-white font-poppins">
       <div className='flex w-full md:flex-row flex-col  h-full'>
         {/* Newsletter Section */}
        <Newsletter/>
@@ -25,9 +24,7 @@ const Footer = () => {
         <div className="md:w-1/2 w-full mx-auto border-b border-gray-700 ">
           <MainFooter openIndex={openIndex} toggleDropdown={toggleDropdown}/>
         </div>
-        
       </div>
-
 
       <div className="w-full h-full ">
         <div className="w-full h-full bg-black flex flex-col md:flex-row justify-between  items-center space-y-4 md:space-y-0 text-sm text-gray-300  ">

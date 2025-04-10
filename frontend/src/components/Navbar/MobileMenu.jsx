@@ -1,25 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import { Menu } from '../../data/navbarData';
 import { ArrowDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const MobileAccordionMenu = ({ isOpen, onClick }) => {
-  const [openTopIndex, setOpenTopIndex] = useState(0);
+  const [openCategoryIndex, setOpenCategoryIndex] = useState(0);
   const [openSubIndex, setOpenSubIndex] = useState(null);
 
   const [shouldRender, setShouldRender] = useState(isOpen)
 
+  //to fix background scroll while menu is open
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+  }, [isOpen])
+
   useEffect(() => {
     if (isOpen) {
       setShouldRender(true)
-    }
-    else {
+    } else {
       setTimeout(() => setShouldRender(false), 300)
     }
-
   }, [isOpen])
 
-  const handleTopClick = (idx) => {
-    setOpenTopIndex(openTopIndex === idx ? null : idx);
+  const handleCategoryClick = (idx) => {
+    setOpenCategoryIndex(openTopIndex === idx ? idx : idx);
     setOpenSubIndex(null);
   };
 
@@ -36,8 +43,8 @@ const MobileAccordionMenu = ({ isOpen, onClick }) => {
             {Menu.map((item, idx) => (
               <button
                 key={item.name}
-                onClick={() => handleTopClick(idx)}
-                className={`flex items-center justify-center font-poppins text-xs font-normal ${openTopIndex === idx ? "bg-gray-100 text-black" : "bg-white text-gray-300"} p-3.5 border-l-[0.5px] border-t-[0.5px] border-gray-200 shadow-sm transition-colors duration-200`}
+                onClick={() => handleCategoryClick(idx)}
+                className={`${openTopIndex === idx ? "bg-[#F8F8F8] text-black" : "bg-white text-[#ADADAD]"} flex items-center justify-center font-poppins text-xs font-normal p-3.5 border-l-[0.5px] border-t-[0.5px] border-gray-200 shadow-sm transition-colors duration-200 cursor-pointer`}
               >
                 {item.name}
 
@@ -49,32 +56,28 @@ const MobileAccordionMenu = ({ isOpen, onClick }) => {
 
           {/* Sub-menu panel */}
           {openTopIndex !== null && openSubIndex === null && (
-            <div className="mt-2 space-y-2 pb-6">
+            <div className="mt-2 space-y-1 pb-6">
               {Menu[openTopIndex].subMenu.map((sub, sidx) => (
-                <div key={sub.category} className="mb4 ">
+                <div key={sub.category} className=" ">
                   {/* Category header */}
-                  <button
-                    onClick={() => handleSubClick(sidx)}
-                    className="w-full flex items-center justify-between   p-3 cursor-pointer"
-                  >
+                  <button onClick={() => handleSubClick(sidx)}
+                    className="w-full flex items-center justify-between   p-3 cursor-pointer"  >
                     <span className="text-black font-poppins text-xs font-[400]">{sub.category}</span>
                     <ArrowDown
-                      className={`transform transition-transform duration-300 ${openSubIndex === sidx ? 'rotate-90' : '-rotate-90'
-                        }`}
-                      size={12}
-                    />
+                      className={`transform transition-transform duration-300 ${openSubIndex === sidx ? 'rotate-90' : '-rotate-90'}`}
+                      size={12} />
                   </button>
 
                 </div>
               ))}
               {/* inner circle  */}
-              <div>
-                    <div className='flex flex-col p-2 text-xs  font-poppins px-3 space-y-3 border-t-[0.5px] border-gray-200'>
-                      <div>Inner Circle</div>
-                      <div>Login / Register</div>
-                      <div>India (USD $ )</div>
-                    </div>
-                  </div>
+              <div className='border-t-[0.5px] border-gray-200'>
+                <div className='flex flex-col p-3 text-xs  font-poppins font-normal space-y-5 mt-3'>
+                  <div className='text-[#002fa7] cursor-pointer'>Inner Circle</div>
+                  <div className='cursor-pointer'>Login <span className='font-Inter'>/</span> Register</div>
+                  <div className=' cursor-pointer'>India (USD <span className='font-Playfair'>$</span>)</div>
+                </div>
+              </div>
 
 
             </div>
@@ -83,11 +86,8 @@ const MobileAccordionMenu = ({ isOpen, onClick }) => {
 
           {/* sub menu list */}
           {openTopIndex !== null && openSubIndex !== null && (
-            <div
-              className={`  w-full bg-white py-4 overflow-auto text-black
-                   transition-all duration-300 ease-in-out
-                `}
-            >
+            <div className='w-full bg-white py-4 overflow-auto text-black transition-all duration-300 ease-in-out' >
+
               {/* Button to go back */}
               {/* Category title */}
               <button
@@ -104,12 +104,12 @@ const MobileAccordionMenu = ({ isOpen, onClick }) => {
               <ul className="space-y-0 font-poppins text-xs border-b-[0.5px] border-gray-200">
                 {Menu[openTopIndex].subMenu[openSubIndex].list.map((link, lidx) => (
                   <li key={lidx}>
-                    <a
-                      href={link.Link || link.link || '#'}
+                    <Link onClick={onClick}
+                      to={link.Link || link.link || '#'}
                       className="block p-3 bg-white  cursor-pointer  hover:bg-gray-50 transition-colors"
                     >
                       {link.name || link.color}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

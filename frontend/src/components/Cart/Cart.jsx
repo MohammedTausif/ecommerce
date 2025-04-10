@@ -14,7 +14,7 @@ import Checkout from './Checkout'
 const Cart = ({ isOpen, onClick }) => {
 
     const [shouldRender, setShouldRender] = useState(isOpen)
-    const [product, setProduct] = useState(1)
+    const [product, setProduct] = useState(null)
     const scrollContainerRef = useRef();
 
     useEffect(() => {

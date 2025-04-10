@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { AlignJustify, BriefcaseBusiness, Search, ShoppingBag, User, } from 'lucide-react'
+import { AlignJustify, Search, } from 'lucide-react'
 import DesktopMenu from '../Common/DesktopMenu'
 import Cart from '../Cart/Cart'
 import SearchPage from './Search'
@@ -10,11 +10,10 @@ const Navbar = () => {
     const [cartModel, setCartModel] = useState(false)
     const [searchModal, setSearchModal] = useState(false)
     const [searchError, setSearchError] = useState('')
-    const [menuModal , setMenuModal] = useState(false)
+    const [menuModal, setMenuModal] = useState(false)
 
-    const OpenMobileMenu = ()=>{
+    const OpenMobileMenu = () => {
         setMenuModal(!menuModal)
-        console.log("mobile menu called")
     }
 
     return (
@@ -30,18 +29,13 @@ const Navbar = () => {
                     </div>
 
                     {/* Mobile Menu */}
-                    <div
-                        className=' px-2 cursor-pointer md:hidden'
-                        onClick={OpenMobileMenu}
-                        >
-                        <AlignJustify size={20} className='stroke-1'
-                            // onClick={()=>setMenuModal(!menuModal)} 
-                        
-                        />
+                    <div className=' px-2 cursor-pointer md:hidden'
+                        onClick={OpenMobileMenu}  >
+                        <AlignJustify size={20} className='stroke-1' />
                     </div>
 
                     <div className='md:hidden  w-full h-screen'>
-                        <MobileAccordionMenu isOpen={menuModal} onClick={()=>setMenuModal(false)} />
+                        <MobileAccordionMenu isOpen={menuModal} onClick={() => setMenuModal(false)} />
 
                     </div>
 
