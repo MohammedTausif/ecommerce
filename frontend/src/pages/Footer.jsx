@@ -15,7 +15,7 @@ const Footer = () => {
 
 
   return (
-    <footer className="relative  bottom-0 mt-13 bg-black text-white font-poppins">
+    <footer className="relative  bottom-0  bg-black text-white font-poppins">
       <div className='flex w-full md:flex-row flex-col  h-full'>
         {/* Newsletter Section */}
        <Newsletter/>
