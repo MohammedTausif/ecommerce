@@ -62,7 +62,6 @@ const ShopAll = () => {
           Build your ROGER wardrobe with styles made from innovative materials. Discover our tracksuits, t-shirts, activewear, outerwear and sneakers for women in nature-inspired colors.
           </p>
         </div>
-        
 
         {/* Right horizontally scrollable product grid */}
         <div className="md:w-1/2 md:p-6 md:px-0 p-2 px-6 overflow-x-auto scrollbar-hide">
