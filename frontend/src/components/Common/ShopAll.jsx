@@ -3,6 +3,8 @@ import { Link, useSearchParams } from 'react-router-dom'
 import { Shop_All_Products as products } from '../../data/ShopAllData';
 import Button from '../ui/Button';
 import ProductCard from '../ui/ProductCard';
+import FilterButton from '../ui/FilterButton';
+import FilterSvg from '../../assets/icons/svgs/FilterSvg';
 
 
 
@@ -76,13 +78,17 @@ const ShopAll = () => {
       </section>
       {/* Filter & Sort Button */}
       <div>
-        <Button
-          title={`Sort & Filter `}
-          variant='sort'
-          link={`/shop-all?filter.p.product_type=${selectedtype}`}
-          className='absolute right-10 hidden md:block w-60'
+
+        <FilterButton
+        title={`Sort & Filter`}
+        Icon={FilterSvg}
+        className='absolute right-10 hidden md:flex w-60'
+        onClick={()=>console.log("sort button clicked")}
         />
+
       </div>
+
+      
 
       {/* Content section : */}
       <div className='mt-20 p-4 bg-gray-50 '>
