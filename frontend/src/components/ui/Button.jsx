@@ -12,7 +12,7 @@ const VariantStyle = {
 const Button = React.memo(({ link, title, variant, onClick, className = '' }) => {
     return (
         <Link to={link} onClick={onClick} >
-            <button className={`${className} flex  font-poppins  rounded-full  text-[11px] cursor-pointer py-4  ${VariantStyle[variant]} `}>
+            <button className={`${className} flex justify-center  font-poppins  rounded-full  text-[11px] cursor-pointer py-4  ${VariantStyle[variant]} `}>
                 {title}  
             </button>
         </Link>

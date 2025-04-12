@@ -1,18 +1,7 @@
-export const Shop_All_Products = [
-    { id: 1, image: 'https://pangaia.com/cdn/shop/files/DNA_Regenerative_Merino_Wool_Hoodie_Earth_Blue_Mens-3.jpg?crop=center&height=420&v=1730221807&width=420', title: ' HOODIES' , link:'hoodies'},
-    { id: 2, image: 'https://pangaia.com/cdn/shop/files/365_Midweight_Sweatshirt_Indigo_Blue_Womens-3.jpg?crop=center&height=420&v=1729738800&width=420', title: 'SWEATSHIRTS' , link:'sweatshirts'},
-    { id: 3, image: 'https://pangaia.com/cdn/shop/products/Recycled-Nylon-Cross-Body-Bag-Black-Male-1.jpg?crop=center&height=420&v=1724367496&width=420', title: 'BAGS', link:'bags' },
-    { id: 4, image: 'https://pangaia.com/cdn/shop/files/DNA_Oversized_T-Shirt_Raisin_Womens-3.jpg?crop=center&height=420&v=1724371124&width=420', title: 'T-SHIRTS', link:'t-shirts' },
-    { id: 5, image: 'https://pangaia.com/cdn/shop/files/FLWRDWN_Recycle_Nylon_Exaggerated_Long_Puffer_Rind_Yellow_Womens-3.jpg?crop=center&height=420&v=1724371548&width=420', title: 'JACKETS', link:'jackets' },
-    { id: 6, image: 'https://pangaia.com/cdn/shop/files/DNA_Recycled_Cashmere_Polo_Sweater_Moss_Green_Womens-1.jpg?crop=center&height=420&v=1729739522&width=420', title: 'JUMPERS', link:'jumpers' },
-    { id: 7, image: 'https://pangaia.com/cdn/shop/files/image_126.png?crop=center&height=420&v=1739835106&width=420', title: 'CARDIGANS', link:'cardigans' },
-    { id: 8, image: 'https://pangaia.com/cdn/shop/products/Organic-Cotton-Trench-Coat-Taupe-Female-3.jpg?crop=center&height=420&v=1726885602&width=420', title: 'COATS', link:'coats' },
-    { id: 9, image: 'https://pangaia.com/cdn/shop/files/FLOWER-WARMTH-LITE-GILET-WHEAT-BEIGE-MENS-1.jpg?crop=center&height=420&v=1743001476&width=420', title: 'GILETS', link:'gilets' },
-    { id: 10, image: 'https://pangaia.com/cdn/shop/files/Long_sleeve_tops.jpg?crop=center&height=420&v=1739835860&width=420', title: 'LONG SLEEVETOPS', link:'long' },
-    { id: 11, image: 'https://pangaia.com/cdn/shop/files/DNA_Utility_Trousers__Raisin_Purple_Womens-3.jpg?crop=center&height=420&v=1738565764&width=420', title: 'TROUSERS', link:'trousers' },
-  ];
-
-  export const Sample_Products = [
+// ProductGrid.jsx
+import { BaggageClaim, LuggageIcon } from 'lucide-react';
+import React from 'react';
+export const products = [
 
     {
         id: 1,
@@ -74,3 +63,76 @@ export const Shop_All_Products = [
     },
 
 ];
+
+const ItemssCard = ({ product, onAddToCart }) => {
+    return (
+        <div className="group relative ">
+            {/* Image Container */}
+            <div className="relative  sm:w-[351px] w-full md:w-[254px] lg:w-[339px] h-[308px] sm:h-[400px] md:h-[336px] lg:h-[455px] overflow-hidden bg-gray-100">
+                <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-full absolute inset-0  object-cover object-top md:object-center rounded-t transition-opacity duration-300 group-hover:opacity-0"
+                />
+
+                <img
+                    src={product.hoverImage}
+                    alt={product.title}
+                    className="absolute inset-0 w-full h-full object-cover object-top md:object-center  rounded-t transition-opacity duration-300 opacity-0  group-hover:opacity-100"
+                    loading='lazy'
+                />
+
+            </div>
+
+            {/* Product Info */}
+            <div className="pt-4 pb-2 px-1">
+                <div className="flex justify-between items-start">
+                    <div className="flex-1 min-w-0 font-poppins">
+                        <h3 className="text-[13px] leading-[1.4] font-medium text-gray-900 mb-[2px] tracking-wide">
+                            {product.title}
+                        </h3>
+                        <p className="text-xs text-gray-600 font-normal">₹{product.price}</p>
+                    </div>
+
+                    {/* Cart Button */}
+                    <div className="">
+                        <button
+                            onClick={() => onAddToCart(product)}
+                            className="w-9 h-9 bg-[#002fa7]  text-white rounded-full md:opacity-0 md:group-hover:opacity-100 flex justify-center items-center">
+                            <img
+                                className='w-[12px] h-[17px] size4 text-white  cursor-pointer'
+                                style={{ filter: 'invert(1)' }}
+                                src="src/assets/images/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxNiAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBjbGFzcz0ic3QtY3VycmVudCIgZGF0YS1sYWJlbD0ic3ZnIj4KICAgICAgICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsa.svg" alt="Cart icon" />
+                        </button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    )
+}
+
+const ProductGrid = () => {
+
+    const handleAddToCart = (product) => {
+        alert('Added to Cart :' + product.title)
+    }
+
+    return (
+        <div className="w-full  px-2 sm:px6 lg:px-5 py-2 bg-white ">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4  sm:gap-5">
+                {products.map((product) => (
+                    <ItemssCard
+                        key={product.id}
+                        product={product}
+                        onAddToCart={handleAddToCart}
+                    />
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default ProductGrid;
+

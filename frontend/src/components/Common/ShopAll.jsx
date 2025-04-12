@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom'
 import { Shop_All_Products as products } from '../../data/ShopAllData';
-import Button from '../ui/Button';
-import ProductCard from '../ui/ProductCard';
 import FilterButton from '../ui/FilterButton';
 import FilterSvg from '../../assets/icons/svgs/FilterSvg';
-
-
+import ItemssCard from '../ui/ItemsCard';
+import { Sample_Products } from '../../data/ShopAllData';
 
 //  product card
 const ProductCards = ({ product, isActive, onClick }) => (
-  <div className={` w-48   overflow-hidden shadow-md cursor-pointer transition-border duration-300 ${isActive ? "border-1 border-black " : "border-1 border-transparent "}`}
+  <div className={` w-48 z-10  overflow-hidden shadow-md cursor-pointer transition-border duration-300 ${isActive ? "border-1 border-black " : "border-1 border-transparent "}`}
     onClick={onClick} >
 
     <div className='relative w-full h-48'>
@@ -40,9 +38,15 @@ const ShopAll = () => {
   const selectedtype = searchParams.get('filter.p.product_type');
 
   const selectedProduct = products.find(p => p.link === selectedtype)
-  
+
+  const handleAddToCart = (product) => {
+    alert('Added to cart :' + product.title)
+
+  }
+
+
   return (
-    <div className="min-h-screen mt-25 md:mt-13 bg-white">
+    <div className="min-h-screen mt-25  bg-white">
       <section className="flex flex-col md:flex-row mt-18">
         {/* Left panel Heading and description */}
         <div className="relative md:left-25 md:w-1/2 p-6 flex flex-col justify-center items-start bg-white font-poppins">
@@ -58,7 +62,7 @@ const ShopAll = () => {
 
           <h1 className="text-3xl font-medium font-poppins mb-2 text-gray-900">Shop All</h1>
           <p className="text-[16px] text-black md:w-[68%]">
-            Build your ROGER wardrobe with styles made from innovative materials. Discover our tracksuits, t-shirts, activewear, outerwear and sneakers for women in nature-inspired colors.
+            Build your ROGER wardrobe with styles made from innovative materials. Discover our tracksuits, t-shirts, <span className='underline'>activewear</span>, <span className='underline'>outerwear</span> and sneakers for women in nature-inspired colors.
           </p>
         </div>
 
@@ -77,64 +81,41 @@ const ShopAll = () => {
 
       </section>
       {/* Filter & Sort Button */}
-      <div>
+      <div className='mt-3 '>
 
         <FilterButton
-        title={`Sort & Filter`}
-        Icon={FilterSvg}
-        className='absolute right-10 hidden md:flex w-60'
-        onClick={()=>console.log("sort button clicked")}
+          title={`Sort & Filter`}
+          Icon={FilterSvg}
+          className='absolute right-10 hidden md:flex w-60'
+          onClick={() => console.log("sort button clicked")}
         />
 
       </div>
 
-      
+
 
       {/* Content section : */}
-      <div className='mt-20 p-4 bg-gray-50 '>
+      <div className='mt-20 py-4 bg-white  '>
         {
           selectedtype === null ? (
             <div className='text-black'>
               Please select any product type to view products
 
             </div>
-          ) : (<div className='flex md:flex-row flex-col gap-3'>
-            <div className="relative bg-gray-50 w-full h-[550px] md:w-[297.5px] md:h-[395px] lg:w-[345px] lg:h-[459px] overflow-hidde group">
+          ) : (
+            <div className='w-full px-4 py-2 sm:px-6 lg:px-5 bg-white '>
+              <div
+                className='grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 '
+                style={{gridAutoRows :'1fr' }}
+                >
 
-              <ProductCard
-                title={selectedProduct.title}
-                imageUrl={selectedProduct.image}
-                link={selectedProduct.link}
-                effect={false}
-              />
+                {
+                  Sample_Products.map((product) => (
+                    <ItemssCard product={product} key={product.id} onAddToCart={handleAddToCart} />
+                  ))
+                }
+              </div>
             </div>
-            <h1>{selectedProduct.title}</h1>
-
-            {/* no:2 card */}
-            <div className="relative bg-gray-50 w-full h-[550px] md:w-[297.5px] md:h-[395px] lg:w-[345px] lg:h-[459px] overflow-hidde group">
-
-              <ProductCard
-                title={selectedProduct.title}
-                imageUrl={selectedProduct.image}
-                link={selectedProduct.link}
-                effect={false}
-              />
-            </div>
-            <h1>{selectedProduct.title}</h1>
-
-            {/* no:3 Card */}
-
-            <div className="relative bg-gray-50 w-full h-[550px] md:w-[297.5px] md:h-[395px] lg:w-[345px] lg:h-[459px] overflow-hidde group">
-
-              <ProductCard
-                title={selectedProduct.title}
-                imageUrl={selectedProduct.image}
-                link={selectedProduct.link}
-                effect={false}
-              />
-            </div>
-            <h1>{selectedProduct.title}</h1>
-          </div>
           )
         }
 
