@@ -5,6 +5,7 @@ import FilterButton from '../ui/FilterButton';
 import FilterSvg from '../../assets/icons/svgs/FilterSvg';
 import ItemssCard from '../ui/ItemsCard';
 import { Sample_Products } from '../../data/ShopAllData';
+import SortFilter from '../sort/Sort-Filter';
 
 //  product card
 const ProductCards = ({ product, isActive, onClick }) => (
@@ -34,6 +35,8 @@ const ProductCards = ({ product, isActive, onClick }) => (
 
 // Main  component
 const ShopAll = () => {
+
+  const[openSortFilter, setOpenSortFilter]= useState(false)
   const [searchParams] = useSearchParams();
   const selectedtype = searchParams.get('filter.p.product_type');
 
@@ -42,6 +45,9 @@ const ShopAll = () => {
   const handleAddToCart = (product) => {
     alert('Added to cart :' + product.title)
 
+  }
+  const handleSortFilter=()=>{
+    setOpenSortFilter(!openSortFilter)
   }
 
 
@@ -79,6 +85,7 @@ const ShopAll = () => {
         </div>
 
 
+
       </section>
       {/* Filter & Sort Button */}
       <div className='mt-3 '>
@@ -87,12 +94,13 @@ const ShopAll = () => {
           title={`Sort & Filter`}
           Icon={FilterSvg}
           className='absolute right-10 hidden md:flex w-60'
-          onClick={() => console.log("sort button clicked")}
+          onClick={() => setOpenSortFilter(!openSortFilter)}
         />
 
       </div>
 
-
+      {/* sort popup  */}
+      <SortFilter isOpen={openSortFilter} onClose={handleSortFilter} />
 
       {/* Content section : */}
       <div className='mt-20 py-4 bg-white  '>
@@ -120,6 +128,7 @@ const ShopAll = () => {
         }
 
       </div>
+
     </div>
   );
 };

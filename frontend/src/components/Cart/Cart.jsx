@@ -161,7 +161,6 @@ const Cart = ({ isOpen, onClick }) => {
 
                                         {
                                             //checkout Pop-up
-                                            
                                             product != null && <div>
                                                 <Checkout/>
                                             </div>
