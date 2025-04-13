@@ -13,7 +13,7 @@ const ProductCards = ({ product, isActive, onClick }) => (
     onClick={onClick} >
 
     <div className='relative w-full h-48'>
-      <Link to={`/shop-all?filter.p.product_type=${product.link}`}>
+      <Link to={`?filter.p.product_type=${product.link}`}>
         <img
           src={product.image}
           alt={product.title}
@@ -95,6 +95,7 @@ const ShopAll = () => {
           Icon={FilterSvg}
           className='absolute right-10 hidden md:flex w-60'
           onClick={() => setOpenSortFilter(!openSortFilter)}
+          isActive={false}
         />
 
       </div>
