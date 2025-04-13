@@ -3,12 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { searchCartVariants } from '../Common/Search'
 import { X } from 'lucide-react'
 import Button from '../ui/Button'
-import { ProductColors } from '../../data/FilterData'
+import { Gender, ProductColors, ProductTypes, Science, Size, SortBy } from '../../data/FilterData'
 
-const SortFilter = ({ isOpen, onClose }) => {
-    const [isActive, setIsActive] = useState(false)
-
+const SortFilter = ({ isOpen, onClose, onFilterSelect, onSortSelect, clearFilter, clearSort, selectedType, selectedSort }) => {
     const [shouldRender, setShouldRender] = useState(isOpen)
+    
+
     useEffect(() => {
         if (isOpen) {
             setShouldRender(true)
@@ -59,13 +59,18 @@ const SortFilter = ({ isOpen, onClose }) => {
 
                                         {/* Sort by section */}
                                         <div className='h-36 flex flex-col justify-start items-start border-b border-gray-200 bg-white  red-400 p-4'>
-                                            <h1 className='text-black text-lg font-poppins font-normal'>Sort by</h1>
+                                            <h2 className='text-black text-lg font-poppins font-normal'>Sort by</h2>
                                             <div className='flex justify-start text-[10px] md:text-xs font-normal font-poppins items-center h-full w-full gap-2 md:gap-3'>
 
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>New In</button>
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>Trending</button>
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>Price Low to High</button>
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>Price High to Low</button>
+                                                {SortBy.map((option) => (
+                                                    <button
+                                                        key={option.value}
+                                                        className={`bg-[$F8F8F8] h-16 px-3 md:px-5 ${selectedSort === option.value ? "border border-black" : "border border-gray-100 hover:border-black"}`}
+                                                        onClick={() => onSortSelect(option.value)}>
+                                                        {option.label}
+                                                    </button>
+                                                ))
+                                                }
 
                                             </div>
 
@@ -77,11 +82,18 @@ const SortFilter = ({ isOpen, onClose }) => {
                                             <h1 className='text-black text-lg font-poppins font-normal'>Gender</h1>
                                             <div className='flex justify-start text-[10px] md:text-xs font-normal font-poppins items-center h-full w-full gap-2 md:gap-3'>
 
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>Women</button>
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>Men</button>
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>Unisex</button>
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>Kids</button>
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>Baby</button>
+                                                {
+                                                    Gender.map((option) => (
+                                                        <button
+                                                            key={option.value}
+                                                            className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${selectedType === option.value ? "border border-black " : "border border-transparent hover:border-black"}`}
+                                                            onClick={() => onFilterSelect(option.value)}
+                                                        >
+                                                            {option.label}
+
+                                                        </button>
+                                                    ))
+                                                }
 
                                             </div>
 
@@ -94,14 +106,17 @@ const SortFilter = ({ isOpen, onClose }) => {
                                             <h1 className='text-black text-lg font-poppins font-normal'>Size</h1>
                                             <div className='flex justify-start text-[10px] md:text-xs font-normal font-poppins items-center h-full w-full gap-2 md:gap-4'>
 
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-6 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>XXS</button>
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-6 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>XS</button>
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-6 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>S</button>
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-6 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>M</button>
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-6 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>L</button>
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-6 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>XL</button>
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-6 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>XXl</button>
-
+                                                {
+                                                    Size.map((option) => (
+                                                        <button
+                                                            key={option.value}
+                                                            className={`bg-[#F8F8F8] h-16 md:px-6 px-3 ${selectedType === option.value ? "border border-black" : "border border-transparent hover:border-black"}`}
+                                                            onClick={() => onFilterSelect(option.value)}
+                                                        >
+                                                            {option.label}
+                                                        </button>
+                                                    ))
+                                                }
                                             </div>
 
                                         </div>
@@ -112,14 +127,17 @@ const SortFilter = ({ isOpen, onClose }) => {
                                             <h1 className='text-black text-lg font-poppins font-normal'>Product type</h1>
                                             <div className='flex justify-start text-[10px] md:text-xs font-normal font-poppins items-center h-full w-full gap-2 md:gap-3'>
 
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>New In</button>
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>Trending</button>
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>Price Low to High</button>
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>Price Low to High</button>
-
+                                                {
+                                                    ProductTypes.map((option) => (
+                                                        <button
+                                                            key={option.value}
+                                                            className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${selectedType === option.value ? "border border-black" : "border border-transparent hover:border-black"}`}
+                                                            onClick={() => onFilterSelect(option.value)} >
+                                                            {option.label}
+                                                        </button>
+                                                    ))
+                                                }
                                             </div>
-
-
                                         </div>
 
                                         {/* FIlter By Color */}
@@ -128,33 +146,31 @@ const SortFilter = ({ isOpen, onClose }) => {
                                             <div className='flex justify-start w-full h-full items-center gap-3'>
                                                 {ProductColors.map((color) => (
                                                     <button
-                                                        key={color.id}
-                                                        className={`w-7 h-7 rounded-full border border-gray-300 cursor-pointer  ${isActive? "ring-1 ring-black ring-offset-2": "ring-1 ring-transparent ring-offset-2 hover:ring-black"}`}
-                                                        style={{backgroundColor: color.color}}
+                                                        key={color.name}
+                                                        className={`w-7 h-7 rounded-full border border-gray-300 cursor-pointer  ${selectedType === color.name ? "ring-1 ring-black ring-offset-2" : "ring-1 ring-transparent ring-offset-2 hover:ring-black"}`}
+                                                        style={{ backgroundColor: color.color }}
                                                         title={color.name}
-                                                        onClick={()=> alert(color.name)}
+                                                        onClick={() => selectedType(color.name)}
                                                     />
                                                 ))}
-
-
                                             </div>
-
-
                                         </div>
 
                                         {/* FIlter by Science */}
                                         <div className='h-36 flex flex-col justify-start items-start bg-white  red-400 p-4 '>
                                             <h1 className='text-black text-lg font-poppins font-normal'>Science</h1>
                                             <div className='flex justify-start text-[10px] md:text-xs font-normal font-poppins items-center h-full w-full gap-2 md:gap-3'>
-
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>New In</button>
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>Trending</button>
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>Price Low to High</button>
-                                                <button className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${isActive ? "border-1 border-black" : "border-1 border-transparent hover:ring-1"}`}>Price Low to High</button>
-
+                                                {
+                                                    Science.map((option) => (
+                                                        <button
+                                                            key={option.value}
+                                                            className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${selectedType === option.value ? "border border-black" : "border border-transparent hover:border-black"}`}
+                                                            onClick={() => onFilterSelect(option.value)}   >
+                                                            {option.label}
+                                                        </button>
+                                                    ))
+                                                }
                                             </div>
-
-
                                         </div>
                                         <div className='h-25 '>
 
@@ -163,9 +179,9 @@ const SortFilter = ({ isOpen, onClose }) => {
                                         {/* Footer */}
                                         <footer className='fixed bottom-0 w-full bg-white -700 h-24 shadow border-t border-gray-200'>
 
-                                            <div className=' w-[40vw] h-full flex justify-evenly items-center'>
+                                            <div className=' w-[40vw] h-full flex justify-between items-center'>
                                                 <Button
-                                                    title={`Show ${6} Results`}
+                                                    title={`Show Results`}
                                                     variant='custom'
                                                     className="w-62"
                                                 />
@@ -174,6 +190,7 @@ const SortFilter = ({ isOpen, onClose }) => {
                                                     title={`Reset filters`}
                                                     variant='outline'
                                                     className="w-62"
+                                                    onClick={()=>{clearFilter(); clearSort() }}
                                                 />
                                             </div>
 
