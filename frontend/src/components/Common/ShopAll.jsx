@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link, useSearchParams } from 'react-router-dom'
 import { Shop_All_Products as products } from '../../data/ShopAllData';
 import FilterButton from '../ui/FilterButton';
@@ -8,26 +8,22 @@ import { Sample_Products } from '../../data/ShopAllData';
 import SortFilter from '../sort/Sort-Filter';
 
 //  product card
-const ProductCards = ({ product, isActive, onClick }) => (
-  <div className={` w-48 z-10  overflow-hidden shadow-md cursor-pointer transition-border duration-300 ${isActive ? "border-1 border-black " : "border-1 border-transparent "}`}
+const ProductCards = ({ product, onClick, selectedtype }) => (
+  <div key={product.id} className={` w-48 z-10  overflow-hidden shadow-md cursor-pointer transition-border duration-300 ${selectedtype === product.link ? "border-1 border-black " : "border-1 border-transparent "}`}
     onClick={onClick} >
 
-    <div className='relative w-full h-48'>
-      <Link to={`?filter.p.product_type=${product.link}`}>
-        <img
-          src={product.image}
-          alt={product.title}
-          className="w-full h-full relative  object-cover "
-        />
-        {/* Gradient overlay for title readability (NEW) */}
-        <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black/60 to-transparent pointer-events-none opacity-80 rounded-t-lg"></div>
+    <div className='relative w-full h-48 group overflow-hidden'>
 
-
-        <h3 className="absolute bottom-2 left-2 text-xs font-poppins font-light text-white">
-          {product.title}
-        </h3>
-
-      </Link>
+      <img
+        src={product.image}
+        alt={product.title}
+        className="w-full h-full relative  object-cover "
+      />
+      {/* Gradient overlay for title readability (NEW) */}
+      <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black/60 to-transparent pointer-events-none opacity-80 rounded-t-lg"></div>
+      <h3 className="absolute bottom-2 left-2 text-xs font-poppins font-light text-white">
+        {product.title}
+      </h3>
     </div>
   </div >
 
@@ -36,23 +32,58 @@ const ProductCards = ({ product, isActive, onClick }) => (
 // Main  component
 const ShopAll = () => {
 
-  const[openSortFilter, setOpenSortFilter]= useState(false)
-  const [searchParams] = useSearchParams();
+  const [openSortFilter, setOpenSortFilter] = useState(false)
+  const [searchParams, setSearchParams] = useSearchParams();
   const selectedtype = searchParams.get('filter.p.product_type');
+  const sortBy = searchParams.get('sort_by')
 
-  const selectedProduct = products.find(p => p.link === selectedtype)
+
+  const updateParams = (key, value) => {
+    const params = new URLSearchParams(searchParams);
+    if (value) {
+      params.set(key, value)
+    }
+    else {
+      params.delete(key)
+    }
+    setSearchParams(params);
+  }
+
+  const handleFIlterSelect = (type) => updateParams('filter.p.product_type', type);
+  const handleSortSelect = (type) => updateParams('sort_by', type);
+  const clearFilter = () => updateParams('filter.p.product_type', null);
+  const clearSort = () => updateParams('sort_by', null);
+
+ 
+  const badgeCount = useMemo(() => {
+    let count = 0;
+    // sort_by
+    if (searchParams.has('sort_by')) count++;
+
+    //  all filter
+    for (let [key, value] of searchParams.entries()) {
+      if (key.startsWith('filter.')) {
+        count++;
+      }
+    }
+
+    return count;
+  }, [searchParams]);
+
+  const selectedProduct = products.find(product => product.link === selectedtype)
 
   const handleAddToCart = (product) => {
     alert('Added to cart :' + product.title)
 
   }
-  const handleSortFilter=()=>{
-    setOpenSortFilter(!openSortFilter)
+  const toggleSortFilter = () => {
+    setOpenSortFilter((prev) => !prev)
   }
 
 
   return (
     <div className="min-h-screen mt-25  bg-white">
+      {/* Header section */}
       <section className="flex flex-col md:flex-row mt-18">
         {/* Left panel Heading and description */}
         <div className="relative md:left-25 md:w-1/2 p-6 flex flex-col justify-center items-start bg-white font-poppins">
@@ -79,7 +110,12 @@ const ShopAll = () => {
             style={{ gridAutoColumns: '200px' }}
           >
             {products.map((prod) => (
-              <ProductCards key={prod.id} product={prod} isActive={prod.link === selectedtype} />
+              <ProductCards
+                key={prod.id}
+                product={prod}
+                selectedtype={selectedtype}
+                onClick={() => handleFIlterSelect(prod.link)}
+              />
             ))}
           </div>
         </div>
@@ -91,17 +127,26 @@ const ShopAll = () => {
       <div className='mt-3 '>
 
         <FilterButton
-          title={`Sort & Filter`}
+          title="Sort & Filter"
           Icon={FilterSvg}
-          className='absolute right-10 hidden md:flex w-60'
-          onClick={() => setOpenSortFilter(!openSortFilter)}
-          isActive={false}
+          onClick={toggleSortFilter}
+          isActive={badgeCount > 0}
+          badgeCount={badgeCount}
+          className='absolute right-10 hidden md:flex w-60 '
         />
 
       </div>
 
       {/* sort popup  */}
-      <SortFilter isOpen={openSortFilter} onClose={handleSortFilter} />
+      <SortFilter isOpen={openSortFilter}
+       onClose={toggleSortFilter}
+       onFilterSelect={handleFIlterSelect}
+       onSortSelect={handleSortSelect}
+       clearFilter={clearFilter}
+       clearSort={clearSort}
+       selectedSort={sortBy}
+       selectedType={selectedtype}
+        />
 
       {/* Content section : */}
       <div className='mt-20 py-4 bg-white  '>
@@ -115,8 +160,8 @@ const ShopAll = () => {
             <div className='w-full px-4 py-2 sm:px-6 lg:px-5 bg-white '>
               <div
                 className='grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 '
-                style={{gridAutoRows :'1fr' }}
-                >
+                style={{ gridAutoRows: '1fr' }}
+              >
 
                 {
                   Sample_Products.map((product) => (

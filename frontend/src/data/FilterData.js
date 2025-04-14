@@ -14,7 +14,7 @@ export const ProductColors = [
 ]
 
 export const SortBy = [
-    { label: 'New In', value: 'manual' },
+    { label: 'New In', value: 'new-in' },
     { label: 'Trending', value: 'trending' },
     { label: 'Price Low to High', value: 'price-ascending' },
     { label: 'Price High to Low', value: 'price-descending' }

@@ -179,11 +179,12 @@ const SortFilter = ({ isOpen, onClose, onFilterSelect, onSortSelect, clearFilter
                                         {/* Footer */}
                                         <footer className='fixed bottom-0 w-full bg-white -700 h-24 shadow border-t border-gray-200'>
 
-                                            <div className=' w-[40vw] h-full flex justify-between items-center'>
+                                            <div className=' w-[40vw] h-full flex justify-evenly items-center'>
                                                 <Button
                                                     title={`Show Results`}
                                                     variant='custom'
                                                     className="w-62"
+                                                    onClick={() => { onClose(); onFilterSelect(selectedType); onSortSelect(selectedSort) }}
                                                 />
 
                                                 <Button

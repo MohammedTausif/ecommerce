@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FilterButton = React.memo(({ title, className = '', Icon, onClick, isActive }) => {
+const FilterButton = React.memo(({ title, className = '', Icon, onClick, isActive, badgeCount = 0}) => {
   return (
     <div>
       <button
@@ -13,7 +13,7 @@ const FilterButton = React.memo(({ title, className = '', Icon, onClick, isActiv
           {Icon && (typeof Icon === 'function' ? <Icon className="w-full h-full" /> : Icon)}
 
           {isActive && (
-            <span className="absolute -top-2 -right-2 w-3.5 h-3.5 bg-[#D70000] rounded-full text-[10px] font-extralight font-sans flex justify-center items-center " >1</span>
+            <span className="absolute -top-2 -right-2 w-3.5 h-3.5 bg-[#D70000] rounded-full text-[10px] font-extralight font-sans flex justify-center items-center " >{badgeCount}</span>
           )}
         </span>
         
