@@ -7,30 +7,9 @@ import ItemssCard from '../ui/ItemsCard';
 import { Sample_Products } from '../../data/ShopAllData';
 import SortFilter from '../sort/Sort-Filter';
 import { updateParams } from '../../utils/urlHelpers';
+import ThumbnailCard from '../ui/ThumbnailCard';
 
-//  product card
-const ProductCards = ({ product, onClick, selectedtype }) => (
-  <div key={product.id} className={` w-48 z-10  overflow-hidden shadow-md cursor-pointer transition-border duration-300 ${selectedtype === product.link ? "border-1 border-black " : "border-1 border-transparent "}`}
-    onClick={onClick} >
 
-    <div className='relative w-full h-48 group overflow-hidden'>
-
-      <img
-        src={product.image}
-        alt={product.title}
-        className="w-full h-full relative  object-cover "
-      />
-      {/* Gradient overlay for title readability (NEW) */}
-      <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black/60 to-transparent pointer-events-none opacity-80 rounded-t-lg"></div>
-      <h3 className="absolute bottom-2 left-2 text-xs font-poppins font-light text-white">
-        {product.title}
-      </h3>
-    </div>
-  </div >
-
-);
-
-// Main  component
 const ShopAll = () => {
 
   const [openSortFilter, setOpenSortFilter] = useState(false)
@@ -42,15 +21,12 @@ const ShopAll = () => {
   const color = searchParams.get('filter.v.option.color');
 
 
-
-
   const handleTypeSelect = (value) => updateParams(searchParams, setSearchParams, 'filter.p.product_type', value);
   const handleSortSelect = (value) => updateParams(searchParams, setSearchParams, 'sort_by', value);
   const handleSizeSelect = (value) => updateParams(searchParams, setSearchParams, 'filter.v.option.size', value)
   const handleGenderSelect = (value) => updateParams(searchParams, setSearchParams, 'filter.p.m.custom.gender', value)
 
-  const clearFilter = () => updateParams('filter.p.product_type', null);
-  const clearSort = () => updateParams('sort_by', null);
+  const selectedProduct = products.find(product => product.link === selectedtype)
 
   //Clearing function for filter & sort
   const clearAll = () => {
@@ -73,7 +49,6 @@ const ShopAll = () => {
     return count;
   }, [searchParams]);
 
-  const selectedProduct = products.find(product => product.link === selectedtype)
 
   const handleAddToCart = (product) => {
     alert('Added to cart :' + product.title)
@@ -113,7 +88,7 @@ const ShopAll = () => {
             style={{ gridAutoColumns: '200px' }}
           >
             {products.map((prod) => (
-              <ProductCards
+              <ThumbnailCard
                 key={prod.id}
                 product={prod}
                 selectedtype={selectedtype}
@@ -128,7 +103,6 @@ const ShopAll = () => {
       </section>
       {/* Filter & Sort Button */}
       <div className='mt-3 '>
-
         <FilterButton
           title="Sort & Filter"
           Icon={FilterSvg}
@@ -148,8 +122,6 @@ const ShopAll = () => {
         onFilterSelect={handleGenderSelect}
         onSizeSelect={handleSizeSelect}
         onTypeSelect={handleTypeSelect}
-        clearFilter={clearFilter}
-        clearSort={clearSort}
         selectedSort={sortBy}
         selectedType={selectedtype}
         selectedSize={size}
