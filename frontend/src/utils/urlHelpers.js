@@ -10,7 +10,7 @@ export function updateParams (searchParams, setSearchParams, key, value , multi 
         newValues.forEach(v => params.append(key, v))
     }
     else{
-        if(value == null) params.delete(key)
+        if(params.get(key) === value) params.delete(key)
             else params.set(key, value)
         }
         setSearchParams(params);

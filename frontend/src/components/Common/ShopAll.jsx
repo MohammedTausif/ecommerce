@@ -42,25 +42,21 @@ const ShopAll = () => {
   const color = searchParams.get('filter.v.option.color');
 
 
-  // const updateParams = (key, value) => {
-  //   const params = new URLSearchParams(searchParams);
-  //   if (value) {
-  //     params.set(key, value)
-  //   }
-  //   else {
-  //     params.delete(key)
-  //   }
-  //   setSearchParams(params);
-  // }
+
 
   const handleTypeSelect = (value) => updateParams(searchParams, setSearchParams, 'filter.p.product_type', value);
   const handleSortSelect = (value) => updateParams(searchParams, setSearchParams, 'sort_by', value);
   const handleSizeSelect = (value) => updateParams(searchParams, setSearchParams, 'filter.v.option.size', value)
-  const handleGenderSelect = (value) => updateParams(searchParams, setSearchParams, 'filter.p.m.custom.gender', value, true)
+  const handleGenderSelect = (value) => updateParams(searchParams, setSearchParams, 'filter.p.m.custom.gender', value)
 
   const clearFilter = () => updateParams('filter.p.product_type', null);
   const clearSort = () => updateParams('sort_by', null);
 
+  //Clearing function for filter & sort
+  const clearAll = () => {
+    setSearchParams(new URLSearchParams());
+
+  }
 
   const badgeCount = useMemo(() => {
     let count = 0;
@@ -144,7 +140,7 @@ const ShopAll = () => {
 
       </div>
 
-      {/* sort popup  */}
+      {/* sort popup page  */}
       <SortFilter
         isOpen={openSortFilter}
         onClose={toggleSortFilter}
@@ -158,6 +154,7 @@ const ShopAll = () => {
         selectedType={selectedtype}
         selectedSize={size}
         selectedGenders={genders}
+        clearAll={clearAll}
       />
 
       {/* Content section : */}

@@ -5,7 +5,7 @@ import { X } from 'lucide-react'
 import Button from '../ui/Button'
 import { Gender, ProductColors, ProductTypes, Science, Size, SortBy } from '../../data/FilterData'
 
-const SortFilter = ({ isOpen, onClose, onFilterSelect, onSortSelect, onSizeSelect,onTypeSelect,clearFilter, clearSort, selectedType,selectedSize,selectedGenders, selectedSort }) => {
+const SortFilter = ({ isOpen, onClose, onFilterSelect, onSortSelect, onSizeSelect,onTypeSelect,clearFilter, clearSort, selectedType,selectedSize,selectedGenders, selectedSort, clearAll }) => {
     const [shouldRender, setShouldRender] = useState(isOpen)
     
 
@@ -192,7 +192,7 @@ const SortFilter = ({ isOpen, onClose, onFilterSelect, onSortSelect, onSizeSelec
                                                     title={`Reset filters`}
                                                     variant='outline'
                                                     className="w-62"
-                                                    onClick={()=>{clearFilter(); clearSort() }}
+                                                    onClick={()=>{clearAll(); onClose()}}
                                                 />
                                             </div>
 
