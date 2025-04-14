@@ -10,14 +10,15 @@ const VariantStyle = {
 }
 
 const Button = React.memo(({ link, title, variant, onClick, className = '' }) => {
-    return (
-        <Link to={link} onClick={onClick} >
-            <button className={`${className} flex justify-center  font-poppins  rounded-full  text-[11px] cursor-pointer py-4  ${VariantStyle[variant]} `}>
-                {title}
-            </button>
-        </Link>
+    const buttonElemnet = (
+        <button
+            onClick={onClick}
+            className={`${className} flex justify-center  font-poppins  rounded-full  text-[11px] cursor-pointer py-4  ${VariantStyle[variant]} `}>
+            {title}
+        </button>
+    );
+    return link? <Link to={link}>{buttonElemnet} </Link> : buttonElemnet;
 
-    )
 });
 
 export default Button

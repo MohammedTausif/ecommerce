@@ -23,3 +23,4 @@ const FilterButton = React.memo(({ title, className = '', Icon, onClick, isActiv
 });
 
 export default FilterButton;
+

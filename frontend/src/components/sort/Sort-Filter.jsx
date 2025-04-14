@@ -184,7 +184,7 @@ const SortFilter = ({ isOpen, onClose, onFilterSelect, onSortSelect, onSizeSelec
                                                     title={`Show Results`}
                                                     variant='custom'
                                                     className="w-62"
-                                                    onClick={onClose()}
+                                                    onClick={onClose}
                                                     // onClick={() => { onClose(); onSortSelect(selectedSort); onSizeSelect(selectedSize); onTypeSelect(selectedType); onFilterSelect(selectedGenders) }}
                                                 />
 
