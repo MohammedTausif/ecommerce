@@ -5,7 +5,7 @@ import { X } from 'lucide-react'
 import Button from '../ui/Button'
 import { Gender, ProductColors, ProductTypes, Science, Size, SortBy } from '../../data/FilterData'
 
-const SortFilter = ({ isOpen, onClose, onFilterSelect, onSortSelect, clearFilter, clearSort, selectedType, selectedSort }) => {
+const SortFilter = ({ isOpen, onClose, onFilterSelect, onSortSelect, onSizeSelect,onTypeSelect,clearFilter, clearSort, selectedType,selectedSize,selectedGenders, selectedSort }) => {
     const [shouldRender, setShouldRender] = useState(isOpen)
     
 
@@ -86,7 +86,7 @@ const SortFilter = ({ isOpen, onClose, onFilterSelect, onSortSelect, clearFilter
                                                     Gender.map((option) => (
                                                         <button
                                                             key={option.value}
-                                                            className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${selectedType === option.value ? "border border-black " : "border border-transparent hover:border-black"}`}
+                                                            className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${selectedGenders === option.value ? "border border-black " : "border border-transparent hover:border-black"}`}
                                                             onClick={() => onFilterSelect(option.value)}
                                                         >
                                                             {option.label}
@@ -110,8 +110,8 @@ const SortFilter = ({ isOpen, onClose, onFilterSelect, onSortSelect, clearFilter
                                                     Size.map((option) => (
                                                         <button
                                                             key={option.value}
-                                                            className={`bg-[#F8F8F8] h-16 md:px-6 px-3 ${selectedType === option.value ? "border border-black" : "border border-transparent hover:border-black"}`}
-                                                            onClick={() => onFilterSelect(option.value)}
+                                                            className={`bg-[#F8F8F8] h-16 md:px-6 px-3 ${selectedSize === option.value ? "border border-black" : "border border-transparent hover:border-black"}`}
+                                                            onClick={() => onSizeSelect(option.value)}
                                                         >
                                                             {option.label}
                                                         </button>
@@ -132,7 +132,7 @@ const SortFilter = ({ isOpen, onClose, onFilterSelect, onSortSelect, clearFilter
                                                         <button
                                                             key={option.value}
                                                             className={`bg-[#F8F8F8] h-16 md:px-5 px-3 ${selectedType === option.value ? "border border-black" : "border border-transparent hover:border-black"}`}
-                                                            onClick={() => onFilterSelect(option.value)} >
+                                                            onClick={() => onTypeSelect(option.value)} >
                                                             {option.label}
                                                         </button>
                                                     ))
@@ -184,7 +184,8 @@ const SortFilter = ({ isOpen, onClose, onFilterSelect, onSortSelect, clearFilter
                                                     title={`Show Results`}
                                                     variant='custom'
                                                     className="w-62"
-                                                    onClick={() => { onClose(); onFilterSelect(selectedType); onSortSelect(selectedSort) }}
+                                                    onClick={onClose()}
+                                                    // onClick={() => { onClose(); onSortSelect(selectedSort); onSizeSelect(selectedSize); onTypeSelect(selectedType); onFilterSelect(selectedGenders) }}
                                                 />
 
                                                 <Button

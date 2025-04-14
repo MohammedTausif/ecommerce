@@ -6,6 +6,7 @@ import FilterSvg from '../../assets/icons/svgs/FilterSvg';
 import ItemssCard from '../ui/ItemsCard';
 import { Sample_Products } from '../../data/ShopAllData';
 import SortFilter from '../sort/Sort-Filter';
+import { updateParams } from '../../utils/urlHelpers';
 
 //  product card
 const ProductCards = ({ product, onClick, selectedtype }) => (
@@ -36,25 +37,31 @@ const ShopAll = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const selectedtype = searchParams.get('filter.p.product_type');
   const sortBy = searchParams.get('sort_by')
+  const genders = searchParams.get('filter.p.m.custom.gender');
+  const size = searchParams.get('filter.v.option.size');
+  const color = searchParams.get('filter.v.option.color');
 
 
-  const updateParams = (key, value) => {
-    const params = new URLSearchParams(searchParams);
-    if (value) {
-      params.set(key, value)
-    }
-    else {
-      params.delete(key)
-    }
-    setSearchParams(params);
-  }
+  // const updateParams = (key, value) => {
+  //   const params = new URLSearchParams(searchParams);
+  //   if (value) {
+  //     params.set(key, value)
+  //   }
+  //   else {
+  //     params.delete(key)
+  //   }
+  //   setSearchParams(params);
+  // }
 
-  const handleFIlterSelect = (type) => updateParams('filter.p.product_type', type);
-  const handleSortSelect = (type) => updateParams('sort_by', type);
+  const handleTypeSelect = (value) => updateParams(searchParams, setSearchParams, 'filter.p.product_type', value);
+  const handleSortSelect = (value) => updateParams(searchParams, setSearchParams, 'sort_by', value);
+  const handleSizeSelect = (value) => updateParams(searchParams, setSearchParams, 'filter.v.option.size', value)
+  const handleGenderSelect = (value) => updateParams(searchParams, setSearchParams, 'filter.p.m.custom.gender', value, true)
+
   const clearFilter = () => updateParams('filter.p.product_type', null);
   const clearSort = () => updateParams('sort_by', null);
 
- 
+
   const badgeCount = useMemo(() => {
     let count = 0;
     // sort_by
@@ -114,7 +121,7 @@ const ShopAll = () => {
                 key={prod.id}
                 product={prod}
                 selectedtype={selectedtype}
-                onClick={() => handleFIlterSelect(prod.link)}
+                onClick={() => handleTypeSelect(prod.link)}
               />
             ))}
           </div>
@@ -138,15 +145,20 @@ const ShopAll = () => {
       </div>
 
       {/* sort popup  */}
-      <SortFilter isOpen={openSortFilter}
-       onClose={toggleSortFilter}
-       onFilterSelect={handleFIlterSelect}
-       onSortSelect={handleSortSelect}
-       clearFilter={clearFilter}
-       clearSort={clearSort}
-       selectedSort={sortBy}
-       selectedType={selectedtype}
-        />
+      <SortFilter
+        isOpen={openSortFilter}
+        onClose={toggleSortFilter}
+        onSortSelect={handleSortSelect}
+        onFilterSelect={handleGenderSelect}
+        onSizeSelect={handleSizeSelect}
+        onTypeSelect={handleTypeSelect}
+        clearFilter={clearFilter}
+        clearSort={clearSort}
+        selectedSort={sortBy}
+        selectedType={selectedtype}
+        selectedSize={size}
+        selectedGenders={genders}
+      />
 
       {/* Content section : */}
       <div className='mt-20 py-4 bg-white  '>
