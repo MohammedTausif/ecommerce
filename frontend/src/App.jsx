@@ -17,7 +17,7 @@ function App() {
       <Route index element={<Home/>}/>
       <Route path='shop-all' element={ <ShopAll/>}/>
       <Route path='test' element={ <ProductGrid/>}/>
-      <Route path='collections/mens/:type' element={ <MensCollection/>}/>
+      <Route path='collections/:category/:type' element={ <MensCollection/>}/>
 
       </Route>
     </Routes>

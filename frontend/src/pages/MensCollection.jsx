@@ -1,11 +1,15 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import ThumbnailCard from '../components/ui/ThumbnailCard'
-import { Shop_All_Products as products  } from '../data/ShopAllData'
+import { Shop_All_Products as products } from '../data/ShopAllData'
 
 const MensCollection = () => {
-    const { type } = useParams()
-    const DisplayType = type.split('-').join(' & ')
+    const { type, category } = useParams()
+    const formatType = (slug) => {
+        return slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' & ');
+    }
+
+
     return (
         <div className='h-screen w-full '>
             <section className='h-full w-full mt-13 bg-white text-black'>
@@ -19,11 +23,13 @@ const MensCollection = () => {
 
                             <Link className='text-gray-400 hover:text-black cursor-pointer' to={'/'}>Home </Link>
                             <span className='font-Playfair text-gray-400'>/</span>
-                            <Link className='text-black cursor-auto' to={'/shop-all'}> {DisplayType}</Link>
+                            <Link className='text-gray-400 hover:text-black cursor-pointer' to={'/'}>{category} </Link>
+                            <span className='font-Playfair text-gray-400'>/</span>
+                            <Link className='text-black cursor-auto' to={'/shop-all'}> {capitalizeFirstLetter(DisplayType)}</Link>
 
                         </div>
 
-                        <h1 className="text-3xl font-medium font-poppins mb-2 text-gray-900">Mens Shop All</h1>
+                        <h1 className="text-3xl font-medium font-poppins mb-2 text-gray-900">{DisplayType}</h1>
                         <p className="text-[16px] text-black md:w-[68%]">
                             Build your ROGER wardrobe with styles made from innovative materials. Discover our tracksuits, t-shirts, <span className='underline'>activewear</span>, <span className='underline'>outerwear</span> and sneakers for women in nature-inspired colors.
                         </p>
@@ -40,8 +46,8 @@ const MensCollection = () => {
                                 <ThumbnailCard
                                     key={prod.id}
                                     product={prod}
-                                    // selectedtype={selectedtype}
-                                    // onClick={() => handleTypeSelect(prod.link)}
+                                // selectedtype={selectedtype}
+                                // onClick={() => handleTypeSelect(prod.link)}
                                 />
                             ))}
                         </div>
