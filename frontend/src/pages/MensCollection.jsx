@@ -23,13 +23,13 @@ const MensCollection = () => {
 
                             <Link className='text-gray-400 hover:text-black cursor-pointer' to={'/'}>Home </Link>
                             <span className='font-Playfair text-gray-400'>/</span>
-                            <Link className='text-gray-400 hover:text-black cursor-pointer' to={'/'}>{category} </Link>
+                            <Link className='text-gray-400 hover:text-black cursor-pointer' to={'/'}>{formatType(category)} </Link>
                             <span className='font-Playfair text-gray-400'>/</span>
-                            <Link className='text-black cursor-auto' to={'/shop-all'}> {capitalizeFirstLetter(DisplayType)}</Link>
+                            <Link className='text-black cursor-auto' to={'/shop-all'}> {formatType(type)}</Link>
 
                         </div>
 
-                        <h1 className="text-3xl font-medium font-poppins mb-2 text-gray-900">{DisplayType}</h1>
+                        <h1 className="text-3xl font-medium font-poppins mb-2 text-gray-900">{formatType(type)}</h1>
                         <p className="text-[16px] text-black md:w-[68%]">
                             Build your ROGER wardrobe with styles made from innovative materials. Discover our tracksuits, t-shirts, <span className='underline'>activewear</span>, <span className='underline'>outerwear</span> and sneakers for women in nature-inspired colors.
                         </p>
