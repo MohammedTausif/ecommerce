@@ -26,7 +26,7 @@ const MobileAccordionMenu = ({ isOpen, onClick }) => {
   }, [isOpen])
 
   const handleCategoryClick = (idx) => {
-    setOpenCategoryIndex(openTopIndex === idx ? idx : idx);
+    setOpenCategoryIndex(openCategoryIndex === idx ? idx : idx);
     setOpenSubIndex(null);
   };
 
@@ -44,7 +44,7 @@ const MobileAccordionMenu = ({ isOpen, onClick }) => {
               <button
                 key={item.name}
                 onClick={() => handleCategoryClick(idx)}
-                className={`${openTopIndex === idx ? "bg-[#F8F8F8] text-black" : "bg-white text-[#ADADAD]"} flex items-center justify-center font-poppins text-xs font-normal p-3.5 border-l-[0.5px] border-t-[0.5px] border-gray-200 shadow-sm transition-colors duration-200 cursor-pointer`}
+                className={`${openCategoryIndex === idx ? "bg-[#F8F8F8] text-black" : "bg-white text-[#ADADAD]"} flex items-center justify-center font-poppins text-xs font-normal p-3.5 border-l-[0.5px] border-t-[0.5px] border-gray-200 shadow-sm transition-colors duration-200 cursor-pointer`}
               >
                 {item.name}
 
@@ -52,12 +52,12 @@ const MobileAccordionMenu = ({ isOpen, onClick }) => {
             ))}
           </div>
 
-          {openTopIndex === null && null}
+          {openCategoryIndex === null && null}
 
           {/* Sub-menu panel */}
-          {openTopIndex !== null && openSubIndex === null && (
+          {openCategoryIndex !== null && openSubIndex === null && (
             <div className="mt-2 space-y-1 pb-6">
-              {Menu[openTopIndex].subMenu.map((sub, sidx) => (
+              {Menu[openCategoryIndex].subMenu.map((sub, sidx) => (
                 <div key={sub.category} className=" ">
                   {/* Category header */}
                   <button onClick={() => handleSubClick(sidx)}
@@ -85,7 +85,7 @@ const MobileAccordionMenu = ({ isOpen, onClick }) => {
 
 
           {/* sub menu list */}
-          {openTopIndex !== null && openSubIndex !== null && (
+          {openCategoryIndex !== null && openSubIndex !== null && (
             <div className='w-full bg-white py-4 overflow-auto text-black transition-all duration-300 ease-in-out' >
 
               {/* Button to go back */}
@@ -97,12 +97,12 @@ const MobileAccordionMenu = ({ isOpen, onClick }) => {
 
                   <ArrowDown className="transform rotate-90 mr-1 stroke-2" size={12} />
                 </span>
-                {Menu[openTopIndex].subMenu[openSubIndex].category}
+                {Menu[openCategoryIndex].subMenu[openSubIndex].category}
 
               </button>
 
               <ul className="space-y-0 font-poppins text-xs border-b-[0.5px] border-gray-200">
-                {Menu[openTopIndex].subMenu[openSubIndex].list.map((link, lidx) => (
+                {Menu[openCategoryIndex].subMenu[openSubIndex].list.map((link, lidx) => (
                   <li key={lidx}>
                     <Link onClick={onClick}
                       to={link.Link || link.link || '#'}

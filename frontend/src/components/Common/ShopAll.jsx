@@ -60,11 +60,11 @@ const ShopAll = () => {
 
 
   return (
-    <div className="min-h-screen mt-25  bg-white">
+    <div className="min-h-screen   bg--500 overflow-x-hidden">
       {/* Header section */}
-      <section className="flex flex-col md:flex-row mt-18">
+      <section className="flex flex-col md:flex-row mt-25">
         {/* Left panel Heading and description */}
-        <div className="relative md:left-25 md:w-1/2 p-6 flex flex-col justify-center items-start bg-white font-poppins">
+        <div className="relative md:w-1/2 p-6 md:px-20 flex flex-col justify-center items-start bg-white font-poppins">
 
           {/* Show navigation Location */}
           <div className='flex space-x-1  font-poppins text-xs mb-5'>
@@ -107,7 +107,6 @@ const ShopAll = () => {
           title="Sort & Filter"
           Icon={FilterSvg}
           onClick={toggleSortFilter}
-          isActive={badgeCount > 0}
           badgeCount={badgeCount}
           className='absolute right-10 hidden md:flex w-60 '
         />

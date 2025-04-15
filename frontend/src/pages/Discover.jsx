@@ -25,11 +25,13 @@ const Discover = () => {
             title='Discover More'
             link='/pages/roger-icons'
             variant= "outline"
+            className='w-37'
             />
              <Button
             title='Shop The Collection'
             link='/pages/the-tracksuit-lookbook'
             variant= "outline"
+            className='w-37'
             />
           </div>
         </div>

@@ -4,13 +4,12 @@ const ThumbnailCard = ({ product, onClick, selectedtype }) => (
       onClick={onClick} >
   
       <div className='relative w-full h-48 group overflow-hidden'>
-  
         <img
           src={product.image}
           alt={product.title}
           className="w-full h-full relative  object-cover "
         />
-        {/* Gradient overlay for title readability (NEW) */}
+         {/* title  */}
         <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black/60 to-transparent pointer-events-none opacity-80 rounded-t-lg"></div>
         <h3 className="absolute bottom-2 left-2 text-xs font-poppins font-light text-white">
           {product.title}

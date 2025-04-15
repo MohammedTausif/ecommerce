@@ -67,7 +67,7 @@ export const Menu = [
                 category: 'Trending',
                 list: [
                     { name: 'New In', Link: '/new-arrival-men' },
-                    { name: 'Spring Lookbook', Link: '/' },
+                    { name: 'Spring Lookbook', Link: '/shop-all?filter.p.product_type=hoodies' },
                     { name: 'Tracksuits', Link: '/' },
                     { name: 'The T-shirt Guide', link: '/' }
                 ]

@@ -70,8 +70,9 @@ const GetInspired = () => {
             <div className='w-full flex justify-center'>
                 <Button 
                  title='View More'
-                 link='/'
+                 link='shop-all'
                  variant="outline"
+                 className='w-37'
                 />
 
             </div>
