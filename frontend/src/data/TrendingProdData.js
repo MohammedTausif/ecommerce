@@ -28,7 +28,7 @@ export const products = [
       imageUrl: 'https://pangaia.com/cdn/shop/files/Outerwear_3436421e-a873-4be0-b049-ef8f1568af95.jpg?crop=center&height=1023&v=1741857626&width=768',
       hoverImage: 'https://pangaia.com/cdn/shop/files/365_Midweight_Sweatshirt_Forest_Green_Mens-1_2feb49c3-5f76-41f5-b428-10edcfa93049.jpg?crop=center&height=1364&v=1729648083&width=1024',
     },
-    // Add more products as needed...
+  
     {
       id: 5,
       title: 'Product 1',
