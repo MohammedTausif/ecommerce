@@ -1,15 +1,19 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useSearchParams } from 'react-router-dom'
 import ThumbnailCard from '../components/ui/ThumbnailCard'
 import { MENS_HOODIES_SWEATSHIRT_SAMPLE as Products } from '../data/MensHoodies'
+import { updateParams } from '../utils/urlHelpers'
 const MensCollection = () => {
-    const { type, category } = useParams()
-    const selectedProduct = Products.find(product => product.link === type)
+    const { type, gender } = useParams()
+    const [searchParams, setSearchParams]= useSearchParams()
+    const selecedType = searchParams.get('filter.p.product_type')
+    const selectedProduct = Products.find(product => product.link === selecedType)
 
     const formatSlug = (slug) => {
         return slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' & ');
     }
 
+    const handleTypeSelect= (value)=> updateParams(searchParams, setSearchParams, 'filter.p.product_type', value)
 
     return (
         <div className='h-screen w-full '>
@@ -22,7 +26,7 @@ const MensCollection = () => {
 
                             <Link className='text-gray-400 hover:text-black cursor-pointer' to={'/'}>Home </Link>
                             <span className='font-Playfair text-gray-400'>/</span>
-                            <Link className='text-gray-400 hover:text-black cursor-pointer' to={'/'}>{formatSlug(category)} </Link>
+                            <Link className='text-gray-400 hover:text-black cursor-pointer' to={'/'}>{formatSlug(gender)} </Link>
                             <span className='font-Playfair text-gray-400'>/</span>
                             <Link className='text-black cursor-auto' to={'/shop-all'}> {formatSlug(type)}</Link>
 
@@ -45,7 +49,7 @@ const MensCollection = () => {
                                 <ThumbnailCard
                                 key={item.id}
                                 product={item}
-                                selectedtype={type}
+                                selectedtype={selecedType}
                                 onClick={() => handleTypeSelect(item.link)}
                                     
                                    
