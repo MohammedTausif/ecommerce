@@ -3,9 +3,11 @@ import { Link, useParams, useSearchParams } from 'react-router-dom'
 import ThumbnailCard from '../components/ui/ThumbnailCard'
 import { MENS_HOODIES_SWEATSHIRT_SAMPLE as Products } from '../data/MensHoodies'
 import { updateParams } from '../utils/urlHelpers'
+import ItemssCard from '../components/ui/ItemsCard'
+import { Sample_Products } from '../data/ShopAllData'
 const MensCollection = () => {
     const { type, gender } = useParams()
-    const [searchParams, setSearchParams]= useSearchParams()
+    const [searchParams, setSearchParams] = useSearchParams()
     const selecedType = searchParams.get('filter.p.product_type')
     const selectedProduct = Products.find(product => product.link === selecedType)
 
@@ -13,7 +15,7 @@ const MensCollection = () => {
         return slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' & ');
     }
 
-    const handleTypeSelect= (value)=> updateParams(searchParams, setSearchParams, 'filter.p.product_type', value)
+    const handleTypeSelect = (value) => updateParams(searchParams, setSearchParams, 'filter.p.product_type', value)
 
     return (
         <div className='h-screen w-full '>
@@ -26,9 +28,9 @@ const MensCollection = () => {
 
                             <Link className='text-gray-400 hover:text-black cursor-pointer' to={'/'}>Home </Link>
                             <span className='font-Playfair text-gray-400'>/</span>
-                            <Link className='text-gray-400 hover:text-black cursor-pointer' to={'/'}>{formatSlug(gender)} </Link>
+                            <Link className='text-gray-400 hover:text-black cursor-pointer' to={'../'}>{formatSlug(gender)} </Link>
                             <span className='font-Playfair text-gray-400'>/</span>
-                            <Link className='text-black cursor-auto' to={'/shop-all'}> {formatSlug(type)}</Link>
+                            <Link className='text-black cursor-auto' to={``}> {formatSlug(type)}</Link>
 
                         </div>
 
@@ -47,12 +49,10 @@ const MensCollection = () => {
                         >
                             {Products.map((item) => (
                                 <ThumbnailCard
-                                key={item.id}
-                                product={item}
-                                selectedtype={selecedType}
-                                onClick={() => handleTypeSelect(item.link)}
-                                    
-                                   
+                                    key={item.id}
+                                    product={item}
+                                    selectedtype={selecedType}
+                                    onClick={() => handleTypeSelect(item.link)}
                                 />
                             ))}
                         </div>
@@ -60,6 +60,24 @@ const MensCollection = () => {
 
 
                 </div>
+
+                <div className='mt-10'>
+                    
+
+                    {
+                        selecedType === null? (
+                        <div className='w-full flex justify-center'>
+
+                            <h1></h1>
+
+                        </div>
+                        ):(
+                        <div>
+
+                        </div>
+
+                        )           }
+                             </div>
 
             </section>
         </div>
