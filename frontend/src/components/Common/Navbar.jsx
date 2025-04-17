@@ -75,7 +75,7 @@ const Navbar = () => {
                               </div>
 
                             <div className='' onClick={() => setCartModel(!cartModel)}>
-                                <CartIcon/>
+                                <CartIcon className='w-4.5 h-4.5'/>
                             </div>
                         </div>
 

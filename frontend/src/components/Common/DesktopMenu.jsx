@@ -77,9 +77,10 @@ const DesktopMenu = () => {
                   <h1 className="font-bold">{sub?.category}</h1>
                   <ul className='space-y-2 grid '>
                     {sub.list.map((listItem, itemIndex) => (
-                      <Link to={listItem.Link} key={itemIndex} className={`${sub.category == 'Trending' ? "font-semibold" : `${sub.category == 'About Us' ? "font-semibold" : ""}`} cursor-pointer`}>
+                      <Link onClick={()=>setHoveredIndex(null)} to={listItem.Link} key={itemIndex} className={`${sub.category == 'Trending' ? "font-semibold" : `${sub.category == 'About Us' ? "font-semibold" : ""}`} cursor-pointer`}>
                         {listItem.name ? listItem.name : listItem.color}
                       </Link>
+                    
                     ))}
                   </ul>
                 </div>

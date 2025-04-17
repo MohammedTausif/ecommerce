@@ -8,19 +8,19 @@ const CategoriesPage = () => {
             id: 1,
             title: "Lightweight Outwear",
             image: "https://pangaia.com/cdn/shop/files/Outerwear_3436421e-a873-4be0-b049-ef8f1568af95.jpg?crop=center&height=1023&v=1741857626&width=768",
-            link: '/collection/lightweight-outwear'
+            link: '/collections/women/lightweight-outwear'
         },
         {
             id: 2,
             title: "Linen",
             image: "https://pangaia.com/cdn/shop/files/DNA_Linen_Camp_Collar_Shirt_Eucalyptus_Blue_Womens-1.jpg?crop=center&height=1364&v=1724371506&width=1024",
-            link: '/collection/linen'
+            link: '/collections/women/linen'
         },
         {
             id: 3,
             title: "Tracksuits",
             image: "https://pangaia.com/cdn/shop/files/Tracksuits.jpg?crop=center&height=559&v=1741857608&width=420",
-            link: '/tracksuits'
+            link: 'collections/unisex/tracksuits'
         },
     ];
 

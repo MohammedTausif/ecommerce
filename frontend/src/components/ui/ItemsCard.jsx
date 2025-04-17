@@ -1,3 +1,5 @@
+import CartIcon from "../../assets/icons/svgs/CartIcon";
+
 const ItemssCard = ({ product, onAddToCart }) => {
     return (
         <div className="group relative ">
@@ -32,12 +34,9 @@ const ItemssCard = ({ product, onAddToCart }) => {
                     <div className="">
                         <button
                             onClick={() => onAddToCart(product)}
-                            className="w-9 h-9 bg-[#002fa7]  text-white rounded-full md:opacity-0 md:group-hover:opacity-100 flex justify-center items-center cursor-pointer">
-                            <img
-                                className='w-[12px] h-[17px] size4 text-white '
-                                style={{ filter: 'invert(1)' }}
-                                src="src/assets/images/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxNiAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBjbGFzcz0ic3QtY3VycmVudCIgZGF0YS1sYWJlbD0ic3ZnIj4KICAgICAgICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsa.svg" alt="Cart icon" />
-                        </button>
+                            className="w-9 h-9  bg-[#002fa7]  text-white rounded-full md:opacity-0 md:group-hover:opacity-100 flex justify-center items-center cursor-pointer">
+                                <CartIcon className="size-4"/>
+                            </button>
                     </div>
 
 
