@@ -6,6 +6,7 @@ import SearchPage from './Search'
 import { Link } from 'react-router-dom'
 import MobileAccordionMenu from '../Navbar/MobileMenu'
 import CartIcon from '../../assets/icons/svgs/CartIcon'
+import AccountIcon from '../../assets/icons/svgs/Account'
 
 const Navbar = () => {
     const [cartModel, setCartModel] = useState(false)
@@ -70,9 +71,8 @@ const Navbar = () => {
                             </div>
 
                             <div className=' '>
-                                <img className=' size-4 cursor-pointer'
-                                    src="src/assets/images/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxNCAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBjbGFzcz0iIj4KICAgICAgICA8cGF0aCBkPSJNMTMuMTk1OSAxNi41VjE0LjgyMUMxMy4xOTU5IDExLjMzIDEwLjQ2MjYgOC41I.svg" alt="" />
-                            </div>
+                                <AccountIcon/>
+                              </div>
 
                             <div className='' onClick={() => setCartModel(!cartModel)}>
                                 <CartIcon/>
