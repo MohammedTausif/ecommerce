@@ -5,6 +5,7 @@ import ShopAll from './components/Common/ShopAll'
 import Home from './pages/Home'
 import ProductGrid from './pages/Test'
 import MensCollection from './pages/MensCollection'
+import { Collection } from 'mongoose'
 
 function App() {
 
@@ -17,8 +18,7 @@ function App() {
       <Route index element={<Home/>}/>
       <Route path='shop-all' element={ <ShopAll/>}/>
       <Route path='test' element={ <ProductGrid/>}/>
-      <Route path='collections/:gender/:type' element={ <MensCollection/>}/>
-
+      <Route path='/collections/:gender/:type' element={ <MensCollection/>}/>
       </Route>
     </Routes>
     </BrowserRouter>

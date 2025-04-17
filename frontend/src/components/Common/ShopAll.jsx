@@ -60,7 +60,7 @@ const ShopAll = () => {
 
 
   return (
-    <div className="min-h-screen   bg--500 overflow-x-hidden">
+    <div className="min-h-screen  overflow-x-hidden">
       {/* Header section */}
       <section className="flex flex-col md:flex-row mt-25">
         {/* Left panel Heading and description */}
