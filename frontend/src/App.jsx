@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import ProductGrid from './pages/Test'
 import MensCollection from './pages/MensCollection'
 import { Collection } from 'mongoose'
+import WomensCollections from './pages/WCollections'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
       <Route path='shop-all' element={ <ShopAll/>}/>
       <Route path='test' element={ <ProductGrid/>}/>
       <Route path='/collections/mens/:type' element={ <MensCollection/>}/>
+      <Route path='/collections/womens/:type' element={ <WomensCollections/>}/>
       </Route>
     </Routes>
     </BrowserRouter>
