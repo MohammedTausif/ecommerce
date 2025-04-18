@@ -7,12 +7,13 @@ import ItemssCard from '../components/ui/ItemsCard'
 import { Sample_Products } from '../data/ShopAllData'
 import FilterButton from '../components/ui/FilterButton'
 import FilterSvg from '../assets/icons/svgs/FilterSvg'
-
+import { MENS_COLLECTION_DEFAULT } from '../data/MensHoodies'
+import SortFilter from '../components/sort/Sort-Filter'
 
 
 const MensCollection = () => {
    const [openSortFilter, setOpenSortFilter] = useState(false)
-  const { type, gender } = useParams()
+  const {type} = useParams()
   const [searchParams, setSearchParams] = useSearchParams()
   const selecedType = searchParams.get('filter.p.product_type')
   // const selectedProduct = Products.find(product => product.link === selecedType)
@@ -26,10 +27,14 @@ const MensCollection = () => {
 
   }
 
+  const clearAll =()=>{
+    setSearchParams(new URLSearchParams())
+  }
+
   const toggleSortFilter=()=>{
     setOpenSortFilter(!openSortFilter)
-
   }
+
    const badgeCount = useMemo(() => {
       let count = 0;
       // sort_by
@@ -59,7 +64,7 @@ const MensCollection = () => {
 
               <Link className='text-gray-400 hover:text-black cursor-pointer' to={'/'}>Home </Link>
               <span className='font-Playfair text-gray-400'>/</span>
-              <Link className='text-gray-400 hover:text-black cursor-pointer' to={'../'}>{formatSlug(gender)} </Link>
+              <Link className='text-gray-400 hover:text-black cursor-pointer' to={'/shop-all'}>Mens </Link>
               <span className='font-Playfair text-gray-400'>/</span>
               <Link className='text-black cursor-auto' to={``}> {formatSlug(type)}</Link>
 
@@ -103,19 +108,27 @@ const MensCollection = () => {
           />
 
         </div>
+        <SortFilter
+        isOpen={openSortFilter}
+        onClose={toggleSortFilter}
+        // onFilterSelect={}
+        clearAll={clearAll}
+        />
 
 
 
-        <div className='mt-15 bg-white'>
-
-
+        <div className='mt-25 bg-white'>
           {
             selecedType === null ? (
-              <div className='w-full flex justify-center'>
+              <div className='w-full bg-white px-4 py-2 sm:px-6 lg:px-5 '>
+                <div className='grid grid-col-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 '>
+                  {
+                    MENS_COLLECTION_DEFAULT.map((product)=>(
+                      <ItemssCard product={product} key={product.id} onAddToCart={handleAddToCart} />
+                    ))
+                  }
+                </div>
 
-                <h1>
-                  please select type to display Products
-                </h1>
 
               </div>
             ) : (
