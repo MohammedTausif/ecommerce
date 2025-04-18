@@ -15,7 +15,11 @@ const MensCollection = () => {
    const [openSortFilter, setOpenSortFilter] = useState(false)
   const {type} = useParams()
   const [searchParams, setSearchParams] = useSearchParams()
-  const selecedType = searchParams.get('filter.p.product_type')
+  const selectedType = searchParams.get('filter.p.product_type')
+  const selectedSortBy = searchParams.get('sort_by')
+  const selectedGenders = searchParams.get('filter.p.m.custom.gender');
+  const selectedSize = searchParams.get('filter.v.option.size');
+  const selectedColor = searchParams.get('filter.v.option.color');
   // const selectedProduct = Products.find(product => product.link === selecedType)
 
   const formatSlug = (slug) => {
@@ -26,6 +30,11 @@ const MensCollection = () => {
     alert('Added to cart :' + product.title)
 
   }
+
+  const handleTypeSelect = (value)=> updateParams(searchParams, setSearchParams, 'filter.p.product_type', value)
+  const handleSortSelect = (value)=> updateParams(searchParams, setSearchParams, 'sort_by', value)
+  const handleSizeSelect = (value)=> updateParams(searchParams, setSearchParams, 'filter.v.option.size', value)
+  const handleGenderSelect= (value)=> updateParams(searchParams, setSearchParams, 'filter.p.m.custom.gender', value)
 
   const clearAll =()=>{
     setSearchParams(new URLSearchParams())
@@ -51,7 +60,6 @@ const MensCollection = () => {
     }, [searchParams]);
   
 
-  const handleTypeSelect = (value) => updateParams(searchParams, setSearchParams, 'filter.p.product_type', value)
 
   return (
     <>
@@ -87,7 +95,7 @@ const MensCollection = () => {
                 <ThumbnailCard
                   key={item.id}
                   product={item}
-                  selectedtype={selecedType}
+                  selectedtype={selectedType}
                   onClick={() => handleTypeSelect(item.link)}
                 />
               ))}
@@ -111,7 +119,14 @@ const MensCollection = () => {
         <SortFilter
         isOpen={openSortFilter}
         onClose={toggleSortFilter}
-        // onFilterSelect={}
+        onFilterSelect={handleGenderSelect}
+        onSizeSelect={handleSizeSelect}
+        onSortSelect={handleSortSelect}
+        onTypeSelect={handleTypeSelect}
+        selectedType={selectedType}
+        selectedGenders={selectedGenders}
+        selectedSize={selectedSize}
+        selectedSort={selectedSortBy}
         clearAll={clearAll}
         />
 
@@ -119,7 +134,7 @@ const MensCollection = () => {
 
         <div className='mt-25 bg-white'>
           {
-            selecedType === null ? (
+            selectedType === null ? (
               <div className='w-full bg-white px-4 py-2 sm:px-6 lg:px-5 '>
                 <div className='grid grid-col-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 '>
                   {
