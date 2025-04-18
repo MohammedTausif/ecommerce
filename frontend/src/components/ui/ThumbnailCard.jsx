@@ -1,6 +1,6 @@
 
 const ThumbnailCard = ({ product, onClick, selectedtype }) => (
-    <div key={product.id} className={` w-48 z-10  overflow-hidden shadow-md cursor-pointer transition-border duration-300 ${selectedtype === product.link ? "border-1 border-black " : "border-1 border-transparent "}`}
+    <div key={product.id} className={` w-48 z-10  overflow-hidden shadow-md cursor-pointer transition-border duration-300 ${selectedtype === product.slug? "border-1 border-black " : "border-1 border-transparent "}`}
       onClick={onClick} >
   
       <div className='relative w-full h-48 group overflow-hidden'>
