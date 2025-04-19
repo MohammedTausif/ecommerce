@@ -19,7 +19,7 @@ export const Menu = [
                 list: [
                     { name: 'Shop All', Link: '' },
                     { name: 'Hoodies & Sweatshirts', Link: 'collections/womens/hoodies-sweatshirts' },
-                    { name: 'Track Pants', Link: '' },
+                    { name: 'Track Pants', Link: 'collections/womens/trackpants' },
                     { name: ' T-Shirts & Tops', Link: '' },
                     { name: 'Shorts', Link: '' },
                     { name: 'Activewear', Link: '' },

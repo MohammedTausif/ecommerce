@@ -8,13 +8,13 @@ import { Sample_Products } from '../../data/ShopAllData';
 import SortFilter from '../sort/Sort-Filter';
 import { updateParams } from '../../utils/urlHelpers';
 import ThumbnailCard from '../ui/ThumbnailCard';
-
+import { GetSelectedType  } from '../../utils/urlHelpers';
 
 const ShopAll = () => {
 
   const [openSortFilter, setOpenSortFilter] = useState(false)
   const [searchParams, setSearchParams] = useSearchParams();
-  const selectedtype = searchParams.get('filter.p.product_type');
+  const selectedtype = GetSelectedType(searchParams);
   const sortBy = searchParams.get('sort_by')
   const genders = searchParams.get('filter.p.m.custom.gender');
   const size = searchParams.get('filter.v.option.size');
@@ -26,7 +26,7 @@ const ShopAll = () => {
   const handleSizeSelect = (value) => updateParams(searchParams, setSearchParams, 'filter.v.option.size', value)
   const handleGenderSelect = (value) => updateParams(searchParams, setSearchParams, 'filter.p.m.custom.gender', value)
 
-  const selectedProduct = products.find(product => product.link === selectedtype)
+  // const selectedProduct = products.find(product => product.link === selectedtype)
 
   //Clearing function for filter & sort
   const clearAll = () => {
@@ -84,15 +84,15 @@ const ShopAll = () => {
         {/* Right horizontally scrollable product grid */}
         <div className="md:w-1/2 md:p-6 p-2  px-6 overflow-x-auto scrollbar-hide">
           <div
-            className="grid grid-rows-1 md:grid-rows-2 grid-flow-col gap-2"
-            style={{ gridAutoColumns: '200px' }}
+            className="grid grid-rows-1 md:grid-rows-2 grid-flow-col gap-1 gap-y-2 "
+            style={{ gridAutoColumns: '195px' }}
           >
             {products.map((prod) => (
               <ThumbnailCard
                 key={prod.id}
                 product={prod}
                 selectedtype={selectedtype}
-                onClick={() => handleTypeSelect(prod.link)}
+                onClick={() => handleTypeSelect(prod.slug)}
               />
             ))}
           </div>
@@ -131,7 +131,7 @@ const ShopAll = () => {
       {/* Content section : */}
       <div className='mt-20 py-4 bg-white  '>
         {
-          selectedtype === null ? (
+          selectedtype=== null ? (
             <div className='text-black'>
               Please select any product type to view products
 
