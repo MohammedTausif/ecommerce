@@ -22,5 +22,3 @@ export function updateParams (searchParams, setSearchParams, key, value , multi 
     export const GetSelectedSize = (searchParams)=> searchParams.get('filter.v.option.size'); 
     export const GetSelectedGender = (searchParams)=> searchParams.get('filter.p.m.custom.gender');
     
-
-    // export const handle

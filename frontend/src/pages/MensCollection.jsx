@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import ThumbnailCard from '../components/ui/ThumbnailCard'
-import { MENS_HOODIES_SWEATSHIRT_SAMPLE as Products } from '../data/MensHoodies'
+import { MENS_HOODIES_SWEATSHIRT_SAMPLE, Mens_Track_Pants_Thumbnail } from '../data/MensHoodies'
 import { updateParams } from '../utils/urlHelpers'
 import ItemssCard from '../components/ui/ItemsCard'
 import { Sample_Products } from '../data/ShopAllData'
@@ -22,6 +22,13 @@ const MensCollection = () => {
   const selectedColor = searchParams.get('filter.v.option.color');
   // const selectedProduct = Products.find(product => product.link === selecedType)
 
+  const thumbnailMap ={
+    'hoodies-sweatshirts': MENS_HOODIES_SWEATSHIRT_SAMPLE,
+    'trackpants': Mens_Track_Pants_Thumbnail,
+
+  }
+  const ThumnailImages= thumbnailMap[type] 
+
   const formatSlug = (slug) => {
     return slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' & ');
   }
@@ -35,6 +42,7 @@ const MensCollection = () => {
   const handleSortSelect = (value)=> updateParams(searchParams, setSearchParams, 'sort_by', value)
   const handleSizeSelect = (value)=> updateParams(searchParams, setSearchParams, 'filter.v.option.size', value)
   const handleGenderSelect= (value)=> updateParams(searchParams, setSearchParams, 'filter.p.m.custom.gender', value)
+  const handleColorSelect= (value)=> updateParams(searchParams, setSearchParams, 'filter.v.option.color', value);
 
   const clearAll =()=>{
     setSearchParams(new URLSearchParams())
@@ -59,6 +67,15 @@ const MensCollection = () => {
       return count;
     }, [searchParams]);
   
+    const handleThumbnailClick= (item)=>{
+      if(item.slug){
+        handleTypeSelect(item.slug)
+      }
+      else if (item.color) {
+        handleColorSelect(item.color)
+      }
+
+    }
 
 
   return (
@@ -72,9 +89,9 @@ const MensCollection = () => {
 
               <Link className='text-gray-400 hover:text-black cursor-pointer' to={'/'}>Home </Link>
               <span className='font-Playfair text-gray-400'>/</span>
-              <Link className='text-gray-400 hover:text-black cursor-pointer' to={'/shop-all'}>Mens </Link>
+              <Link className='text-gray-400 hover:text-black cursor-pointer' to={'/shop-all'}>Mens Shop All </Link>
               <span className='font-Playfair text-gray-400'>/</span>
-              <Link className='text-black cursor-auto' to={``}> {formatSlug(type)}</Link>
+              <Link className='text-black cursor-auto' to={``}>Mens {formatSlug(type)}</Link>
 
             </div>
 
@@ -91,12 +108,12 @@ const MensCollection = () => {
               className="grid grid-rows-1 md:grid-rows-2 grid-flow-col gap-2"
               style={{ gridAutoColumns: '200px' }}
             >
-              {Products.map((item) => (
+              {ThumnailImages.map((item) => (
                 <ThumbnailCard
                   key={item.id}
                   product={item}
                   selectedtype={selectedType}
-                  onClick={() => handleTypeSelect(item.link)}
+                  onClick={() => handleThumbnailClick(item)}
                 />
               ))}
             </div>

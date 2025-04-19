@@ -2,26 +2,26 @@ export const MENS_HOODIES_SWEATSHIRT_SAMPLE = [
     {
         id: 1,
         title: 'Zip Up',
-        link: "zip-up-hoodie",
+        slug: "zip-up-hoodie",
         image: "https://pangaia.com/cdn/shop/files/DNA_Heavyweight_Zipped_Hoodie_Black_Mens-3_870b23dd-f100-4530-b8f2-07e8b2daa036.jpg?crop=center&height=420&v=1729734830&width=420"
     },
     {
         id: 2,
         title: 'Hoodies',
-        link: "hoodies",
+        slug: "hoodies",
         image: "https://pangaia.com/cdn/shop/files/365-Hoodie-Sand-Male-2_8bf1d9ca-5185-4c09-b4a0-40175d32cc15.jpg?crop=center&height=420&v=1729471312&width=420"
     },
     {
         id: 3,
         title: 'Sweatshirts',
-        link: "sweatshirt",
+        slug: "sweatshirt",
         image: "https://pangaia.com/cdn/shop/files/DNA_Polo_Neck_Sweatshirt_Cacoa_Brown_Mens-1.png?crop=center&height=420&v=1738583498&width=420"
     },
-   
-    
+
+
 ];
 
-export const MENS_COLLECTION_DEFAULT=[
+export const MENS_COLLECTION_DEFAULT = [
     {
         id: 1,
         title: 'Mens 365 Midweight Sweatshirt',
@@ -181,6 +181,17 @@ export const MENS_COLLECTION_DEFAULT=[
         link: "/collection/mens-365/sweatsheart/forest-green",
         image: 'https://pangaia.com/cdn/shop/files/365_Hoodie_Indigo_Blue_1_b6b1fc18-f551-45ac-a002-4b0e70e3a078.png?crop=center&height=1364&v=1729647370&width=1024',
         hoverImage: 'https://pangaia.com/cdn/shop/files/365_Hoodie_Indigo_Blue_Mens-1_9c383fd5-c980-469e-85eb-11aebd105777.jpg?crop=center&height=1364&v=1729647374&width=1024',
-    },
-    
+    }, 
+]
+
+export const Mens_Track_Pants_Thumbnail = [
+    { id: 1, title: 'Black', image: "https://pangaia.com/cdn/shop/products/365-Hoodie-Black-Female-3.jpg?crop=center&height=420&v=1729471103&width=420", color: "black" },
+    { id: 2, title: 'Blue', image: "https://pangaia.com/cdn/shop/files/365_Hoodie_Reflect_Blue_Mens-4_cdd1f29e-6fc3-48b0-8b88-2611321f7c5e.jpg?crop=center&height=420&v=1729471322&width=420", color: "blue" },
+    { id: 3, title: 'Green', image: "https://pangaia.com/cdn/shop/files/365_Track_Pants_Fennel_Green_Mens-3_5102cae5-0440-4b70-acdc-078de2541220.jpg?crop=center&height=420&v=1727177655&width=420", color: "green" },
+    { id: 4, title: 'Purple', image: "https://pangaia.com/cdn/shop/files/Pangaia_color_sale001.jpg?crop=center&height=420&v=1738714397&width=420", color: "purple" },
+    { id: 5, title: 'Pink', image: "https://pangaia.com/cdn/shop/files/Pangaia_color_sale005.jpg?crop=center&height=420&v=1738714641&width=420", color: "pink" },
+    { id: 6, title: 'White', image: "https://pangaia.com/cdn/shop/files/365-Hoodie-Off-White-Model-Female-3.jpg?crop=center&height=420&v=1729470971&width=420", color: "white" },
+    { id: 7, title: 'Grey', image: "https://pangaia.com/cdn/shop/files/Pangaia_color_sale002.jpg?crop=center&height=420&v=1738714642&width=420", color: "grey" },
+    { id: 8, title: 'Neutral', image: "https://pangaia.com/cdn/shop/files/365_Hoodie_Travertine_Beige_Womens-3_4b9e6136-b450-4598-9fb7-831469ce918f.jpg?crop=center&height=420&v=1729470938&width=420", color: "neutral" },
+
 ]
