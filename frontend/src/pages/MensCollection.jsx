@@ -15,7 +15,7 @@ const MensCollection = () => {
    const [openSortFilter, setOpenSortFilter] = useState(false)
   const {type} = useParams()
   const [searchParams, setSearchParams] = useSearchParams()
-  const selectedType = searchParams.get('filter.p.product_type')
+  const selectedType = searchParams.get('filter.p.product_type') || searchParams.get('filter.v.option.color')
   const selectedSortBy = searchParams.get('sort_by')
   const selectedGenders = searchParams.get('filter.p.m.custom.gender');
   const selectedSize = searchParams.get('filter.v.option.size');
@@ -25,12 +25,32 @@ const MensCollection = () => {
   const thumbnailMap ={
     'hoodies-sweatshirts': MENS_HOODIES_SWEATSHIRT_SAMPLE,
     'trackpants': Mens_Track_Pants_Thumbnail,
+    'men-tops':MENS_HOODIES_SWEATSHIRT_SAMPLE ,
+    'men-shorts':MENS_HOODIES_SWEATSHIRT_SAMPLE ,
+    'men-pants':MENS_HOODIES_SWEATSHIRT_SAMPLE ,
+    'mens-activewear': MENS_HOODIES_SWEATSHIRT_SAMPLE,
+    'men-knitwear':MENS_HOODIES_SWEATSHIRT_SAMPLE,
+    'mens-loungewear': MENS_HOODIES_SWEATSHIRT_SAMPLE,
+    'men-jackets-and-outwear': MENS_HOODIES_SWEATSHIRT_SAMPLE,
+    'footwear': MENS_HOODIES_SWEATSHIRT_SAMPLE,
+    'accesories': MENS_HOODIES_SWEATSHIRT_SAMPLE
+  
 
   }
-  const ThumnailImages= thumbnailMap[type] 
+  const ThumbnailImages= thumbnailMap[type] || MENS_HOODIES_SWEATSHIRT_SAMPLE ;
 
-  const formatSlug = (slug) => {
-    return slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' & ');
+  const Title ={
+    'hoodies-sweatshirts': 'Hoodies & Sweatshirts',
+    'trackpants': 'Track Pants',
+    'men-tops': 'Tops & T-Shirts',
+    'men-shorts': 'Shorts',
+    'men-pants': 'Pants',
+    'mens-activewear': 'Activewear',
+    'men-knitwear':'Knitwear',
+    'mens-loungewear': 'Pyjamas',
+    'men-jackets-and-outwear': 'Coats & Jackets',
+    'footwear': 'Footwear',
+    'accesories': 'Accesories'
   }
 
   const handleAddToCart = (product) => {
@@ -91,11 +111,11 @@ const MensCollection = () => {
               <span className='font-Playfair text-gray-400'>/</span>
               <Link className='text-gray-400 hover:text-black cursor-pointer' to={'/shop-all'}>Mens Shop All </Link>
               <span className='font-Playfair text-gray-400'>/</span>
-              <Link className='text-black cursor-auto' to={``}>Mens {formatSlug(type)}</Link>
+              <Link className='text-black cursor-auto' to={``}>Men's {Title[type]}</Link>
 
             </div>
 
-            <h1 className="text-3xl font-medium font-poppins mb-2 text-gray-900">{formatSlug(type)}</h1>
+            <h1 className="text-3xl font-medium font-poppins mb-2 text-gray-900">Men's {Title[type]}</h1>
             <p className="text-[16px] text-black md:w-[68%]">
               Build your ROGER wardrobe with styles made from innovative materials. Discover our tracksuits, t-shirts, <span className='underline'>activewear</span>, <span className='underline'>outerwear</span> and sneakers for women in nature-inspired colors.
             </p>
@@ -108,7 +128,7 @@ const MensCollection = () => {
               className="grid grid-rows-1 md:grid-rows-2 grid-flow-col gap-2"
               style={{ gridAutoColumns: '200px' }}
             >
-              {ThumnailImages.map((item) => (
+              {ThumbnailImages.map((item) => (
                 <ThumbnailCard
                   key={item.id}
                   product={item}
