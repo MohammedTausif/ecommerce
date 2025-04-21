@@ -87,8 +87,6 @@ const WomensCollections = () => {
                 isOpen={openSortFilter}
                 onClose={toggleSortFilter}
                 clearAll={clearAll}
-
-                
                 />
                    
             </div>

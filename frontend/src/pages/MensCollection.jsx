@@ -167,8 +167,6 @@ const MensCollection = () => {
         clearAll={clearAll}
         />
 
-
-
         <div className='mt-25 bg-white'>
           {
             selectedType === null ? (
@@ -187,9 +185,7 @@ const MensCollection = () => {
               <div className='w-full px-4 py-2 sm:px-6 lg:px-5 bg-white '>
                 <div
                   className='grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 '
-                //   style={{ gridAutoRows: '1fr' }}
                 >
-
                   {
                     Sample_Products.map((product) => (
                       <ItemssCard product={product} key={product.id} onAddToCart={handleAddToCart} />
