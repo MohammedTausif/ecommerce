@@ -7,6 +7,7 @@ import ProductGrid from './pages/Test'
 import MensCollection from './pages/MensCollection'
 import { Collection } from 'mongoose'
 import WomensCollections from './pages/WCollections'
+import KidsCollection from './pages/KidsCollection'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
       <Route path='test' element={ <ProductGrid/>}/>
       <Route path='/collections/mens/:type' element={ <MensCollection/>}/>
       <Route path='/collections/womens/:type' element={ <WomensCollections/>}/>
+      <Route path='/collections/kids/:type' element={ <KidsCollection/>}/>
       </Route>
     </Routes>
     </BrowserRouter>
