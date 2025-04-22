@@ -8,6 +8,8 @@ import MensCollection from './pages/MensCollection'
 import { Collection } from 'mongoose'
 import WomensCollections from './pages/WCollections'
 import KidsCollection from './pages/KidsCollection'
+import MensShopAll from './pages/MensShopAll'
+import KidsShopAll from './pages/KidsShopAll'
 
 function App() {
 
@@ -20,6 +22,8 @@ function App() {
       <Route index element={<Home/>}/>
       <Route path='shop-all' element={ <ShopAll/>}/>
       <Route path='test' element={ <ProductGrid/>}/>
+      <Route path='collections/men-shop-all' element={<MensShopAll/>}/>
+      <Route path='collections/kids-shop-all' element={<KidsShopAll/>}/>
       <Route path='/collections/mens/:type' element={ <MensCollection/>}/>
       <Route path='/collections/womens/:type' element={ <WomensCollections/>}/>
       <Route path='/collections/kids/:type' element={ <KidsCollection/>}/>

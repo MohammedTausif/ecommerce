@@ -12,7 +12,7 @@ const MensShopAll = () => {
     const selectedSize = GetSelectedSize(searchParams)
     const selectedGender = GetSelectedGender(searchParams)
   return (
-    <div>
+    <div className='mt-20'>
       <h1>mens SHop all Page</h1>
     </div>
   )

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useParams, useSearchParams } from 'react-router-dom'
 import { GetSelectedColor, GetSelectedGender, GetSelectedSize, GetSelectedSort, GetSelectedType } from '../utils/urlHelpers'
 
 const KidsShopAll = () => {
@@ -12,7 +12,7 @@ const KidsShopAll = () => {
     const selectedSize = GetSelectedSize(searchParams)
     const selectedGender = GetSelectedGender(searchParams)
   return (
-    <div>
+    <div className='mt-30'>
       <h1>Shop all page</h1>
     </div>
   )
