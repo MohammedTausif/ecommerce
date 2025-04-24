@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
-import { GetSelectedColor, GetSelectedGender, GetSelectedSize, GetSelectedSort, GetSelectedType } from '../utils/urlHelpers'
+import { GetSelectedColor, GetSelectedGender, GetSelectedSize, GetSelectedSort, GetSelectedType, updateParams } from '../utils/urlHelpers'
 import ThumbnailCard from '../components/ui/ThumbnailCard'
 import { Link } from 'react-router-dom'
 import { Kids_ShopAll_Thumbnail as ThumbnailImages } from '../data/KidsCollection'
 
 const KidsShopAll = () => {
-  const {type} = useParams()
+  const { type } = useParams()
   const [openSortFilter, setOpenSortFilter] = useState(false)
   const [searchParams, setSearchParams] = useSearchParams()
   const selectedType = GetSelectedType(searchParams)
@@ -15,15 +15,19 @@ const KidsShopAll = () => {
   const selectedSize = GetSelectedSize(searchParams)
   const selectedGender = GetSelectedGender(searchParams)
 
-  const handleThumbnailClick= (item)=>{
-    if(item.slug){
+  const handleThumbnailClick = (item) => {
+    if (item.slug) {
       handleTypeSelect(item.slug)
     }
     else if (item.color) {
       handleColorSelect(item.color)
     }
   }
-
+  const handleTypeSelect = (value) => updateParams(searchParams, setSearchParams, 'filter.p.product_type', value)
+  const handleSortSelect = (value) => updateParams(searchParams, setSearchParams, 'sort_by', value)
+  const handleSizeSelect = (value) => updateParams(searchParams, setSearchParams, 'filter.v.option.size', value)
+  const handleGenderSelect = (value) => updateParams(searchParams, setSearchParams, 'filter.p.m.custom.gender', value)
+  const handleColorSelect = (value) => updateParams(searchParams, setSearchParams, 'filter.v.option.color', value)
   return (
     <div className='min-h-screen bg-white text-black'>
       <section className='flex flex-col md:flex-row mt-25'>
@@ -41,26 +45,26 @@ const KidsShopAll = () => {
 
           <h1 className="text-3xl font-medium font-poppins mb-2 text-gray-900">kids Shop All</h1>
           <p className="text-[16px] text-black md:w-[68%]">
-          Build your kids' ROGER wardrobe with our tracksuits, t-shirts, shorts, outerwear and sneakers. Made with natural materials in nature-inspired colors.
-            </p>
+            Build your kids' ROGER wardrobe with our tracksuits, t-shirts, shorts, outerwear and sneakers. Made with natural materials in nature-inspired colors.
+          </p>
         </div>
 
         {/* Right Part */}
         <div className="md:w-1/2 md:p-6 p-2  px-6 overflow-x-auto scrollbar-hide">
-            <div
-              className="grid grid-rows-1 md:grid-rows-2 grid-flow-col gap-2"
-              style={{ gridAutoColumns: '200px' }}
-            >
-              {ThumbnailImages.map((item) => (
-                <ThumbnailCard
-                  key={item.id}
-                  product={item}
-                  selectedtype={selectedType}
-                  onClick={() => handleThumbnailClick(item)}
-                />
-              ))}
-            </div>
+          <div
+            className="grid grid-rows-1 md:grid-rows-2 grid-flow-col gap-2"
+            style={{ gridAutoColumns: '200px' }}
+          >
+            {ThumbnailImages.map((item) => (
+              <ThumbnailCard
+                key={item.id}
+                product={item}
+                selectedtype={selectedType}
+                onClick={() => handleThumbnailClick(item)}
+              />
+            ))}
           </div>
+        </div>
 
       </section>
 
