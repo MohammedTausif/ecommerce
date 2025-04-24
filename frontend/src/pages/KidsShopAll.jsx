@@ -4,6 +4,9 @@ import { GetSelectedColor, GetSelectedGender, GetSelectedSize, GetSelectedSort, 
 import ThumbnailCard from '../components/ui/ThumbnailCard'
 import { Link } from 'react-router-dom'
 import { Kids_ShopAll_Thumbnail as ThumbnailImages } from '../data/KidsCollection'
+import FilterButton from '../components/ui/FilterButton'
+import SortFilter from '../components/sort/Sort-Filter'
+import FilterSvg from '../assets/icons/svgs/FilterSvg'
 
 const KidsShopAll = () => {
   const { type } = useParams()
@@ -15,6 +18,11 @@ const KidsShopAll = () => {
   const selectedSize = GetSelectedSize(searchParams)
   const selectedGender = GetSelectedGender(searchParams)
 
+
+  const toggleSortFilter = ()=>{
+    setOpenSortFilter(!openSortFilter)
+  }
+
   const handleThumbnailClick = (item) => {
     if (item.slug) {
       handleTypeSelect(item.slug)
@@ -23,6 +31,11 @@ const KidsShopAll = () => {
       handleColorSelect(item.color)
     }
   }
+  const clearAll = ()=>{
+    setSearchParams(new URLSearchParams())
+  }
+
+
   const handleTypeSelect = (value) => updateParams(searchParams, setSearchParams, 'filter.p.product_type', value)
   const handleSortSelect = (value) => updateParams(searchParams, setSearchParams, 'sort_by', value)
   const handleSizeSelect = (value) => updateParams(searchParams, setSearchParams, 'filter.v.option.size', value)
@@ -67,7 +80,29 @@ const KidsShopAll = () => {
         </div>
 
       </section>
+      <div className='mt-3 '>
+          <FilterButton
+            title="Sort & Filter"
+            Icon={FilterSvg}
+            onClick={toggleSortFilter}
+            // badgeCount={badgeCount}
+            className='absolute right-10 hidden md:flex w-60 '
+          />
 
+        </div>
+        <SortFilter
+        isOpen={openSortFilter}
+        onClose={toggleSortFilter}
+        onFilterSelect={handleGenderSelect}
+        onSizeSelect={handleSizeSelect}
+        onSortSelect={handleSortSelect}
+        onTypeSelect={handleTypeSelect}
+        selectedType={selectedType}
+        selectedGenders={selectedGender}
+        selectedSize={selectedSize}
+        selectedSort={selectedSort}
+        clearAll={clearAll}
+        />
     </div>
   )
 }
