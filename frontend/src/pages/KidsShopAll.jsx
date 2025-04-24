@@ -1,19 +1,69 @@
 import React, { useState } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { GetSelectedColor, GetSelectedGender, GetSelectedSize, GetSelectedSort, GetSelectedType } from '../utils/urlHelpers'
+import ThumbnailCard from '../components/ui/ThumbnailCard'
+import { Link } from 'react-router-dom'
+import { Kids_ShopAll_Thumbnail as ThumbnailImages } from '../data/KidsCollection'
 
 const KidsShopAll = () => {
-    const type = useParams()
-    const [openSortFilter, setOpenSortFilter] = useState(false)
-    const [searchParams, setSearchParams] = useSearchParams()
-    const selectedType = GetSelectedType(searchParams)
-    const selectedSort = GetSelectedSort(searchParams)
-    const selectedColor = GetSelectedColor(searchParams)
-    const selectedSize = GetSelectedSize(searchParams)
-    const selectedGender = GetSelectedGender(searchParams)
+  const {type} = useParams()
+  const [openSortFilter, setOpenSortFilter] = useState(false)
+  const [searchParams, setSearchParams] = useSearchParams()
+  const selectedType = GetSelectedType(searchParams)
+  const selectedSort = GetSelectedSort(searchParams)
+  const selectedColor = GetSelectedColor(searchParams)
+  const selectedSize = GetSelectedSize(searchParams)
+  const selectedGender = GetSelectedGender(searchParams)
+
+  const handleThumbnailClick= (item)=>{
+    if(item.slug){
+      handleTypeSelect(item.slug)
+    }
+    else if (item.color) {
+      handleColorSelect(item.color)
+    }
+  }
+
   return (
-    <div className='mt-30'>
-      <h1>Shop all page</h1>
+    <div className='min-h-screen bg-white text-black'>
+      <section className='flex flex-col md:flex-row mt-25'>
+        {/* left part */}
+        <div className="relative md:w-1/2 p-6 md:px-20 flex flex-col justify-center items-start bg-white font-poppins">
+
+          {/* Show navigation Location */}
+          <div className='flex space-x-1  font-poppins text-xs mb-5'>
+
+            <Link className='text-gray-400 hover:text-black cursor-pointer' to={'/'}>Home </Link>
+            <span className='font-Playfair text-gray-400'>/</span>
+            <Link className='text-black cursor-auto' to={``}>kids Shop All {type}</Link>
+
+          </div>
+
+          <h1 className="text-3xl font-medium font-poppins mb-2 text-gray-900">kids Shop All</h1>
+          <p className="text-[16px] text-black md:w-[68%]">
+          Build your kids' ROGER wardrobe with our tracksuits, t-shirts, shorts, outerwear and sneakers. Made with natural materials in nature-inspired colors.
+            </p>
+        </div>
+
+        {/* Right Part */}
+        <div className="md:w-1/2 md:p-6 p-2  px-6 overflow-x-auto scrollbar-hide">
+            <div
+              className="grid grid-rows-1 md:grid-rows-2 grid-flow-col gap-2"
+              style={{ gridAutoColumns: '200px' }}
+            >
+              {ThumbnailImages.map((item) => (
+                <ThumbnailCard
+                  key={item.id}
+                  product={item}
+                  selectedtype={selectedType}
+                  onClick={() => handleThumbnailClick(item)}
+                />
+              ))}
+            </div>
+          </div>
+
+      </section>
+
     </div>
   )
 }

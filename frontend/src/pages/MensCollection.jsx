@@ -102,6 +102,7 @@ const MensCollection = () => {
     <>
       <div className='min-h-screen  bg-white text-black'>
         <section className='flex flex-col md:flex-row mt-25 '>
+          {/* left part */}
           <div className="relative md:w-1/2 p-6 md:px-20 flex flex-col justify-center items-start bg-white font-poppins">
 
             {/* Show navigation Location */}
