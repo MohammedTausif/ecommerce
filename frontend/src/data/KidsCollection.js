@@ -7,3 +7,78 @@ export const Kids_ShopAll_Thumbnail = [
     { id: 6, title: 'Sneakers', slug: "sneakers", image: "https://pangaia.com/cdn/shop/files/sneakers_feb29aee-6a79-4bc7-a5c3-887fcac3f82d.jpg?crop=center&height=420&v=1739835133&width=420" },
     
 ]
+
+export const Kids_Shopall_Default_products = [
+    {
+        id: 1,
+        title: 'Kids 365 Midweight Hoodie—Malachite Green',
+        price: '999',
+        link: "/collection/",
+        image: 'https://pangaia.com/cdn/shop/files/Kids_Hoodie_Malachite_Green.png?crop=center&height=1364&v=1745335783&width=1024',
+        hoverImage: 'https://pangaia.com/cdn/shop/files/KIDS-365-MIDWEIGHT-HOODIE-MALACHITE-GREEN-1.jpg?crop=center&height=1364&v=1745418895&width=1024',
+    },
+    {
+        id: 2,
+        title: 'Kids 365 Midweight Track Pants—Malachite Green',
+        price: '999',
+        link: "/collection/",
+        image: 'https://pangaia.com/cdn/shop/files/Kids_Track-Pants_Malachite_Green.png?crop=center&height=1364&v=1745335782&width=1024',
+        hoverImage: 'https://pangaia.com/cdn/shop/files/KIDS-365-MIDWEIGHT-TRACKPANTS-MALACHITE-GREEN-1.jpg?crop=center&height=1364&v=1745418981&width=1024',
+    },
+    {
+        id: 3,
+        title: 'Kids 365 Midweight Hoodie—Sodalite Blue',
+        price: '999',
+        link: "/collection/",
+        image: 'https://pangaia.com/cdn/shop/files/Kids_Hoodie_Sodalite_Blue.png?crop=center&height=1364&v=1745335782&width=1024',
+        hoverImage: 'https://pangaia.com/cdn/shop/files/KIDS-365-MIDWEIGHT-HOODIE-SODALITE-BLUE-1.jpg?crop=center&height=1364&v=1745418893&width=1024',
+    },
+    {
+        id: 4,
+        title: 'Kids 365 Midweight Track Pants—Sodalite Blue' ,
+        price: '999',
+        link: "/collection/",
+        image: 'https://pangaia.com/cdn/shop/files/Kids_Track-Pants_Sodalite_Blue.png?crop=center&height=1364&v=1745418710&width=1024',
+        hoverImage: 'https://pangaia.com/cdn/shop/files/KIDS-365-MIDWEIGHT-TRACKPANTS-SODALITE-BLUE-1.jpg?crop=center&height=1364&v=1745418919&width=1024',
+    },
+    {
+        id: 5,
+        title: 'Kids 365 Midweight T-shirt—Sodalite Blue',
+        price: '999',
+        link: "/collection/",
+        image: 'https://pangaia.com/cdn/shop/files/Kids_T-Shirt_Sodalite_Blue.png?crop=center&height=1364&v=1745418710&width=1024',
+        hoverImage: 'https://pangaia.com/cdn/shop/files/KIDS-365-MIDWEIGHT-T-SHIRT-SODALITE-BLUE-1.jpg?crop=center&height=1364&v=1745418945&width=1024',
+    },
+    {
+        id: 6,
+        title: 'Kids 365 Midweight T-shirt—navy blue',
+        price: '999',
+        link: "/collection/",
+        image: 'https://pangaia.com/cdn/shop/products/Kids-Organic-Cotton-T-Shirt-Navy-Blue-1_1.png?crop=center&height=1364&v=1724352842&width=1024',
+        hoverImage: 'https://pangaia.com/cdn/shop/products/Kids-Organic-Cotton-T-Shirt-Navy-Model-1.jpg?crop=center&height=1364&v=1724352839&width=1024',
+    },
+    {
+        id: 7,
+        title: 'Kids 365 Midweight Long Shorts—navy blue',
+        price: '999',
+        link: "/collection/",
+        image: 'https://pangaia.com/cdn/shop/products/Kids-Organic-Cotton-Long-Shorts-Navy-Blue-1.png?crop=center&height=1364&v=1724362335&width=1024',
+        hoverImage: 'https://pangaia.com/cdn/shop/products/Kids-Organic-Cotton-Long-Shorts-Navy-Blue-1_a2573773-a9fa-40ec-86b4-667aeb058bc3.jpg?crop=center&height=1364&v=1724362328&width=1024',
+    },
+    {
+        id: 8,
+        title: 'Kids 365 Midweight Hoodie—sand',
+        price: '999',
+        link: "/collection/",
+        image: 'https://pangaia.com/cdn/shop/products/Kids-Organic-Cotton-Hoodie-Sand-1.png?crop=center&height=1364&v=1724356700&width=1024',
+        hoverImage: 'https://pangaia.com/cdn/shop/products/Kids-Organic-Cotton-Hoodie-Sand-Model-1.jpg?crop=center&height=1364&v=1724356695&width=1024',
+    },
+    {
+        id: 9,
+        title: `Kids' 365 Midweight Track Pants—sand`,
+        price: '999',
+        link: "/collection/",
+        image: 'https://pangaia.com/cdn/shop/products/Kids-Organic-Cotton-Track-Pants-Sand-1.png?crop=center&height=1364&v=1724355962&width=1024',
+        hoverImage: 'https://pangaia.com/cdn/shop/products/Kids-Organic-Cotton-Trackpants-Sand-Model-1.jpg?crop=center&height=1364&v=1724355956&width=1024',
+    },
+]
