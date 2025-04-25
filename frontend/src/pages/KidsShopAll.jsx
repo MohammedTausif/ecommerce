@@ -3,13 +3,11 @@ import { useParams, useSearchParams } from 'react-router-dom'
 import { GetSelectedColor, GetSelectedGender, GetSelectedSize, GetSelectedSort, GetSelectedType, updateParams } from '../utils/urlHelpers'
 import ThumbnailCard from '../components/ui/ThumbnailCard'
 import { Link } from 'react-router-dom'
-import { Kids_Shopall_Default_products, Kids_ShopAll_Thumbnail as ThumbnailImages } from '../data/KidsCollection'
+import { Kids_Shopall_Custom_Products, Kids_Shopall_Default_products, Kids_ShopAll_Thumbnail as ThumbnailImages } from '../data/KidsCollection'
 import FilterButton from '../components/ui/FilterButton'
 import SortFilter from '../components/sort/Sort-Filter'
 import FilterSvg from '../assets/icons/svgs/FilterSvg'
-import { MENS_COLLECTION_DEFAULT } from '../data/MensHoodies'
 import ItemssCard from '../components/ui/ItemsCard'
-import { Sample_Products } from '../data/ShopAllData'
 
 const KidsShopAll = () => {
   const { type } = useParams()
@@ -129,7 +127,7 @@ const KidsShopAll = () => {
                   className='grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 '
                 >
                   {
-                    Sample_Products.map((product) => (
+                    Kids_Shopall_Custom_Products.map((product) => (
                       <ItemssCard product={product} key={product.id} onAddToCart={handleAddToCart} />
                     ))
                   }
