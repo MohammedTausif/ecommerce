@@ -7,6 +7,9 @@ import { Kids_ShopAll_Thumbnail as ThumbnailImages } from '../data/KidsCollectio
 import FilterButton from '../components/ui/FilterButton'
 import SortFilter from '../components/sort/Sort-Filter'
 import FilterSvg from '../assets/icons/svgs/FilterSvg'
+import { MENS_COLLECTION_DEFAULT } from '../data/MensHoodies'
+import ItemssCard from '../components/ui/ItemsCard'
+import { Sample_Products } from '../data/ShopAllData'
 
 const KidsShopAll = () => {
   const { type } = useParams()
@@ -34,7 +37,9 @@ const KidsShopAll = () => {
   const clearAll = ()=>{
     setSearchParams(new URLSearchParams())
   }
-
+ const handleAddToCart=(product)=>{
+  alert('Added to cart :' + product.title)
+ }
 
   const handleTypeSelect = (value) => updateParams(searchParams, setSearchParams, 'filter.p.product_type', value)
   const handleSortSelect = (value) => updateParams(searchParams, setSearchParams, 'sort_by', value)
@@ -103,6 +108,36 @@ const KidsShopAll = () => {
         selectedSort={selectedSort}
         clearAll={clearAll}
         />
+
+<div className='mt-25 bg-white'>
+          {
+            selectedType === null ? (
+              <div className='w-full bg-white px-4 py-2 sm:px-6 lg:px-5 '>
+                <div className='grid grid-col-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 '>
+                  {
+                    MENS_COLLECTION_DEFAULT.map((product)=>(
+                      <ItemssCard product={product} key={product.id} onAddToCart={handleAddToCart} />
+                    ))
+                  }
+                </div>
+
+
+              </div>
+            ) : (
+              <div className='w-full px-4 py-2 sm:px-6 lg:px-5 bg-white '>
+                <div
+                  className='grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 '
+                >
+                  {
+                    Sample_Products.map((product) => (
+                      <ItemssCard product={product} key={product.id} onAddToCart={handleAddToCart} />
+                    ))
+                  }
+                </div>
+              </div>
+
+            )}
+        </div>
     </div>
   )
 }
