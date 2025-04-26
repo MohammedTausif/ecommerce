@@ -32,6 +32,23 @@ const KidsShopAll = () => {
       handleColorSelect(item.color)
     }
   }
+
+     const badgeCount = useMemo(() => {
+        let count = 0;
+        // sort_by
+        if (searchParams.has('sort_by')) count++;
+    
+        //  all filter
+        for (let [key, value] of searchParams.entries()) {
+          if (key.startsWith('filter.')) {
+            count++;
+          }
+        }
+    
+        return count;
+      }, [searchParams]);
+
+
   const clearAll = ()=>{
     setSearchParams(new URLSearchParams())
   }
