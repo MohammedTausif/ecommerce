@@ -10,6 +10,7 @@ import WomensCollections from './pages/WCollections'
 import KidsCollection from './pages/KidsCollection'
 import MensShopAll from './pages/MensShopAll'
 import KidsShopAll from './pages/KidsShopAll'
+import NotFoundPage from './pages/NotFound'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
       <Route path='/collections/mens/:type' element={ <MensCollection/>}/>
       <Route path='/collections/womens/:type' element={ <WomensCollections/>}/>
       <Route path='/collections/kids/:type' element={ <KidsCollection/>}/>
+      <Route path='*' element={<NotFoundPage/>}/>
       </Route>
     </Routes>
     </BrowserRouter>
