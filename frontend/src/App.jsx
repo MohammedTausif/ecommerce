@@ -12,6 +12,7 @@ import MensShopAll from './pages/MensShopAll'
 import KidsShopAll from './pages/KidsShopAll'
 import NotFoundPage from './pages/NotFound'
 import SignupPage from './pages/SignUp'
+import SignInPage from './pages/signin'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
       <Route path='shop-all' element={ <ShopAll/>}/>
       <Route path='test' element={ <ProductGrid/>}/>
       <Route path='/signup' element={ <SignupPage/>}/>
+      <Route path='/login' element={ <SignInPage/>}/>
 
       <Route path='collections/men-shop-all' element={<MensShopAll/>}/>
       <Route path='collections/kids-shop-all' element={<KidsShopAll/>}/>
