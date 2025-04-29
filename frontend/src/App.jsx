@@ -23,17 +23,21 @@ function App() {
     <Routes>
       <Route path='/' element={<UserLayout/>}>
       <Route index element={<Home/>}/>
-      <Route path='shop-all' element={ <ShopAll/>}/>
-      <Route path='test' element={ <ProductGrid/>}/>
-      <Route path='/signup' element={ <SignupPage/>}/>
       <Route path='/login' element={ <SignInPage/>}/>
+      <Route path='/signup' element={ <SignupPage/>}/>
+
+      <Route path='shop-all' element={ <ShopAll/>}/>
 
       <Route path='collections/men-shop-all' element={<MensShopAll/>}/>
       <Route path='collections/kids-shop-all' element={<KidsShopAll/>}/>
+      <Route path='collections/women-shop-all' element={""}/>
+      
       <Route path='/collections/mens/:type' element={ <MensCollection/>}/>
       <Route path='/collections/womens/:type' element={ <WomensCollections/>}/>
       <Route path='/collections/kids/:type' element={ <KidsCollection/>}/>
+
       <Route path='*' element={<NotFoundPage/>}/>
+
       </Route>
     </Routes>
     </BrowserRouter>
