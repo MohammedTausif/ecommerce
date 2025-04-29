@@ -13,6 +13,7 @@ import KidsShopAll from './pages/KidsShopAll'
 import NotFoundPage from './pages/NotFound'
 import SignupPage from './pages/SignUp'
 import SignInPage from './pages/signin'
+import WomensShopAll from './pages/WomensShopAll'
 
 function App() {
 
@@ -30,7 +31,7 @@ function App() {
 
       <Route path='collections/men-shop-all' element={<MensShopAll/>}/>
       <Route path='collections/kids-shop-all' element={<KidsShopAll/>}/>
-      <Route path='collections/women-shop-all' element={""}/>
+      <Route path='collections/women-shop-all' element={<WomensShopAll/>}/>
       
       <Route path='/collections/mens/:type' element={ <MensCollection/>}/>
       <Route path='/collections/womens/:type' element={ <WomensCollections/>}/>
