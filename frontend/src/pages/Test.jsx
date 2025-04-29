@@ -1,5 +1,3 @@
-// ProductGrid.jsx
-import { BaggageClaim, LuggageIcon } from 'lucide-react';
 import React from 'react';
 export const products = [
 
@@ -81,7 +79,6 @@ const ItemssCard = ({ product, onAddToCart }) => {
                     className="absolute inset-0 w-full h-full object-cover object-top md:object-center  rounded-t transition-opacity duration-300 opacity-0  group-hover:opacity-100"
                     loading='lazy'
                 />
-
             </div>
 
             {/* Product Info */}
@@ -113,26 +110,5 @@ const ItemssCard = ({ product, onAddToCart }) => {
     )
 }
 
-const ProductGrid = () => {
 
-    const handleAddToCart = (product) => {
-        alert('Added to Cart :' + product.title)
-    }
-
-    return (
-        <div className="w-full  px-2 sm:px6 lg:px-5 py-2 bg-white ">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4  sm:gap-5">
-                {products.map((product) => (
-                    <ItemssCard
-                        key={product.id}
-                        product={product}
-                        onAddToCart={handleAddToCart}
-                    />
-                ))}
-            </div>
-        </div>
-    );
-};
-
-export default ProductGrid;
-
+export default ItemssCard
