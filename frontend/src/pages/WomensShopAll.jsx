@@ -7,7 +7,7 @@ import ThumbnailCard from '../components/ui/ThumbnailCard'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { GetSelectedColor, GetSelectedGender, GetSelectedSize, GetSelectedSort, GetSelectedType } from '../utils/urlHelpers'
 import FilterSvg from '../assets/icons/svgs/FilterSvg'
-import { Womens_Shop_All_Thumbnail_Images as ThumbnailImages } from '../data/WomenCollections'
+import { Womens_Shop_All_Thumbnail_Images as ThumbnailImages } from '../data/womenShopAll'
 const WomensShopAll = () => {
   const { type } = useParams()
   const [openSortFilter, setOpenSortFilter] = useState(false)
